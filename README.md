@@ -4,8 +4,8 @@ SPARQL-MM is a multimedia-extension for [SPARQL 1.1](http://www.w3.org/TR/sparql
 It supports relation and aggregation functions for Media Fragments [URI 1.0](http://www.w3.org/TR/media-frags/).
 
 ## Examples
-Here we just show a few functions that are supported. Get more examples within the [tests](https://github.com/tkurz/media-fragments-uri/blob/master/src/test/java/com/github/tkurz/sparqlmm).
-All list of all supported functions can be found [here](https://github.com/tkurz/media-fragments-uri/blob/master/doc/sparql-mm-functions.md).
+Here we just show a few functions that are supported. Get more examples within the [tests](https://github.com/tkurz/sparql-mm/blob/master/src/test/java/com/github/tkurz/sparqlmm).
+All list of all supported functions can be found [here](https://github.com/tkurz/sparql-mm/blob/master/doc/sparql-mm-functions.md).
 
 ### Temporal Relations
 
