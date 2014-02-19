@@ -5,8 +5,9 @@ It supports relation and aggregation functions for Media Fragments URI 1.0 (http
 
 ## SPARQL-MM Function Library
 
-The prefix mmt is <http://linkedmultimedia.org/sparql-mm/functions/temporal#>.
-The prefix mms is <http://linkedmultimedia.org/sparql-mm/functions/spatial#>.
+The prefix **mmt** is <http://linkedmultimedia.org/sparql-mm/functions/temporal#>.
+
+The prefix **mms** is <http://linkedmultimedia.org/sparql-mm/functions/spatial#>.
 
 ### Temporal Relations
 
