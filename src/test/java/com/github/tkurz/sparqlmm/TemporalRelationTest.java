@@ -1,4 +1,4 @@
-package de.tkurz.sparqlmm;
+package com.github.tkurz.sparqlmm;
 
 import com.github.tkurz.sparqlmm.Constants;
 import com.github.tkurz.media.fragments.exceptions.MediaFragmentURISyntaxException;
