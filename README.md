@@ -1,5 +1,8 @@
 # SPARQL-MM, extending SPARQL to Multimedia
 
+SPARQL-MM is a multimedia-extension for SPARQL 1.1 (www.w3.org/TR/sparql11-query/‎) implemented for Sesame (http://www.openrdf.org/).
+It supports relation and aggregation functions for Media Fragments URI 1.0 (http://www.w3.org/TR/media-frags/).
+
 ## SPARQL-MM Function Library
 
 The prefix mmt is <http://linkedmultimedia.org/sparql-mm/functions/temporal#>.
