@@ -22,7 +22,7 @@ public class StartsFunction implements Function {
      * return the URI
      */
     public String getURI() {
-        return Constants.NAMESPACE_TEMPORAL + "starts";
+        return Constants.NAMESPACE + "starts";
     }
 
     @Override

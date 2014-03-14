@@ -21,7 +21,7 @@ public class BeforeFunction implements Function {
      * return the URI
      */
     public String getURI() {
-        return Constants.NAMESPACE_TEMPORAL + "before";
+        return Constants.NAMESPACE + "before";
     }
 
     @Override

@@ -64,11 +64,11 @@ public class SpatialTopologicalRelationTest {
 
         String query =
                 "PREFIX ma: <http://www.w3.org/ns/ma-ont#>" +
-                "PREFIX mms: <" + Constants.NAMESPACE_SPATIAL + ">" +
+                "PREFIX mms: <" + Constants.NAMESPACE + ">" +
                 "SELECT ?t1 ?t2 WHERE {" +
                 "   ?f1 rdfs:label ?t1." +
                 "   ?f2 rdfs:label ?t2." +
-                "   FILTER mms:covers(?f1,?f2)" +
+                "   FILTER mms:spatialCovers(?f1,?f2)" +
                 "} ORDER BY ?t1 ?t2";
         TupleQuery q = connection.prepareTupleQuery(QueryLanguage.SPARQL,query);
         TupleQueryResult r = q.evaluate();
@@ -88,11 +88,11 @@ public class SpatialTopologicalRelationTest {
 
         String query2 =
                 "PREFIX ma: <http://www.w3.org/ns/ma-ont#>" +
-                        "PREFIX mms: <" + Constants.NAMESPACE_SPATIAL + ">" +
+                        "PREFIX mms: <" + Constants.NAMESPACE + ">" +
                         "SELECT ?t1 ?t2 WHERE {" +
                         "   ?f1 rdfs:label ?t1." +
                         "   ?f2 rdfs:label ?t2." +
-                        "   FILTER mms:covers(?f1,?f2, true)" +
+                        "   FILTER mms:spatialCovers(?f1,?f2, true)" +
                         "} ORDER BY ?t1 ?t2";
         TupleQuery q2 = connection.prepareTupleQuery(QueryLanguage.SPARQL,query2);
         TupleQueryResult r2 = q2.evaluate();
@@ -112,12 +112,12 @@ public class SpatialTopologicalRelationTest {
 
         String query =
                 "PREFIX ma: <http://www.w3.org/ns/ma-ont#>" +
-                "PREFIX mms: <" + Constants.NAMESPACE_SPATIAL + ">" +
+                "PREFIX mms: <" + Constants.NAMESPACE + ">" +
                 "SELECT ?t1 ?t2 WHERE {" +
                 "   <http://test.org/resource/video1> ma:hasFragment ?f1, ?f2." +
                 "   ?f1 rdfs:label ?t1." +
                 "   ?f2 rdfs:label ?t2." +
-                "   FILTER mms:disjoint(?f1,?f2)" +
+                "   FILTER mms:spatialDisjoint(?f1,?f2)" +
                 "} ORDER BY ?t1 ?t2";
         TupleQuery q = connection.prepareTupleQuery(QueryLanguage.SPARQL,query);
         TupleQueryResult r = q.evaluate();
@@ -149,11 +149,11 @@ public class SpatialTopologicalRelationTest {
 
         String query =
                 "PREFIX ma: <http://www.w3.org/ns/ma-ont#>" +
-                "PREFIX mms: <" + Constants.NAMESPACE_SPATIAL + ">" +
+                "PREFIX mms: <" + Constants.NAMESPACE+ ">" +
                 "SELECT ?t1 ?t2 WHERE {" +
                 "   ?f1 rdfs:label ?t1." +
                 "   ?f2 rdfs:label ?t2." +
-                "   FILTER mms:equal(?f1,?f2)" +
+                "   FILTER mms:spatialEqual(?f1,?f2)" +
                 "} ORDER BY ?t1 ?t2";
         TupleQuery q = connection.prepareTupleQuery(QueryLanguage.SPARQL,query);
         TupleQueryResult r = q.evaluate();
@@ -173,11 +173,11 @@ public class SpatialTopologicalRelationTest {
 
         String query =
                 "PREFIX ma: <http://www.w3.org/ns/ma-ont#>" +
-                "PREFIX mms: <" + Constants.NAMESPACE_SPATIAL + ">" +
+                "PREFIX mms: <" + Constants.NAMESPACE + ">" +
                 "SELECT ?t1 ?t2 WHERE {" +
                 "   ?f1 rdfs:label ?t1." +
                 "   ?f2 rdfs:label ?t2." +
-                "   FILTER mms:intersects(?f1,?f2)" +
+                "   FILTER mms:spatialIntersects(?f1,?f2)" +
                 "} ORDER BY ?t1 ?t2";
         TupleQuery q = connection.prepareTupleQuery(QueryLanguage.SPARQL,query);
         TupleQueryResult r = q.evaluate();
@@ -201,11 +201,11 @@ public class SpatialTopologicalRelationTest {
 
         String query2 =
                 "PREFIX ma: <http://www.w3.org/ns/ma-ont#>" +
-                        "PREFIX mms: <" + Constants.NAMESPACE_SPATIAL + ">" +
+                        "PREFIX mms: <" + Constants.NAMESPACE + ">" +
                         "SELECT ?t1 ?t2 WHERE {" +
                         "   ?f1 rdfs:label ?t1." +
                         "   ?f2 rdfs:label ?t2." +
-                        "   FILTER mms:intersects(?f1,?f2,true)" +
+                        "   FILTER mms:spatialIntersects(?f1,?f2,true)" +
                         "} ORDER BY ?t1 ?t2";
         TupleQuery q2 = connection.prepareTupleQuery(QueryLanguage.SPARQL,query2);
         TupleQueryResult r2 = q2.evaluate();
@@ -225,11 +225,11 @@ public class SpatialTopologicalRelationTest {
 
         String query =
                 "PREFIX ma: <http://www.w3.org/ns/ma-ont#>" +
-                "PREFIX mms: <" + Constants.NAMESPACE_SPATIAL + ">" +
+                "PREFIX mms: <" + Constants.NAMESPACE + ">" +
                 "SELECT ?t1 ?t2 WHERE {" +
                 "   ?f1 rdfs:label ?t1." +
                 "   ?f2 rdfs:label ?t2." +
-                "   FILTER mms:touches(?f1,?f2)" +
+                "   FILTER mms:spatialTouches(?f1,?f2)" +
                 "} ORDER BY ?t1 ?t2";
         TupleQuery q = connection.prepareTupleQuery(QueryLanguage.SPARQL,query);
         TupleQueryResult r = q.evaluate();

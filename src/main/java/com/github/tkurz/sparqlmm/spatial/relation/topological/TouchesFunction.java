@@ -21,7 +21,7 @@ public class TouchesFunction implements Function {
      * return the URI
      */
     public String getURI() {
-        return Constants.NAMESPACE_SPATIAL + "touches";
+        return Constants.NAMESPACE + "spatialTouches";
     }
 
     @Override

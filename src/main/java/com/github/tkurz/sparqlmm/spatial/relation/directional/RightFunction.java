@@ -22,7 +22,7 @@ public class RightFunction implements Function {
      * return the URI
      */
     public String getURI() {
-        return Constants.NAMESPACE_SPATIAL + "right";
+        return Constants.NAMESPACE + "right";
     }
 
     @Override

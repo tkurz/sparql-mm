@@ -23,7 +23,7 @@ public class IntersectsFunction implements Function {
      * return the URI
      */
     public String getURI() {
-        return Constants.NAMESPACE_SPATIAL + "intersects";
+        return Constants.NAMESPACE + "spatialIntersects";
     }
 
     @Override

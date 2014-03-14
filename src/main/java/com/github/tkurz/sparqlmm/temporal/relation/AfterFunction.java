@@ -21,7 +21,7 @@ public class AfterFunction implements Function {
      * return the URI
      */
     public String getURI() {
-        return Constants.NAMESPACE_TEMPORAL + "after";
+        return Constants.NAMESPACE + "after";
     }
 
     @Override

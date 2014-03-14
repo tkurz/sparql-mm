@@ -22,7 +22,7 @@ public class RightBesideFunction implements Function {
      * return the URI
      */
     public String getURI() {
-        return Constants.NAMESPACE_SPATIAL + "rightBeside";
+        return Constants.NAMESPACE + "rightBeside";
     }
 
     @Override

@@ -21,7 +21,7 @@ public class EqualFunction implements Function {
      * return the URI
      */
     public String getURI() {
-        return Constants.NAMESPACE_TEMPORAL + "equal";
+        return Constants.NAMESPACE + "temporalEqual";
     }
 
     @Override

@@ -23,7 +23,7 @@ public class CoversFunction implements Function {
      * return the URI
      */
     public String getURI() {
-        return Constants.NAMESPACE_SPATIAL + "covers";
+        return Constants.NAMESPACE + "spatialCovers";
     }
 
     @Override

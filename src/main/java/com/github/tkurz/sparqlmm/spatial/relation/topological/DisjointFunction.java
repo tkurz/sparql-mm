@@ -22,7 +22,7 @@ public class DisjointFunction implements Function {
      * return the URI
      */
     public String getURI() {
-        return Constants.NAMESPACE_SPATIAL + "disjoint";
+        return Constants.NAMESPACE + "spatialDisjoint";
     }
 
     @Override

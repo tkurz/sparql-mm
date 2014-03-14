@@ -22,7 +22,7 @@ public class FinishesFunction implements Function {
      * return the URI
      */
     public String getURI() {
-        return Constants.NAMESPACE_TEMPORAL + "finishes";
+        return Constants.NAMESPACE + "finishes";
     }
 
     @Override

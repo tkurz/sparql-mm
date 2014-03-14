@@ -22,7 +22,7 @@ public class OverlapsFunction implements Function {
      * return the URI
      */
     public String getURI() {
-        return Constants.NAMESPACE_TEMPORAL + "overlaps";
+        return Constants.NAMESPACE + "temporalOverlaps";
     }
 
     @Override

@@ -22,7 +22,7 @@ public class ContainsFunction implements Function {
      * return the URI
      */
     public String getURI() {
-        return Constants.NAMESPACE_TEMPORAL + "contains";
+        return Constants.NAMESPACE + "temporalContains";
     }
 
     @Override

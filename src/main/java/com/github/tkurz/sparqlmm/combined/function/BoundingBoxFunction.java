@@ -24,7 +24,7 @@ public class BoundingBoxFunction implements Function {
      * return the URI
      */
     public String getURI() {
-        return Constants.NAMESPACE_COMBINED + "boundingBox";
+        return Constants.NAMESPACE + "boundingBox";
     }
 
     @Override

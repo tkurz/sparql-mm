@@ -68,7 +68,7 @@ public class SpatialDirectionalRelationTest {
 
         String query =
                 "PREFIX ma: <http://www.w3.org/ns/ma-ont#>" +
-                "PREFIX mms: <" + Constants.NAMESPACE_SPATIAL + ">" +
+                "PREFIX mms: <" + Constants.NAMESPACE + ">" +
                 "SELECT ?t1 ?t2 (mms:rightBeside(?f1,?f2) AS ?test) WHERE {" +
                 "   ?f1 rdfs:label \"1_2\";" +
                 "       rdfs:label ?t1." +
@@ -98,7 +98,7 @@ public class SpatialDirectionalRelationTest {
 
         String query =
                 "PREFIX ma: <http://www.w3.org/ns/ma-ont#>" +
-                        "PREFIX mms: <" + Constants.NAMESPACE_SPATIAL + ">" +
+                        "PREFIX mms: <" + Constants.NAMESPACE + ">" +
                         "SELECT ?t1 ?t2 (mms:leftBeside(?f1,?f2) AS ?test) WHERE {" +
                         "   ?f1 rdfs:label \"1_1\";" +
                         "       rdfs:label ?t1." +
@@ -128,7 +128,7 @@ public class SpatialDirectionalRelationTest {
 
         String query =
                 "PREFIX ma: <http://www.w3.org/ns/ma-ont#>" +
-                        "PREFIX mms: <" + Constants.NAMESPACE_SPATIAL + ">" +
+                        "PREFIX mms: <" + Constants.NAMESPACE + ">" +
                         "SELECT ?t1 ?t2 (mms:isAbove(?f1,?f2) AS ?test) WHERE {" +
                         "   ?f1 rdfs:label \"1_1\";" +
                         "       rdfs:label ?t1." +
@@ -158,7 +158,7 @@ public class SpatialDirectionalRelationTest {
 
         String query =
                 "PREFIX ma: <http://www.w3.org/ns/ma-ont#>" +
-                        "PREFIX mms: <" + Constants.NAMESPACE_SPATIAL + ">" +
+                        "PREFIX mms: <" + Constants.NAMESPACE + ">" +
                         "SELECT ?t1 ?t2 (mms:isBelow(?f1,?f2) AS ?test) WHERE {" +
                         "   ?f1 rdfs:label \"1_3\";" +
                         "       rdfs:label ?t1." +
@@ -188,7 +188,7 @@ public class SpatialDirectionalRelationTest {
 
         String query =
                 "PREFIX ma: <http://www.w3.org/ns/ma-ont#>" +
-                "PREFIX mms: <" + Constants.NAMESPACE_SPATIAL + ">" +
+                "PREFIX mms: <" + Constants.NAMESPACE + ">" +
                 "SELECT ?t (mms:top(?f) AS ?test) WHERE {" +
                 "   ?f rdfs:label ?t;" +
                 "      a ma:MediaFragment;" +
@@ -218,7 +218,7 @@ public class SpatialDirectionalRelationTest {
 
         String query =
                 "PREFIX ma: <http://www.w3.org/ns/ma-ont#>" +
-                        "PREFIX mms: <" + Constants.NAMESPACE_SPATIAL + ">" +
+                        "PREFIX mms: <" + Constants.NAMESPACE + ">" +
                         "SELECT ?t (mms:left(?f) AS ?test) WHERE {" +
                         "   ?f rdfs:label ?t;" +
                         "      a ma:MediaFragment;" +
@@ -248,7 +248,7 @@ public class SpatialDirectionalRelationTest {
 
         String query =
                 "PREFIX ma: <http://www.w3.org/ns/ma-ont#>" +
-                        "PREFIX mms: <" + Constants.NAMESPACE_SPATIAL + ">" +
+                        "PREFIX mms: <" + Constants.NAMESPACE + ">" +
                         "SELECT ?t (mms:right(?f) AS ?test) WHERE {" +
                         "   ?f rdfs:label ?t;" +
                         "      a ma:MediaFragment;" +
@@ -278,7 +278,7 @@ public class SpatialDirectionalRelationTest {
 
         String query =
                 "PREFIX ma: <http://www.w3.org/ns/ma-ont#>" +
-                        "PREFIX mms: <" + Constants.NAMESPACE_SPATIAL + ">" +
+                        "PREFIX mms: <" + Constants.NAMESPACE + ">" +
                         "SELECT ?t (mms:bottom(?f) AS ?test) WHERE {" +
                         "   ?f rdfs:label ?t;" +
                         "      a ma:MediaFragment;" +

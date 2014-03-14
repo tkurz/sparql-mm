@@ -22,7 +22,7 @@ public class BoundingBoxFunction implements Function {
      * return the URI
      */
     public String getURI() {
-        return Constants.NAMESPACE_TEMPORAL + "boundingBox";
+        return Constants.NAMESPACE + "temporalBoundingBox";
     }
 
     @Override

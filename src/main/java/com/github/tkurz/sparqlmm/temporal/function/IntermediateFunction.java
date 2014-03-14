@@ -22,7 +22,7 @@ public class IntermediateFunction implements Function {
      * return the URI
      */
     public String getURI() {
-        return Constants.NAMESPACE_TEMPORAL + "intermediate";
+        return Constants.NAMESPACE + "temporalIntermediate";
     }
 
     @Override

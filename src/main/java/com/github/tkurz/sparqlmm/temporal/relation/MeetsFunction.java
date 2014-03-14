@@ -20,7 +20,7 @@ public class MeetsFunction implements Function {
      * return the URI
      */
     public String getURI() {
-        return Constants.NAMESPACE_TEMPORAL + "meets";
+        return Constants.NAMESPACE + "temporalMeets";
     }
 
     @Override

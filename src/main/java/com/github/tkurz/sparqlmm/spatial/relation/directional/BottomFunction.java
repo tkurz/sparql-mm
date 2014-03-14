@@ -22,7 +22,7 @@ public class BottomFunction implements Function {
      * return the URI
      */
     public String getURI() {
-        return Constants.NAMESPACE_SPATIAL + "bottom";
+        return Constants.NAMESPACE + "bottom";
     }
 
     @Override

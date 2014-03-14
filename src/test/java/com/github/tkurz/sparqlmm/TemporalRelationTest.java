@@ -69,7 +69,7 @@ public class TemporalRelationTest {
 
         String query =
                 "PREFIX ma: <http://www.w3.org/ns/ma-ont#>" +
-                "PREFIX mmt: <" + Constants.NAMESPACE_TEMPORAL + ">" +
+                "PREFIX mmt: <" + Constants.NAMESPACE + ">" +
                 "SELECT ?t1 ?t2 WHERE {" +
                 "   ?f1 rdfs:label ?t1." +
                 "   ?f2 rdfs:label ?t2." +
@@ -101,7 +101,7 @@ public class TemporalRelationTest {
 
         String query =
                 "PREFIX ma: <http://www.w3.org/ns/ma-ont#>" +
-                        "PREFIX mmt: <" + Constants.NAMESPACE_TEMPORAL + ">" +
+                        "PREFIX mmt: <" + Constants.NAMESPACE + ">" +
                         "SELECT ?t1 ?t2 WHERE {" +
                         "   ?f1 rdfs:label ?t1." +
                         "   ?f2 rdfs:label ?t2." +
@@ -133,11 +133,11 @@ public class TemporalRelationTest {
 
         String query =
                 "PREFIX ma: <http://www.w3.org/ns/ma-ont#>" +
-                        "PREFIX mmt: <" + Constants.NAMESPACE_TEMPORAL + ">" +
+                        "PREFIX mmt: <" + Constants.NAMESPACE + ">" +
                         "SELECT ?t1 ?t2 WHERE {" +
                         "   ?f1 rdfs:label ?t1." +
                         "   ?f2 rdfs:label ?t2." +
-                        "   FILTER mmt:contains(?f1,?f2)" +
+                        "   FILTER mmt:temporalContains(?f1,?f2)" +
                         "} ORDER BY ?t1 ?t2";
         TupleQuery q = connection.prepareTupleQuery(QueryLanguage.SPARQL,query);
         TupleQueryResult r = q.evaluate();
@@ -152,11 +152,11 @@ public class TemporalRelationTest {
 
         String query1 =
                 "PREFIX ma: <http://www.w3.org/ns/ma-ont#>" +
-                        "PREFIX mmt: <" + Constants.NAMESPACE_TEMPORAL + ">" +
+                        "PREFIX mmt: <" + Constants.NAMESPACE + ">" +
                         "SELECT ?t1 ?t2 WHERE {" +
                         "   ?f1 rdfs:label ?t1." +
                         "   ?f2 rdfs:label ?t2." +
-                        "   FILTER mmt:contains(?f1,?f2,true)" +
+                        "   FILTER mmt:temporalContains(?f1,?f2,true)" +
                         "} ORDER BY ?t1 ?t2";
         TupleQuery q1 = connection.prepareTupleQuery(QueryLanguage.SPARQL,query1);
         TupleQueryResult r1 = q1.evaluate();
@@ -179,11 +179,11 @@ public class TemporalRelationTest {
 
         String query =
                 "PREFIX ma: <http://www.w3.org/ns/ma-ont#>" +
-                        "PREFIX mmt: <" + Constants.NAMESPACE_TEMPORAL + ">" +
+                        "PREFIX mmt: <" + Constants.NAMESPACE + ">" +
                         "SELECT ?t1 ?t2 WHERE {" +
                         "   ?f1 rdfs:label ?t1." +
                         "   ?f2 rdfs:label ?t2." +
-                        "   FILTER mmt:equal(?f1,?f2)" +
+                        "   FILTER mmt:temporalEqual(?f1,?f2)" +
                         "} ORDER BY ?t1 ?t2";
         TupleQuery q = connection.prepareTupleQuery(QueryLanguage.SPARQL,query);
         TupleQueryResult r = q.evaluate();
@@ -210,7 +210,7 @@ public class TemporalRelationTest {
 
         String query =
                 "PREFIX ma: <http://www.w3.org/ns/ma-ont#>" +
-                        "PREFIX mmt: <" + Constants.NAMESPACE_TEMPORAL + ">" +
+                        "PREFIX mmt: <" + Constants.NAMESPACE + ">" +
                         "SELECT ?t1 ?t2 WHERE {" +
                         "   ?f1 rdfs:label ?t1." +
                         "   ?f2 rdfs:label ?t2." +
@@ -229,7 +229,7 @@ public class TemporalRelationTest {
         //test without equals
         query =
                 "PREFIX ma: <http://www.w3.org/ns/ma-ont#>" +
-                        "PREFIX mmt: <" + Constants.NAMESPACE_TEMPORAL + ">" +
+                        "PREFIX mmt: <" + Constants.NAMESPACE + ">" +
                         "SELECT ?t1 ?t2 WHERE {" +
                         "   ?f1 rdfs:label ?t1." +
                         "   ?f2 rdfs:label ?t2." +
@@ -259,11 +259,11 @@ public class TemporalRelationTest {
 
         String query =
                 "PREFIX ma: <http://www.w3.org/ns/ma-ont#>" +
-                        "PREFIX mmt: <" + Constants.NAMESPACE_TEMPORAL + ">" +
+                        "PREFIX mmt: <" + Constants.NAMESPACE + ">" +
                         "SELECT ?t1 ?t2 WHERE {" +
                         "   ?f1 rdfs:label ?t1." +
                         "   ?f2 rdfs:label ?t2." +
-                        "   FILTER mmt:meets(?f1,?f2)" +
+                        "   FILTER mmt:temporalMeets(?f1,?f2)" +
                         "} ORDER BY ?t1 ?t2";
         TupleQuery q = connection.prepareTupleQuery(QueryLanguage.SPARQL,query);
         TupleQueryResult r = q.evaluate();
@@ -307,11 +307,11 @@ public class TemporalRelationTest {
 
         String query =
                 "PREFIX ma: <http://www.w3.org/ns/ma-ont#>" +
-                        "PREFIX mmt: <" + Constants.NAMESPACE_TEMPORAL + ">" +
+                        "PREFIX mmt: <" + Constants.NAMESPACE + ">" +
                         "SELECT ?t1 ?t2 WHERE {" +
                         "   ?f1 rdfs:label ?t1." +
                         "   ?f2 rdfs:label ?t2." +
-                        "   FILTER mmt:overlaps(?f1,?f2)" +
+                        "   FILTER mmt:temporalOverlaps(?f1,?f2)" +
                         "} ORDER BY ?t1 ?t2";
         TupleQuery q = connection.prepareTupleQuery(QueryLanguage.SPARQL,query);
         TupleQueryResult r = q.evaluate();
@@ -355,7 +355,7 @@ public class TemporalRelationTest {
 
         String query =
                 "PREFIX ma: <http://www.w3.org/ns/ma-ont#>" +
-                        "PREFIX mmt: <" + Constants.NAMESPACE_TEMPORAL + ">" +
+                        "PREFIX mmt: <" + Constants.NAMESPACE + ">" +
                         "SELECT ?t1 ?t2 WHERE {" +
                         "   ?f1 rdfs:label ?t1." +
                         "   ?f2 rdfs:label ?t2." +
@@ -374,7 +374,7 @@ public class TemporalRelationTest {
         //test without equals
         query =
                 "PREFIX ma: <http://www.w3.org/ns/ma-ont#>" +
-                        "PREFIX mmt: <" + Constants.NAMESPACE_TEMPORAL + ">" +
+                        "PREFIX mmt: <" + Constants.NAMESPACE + ">" +
                         "SELECT ?t1 ?t2 WHERE {" +
                         "   ?f1 rdfs:label ?t1." +
                         "   ?f2 rdfs:label ?t2." +

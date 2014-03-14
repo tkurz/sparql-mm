@@ -67,8 +67,8 @@ public class SpatialFunctionTest {
 
         String query =
                 "PREFIX ma: <http://www.w3.org/ns/ma-ont#>" +
-                        "PREFIX mms: <" + Constants.NAMESPACE_SPATIAL + ">" +
-                        "SELECT ?f1 ?f2 (mms:boundingBox(?f1,?f2) AS ?box) WHERE {" +
+                        "PREFIX mms: <" + Constants.NAMESPACE + ">" +
+                        "SELECT ?f1 ?f2 (mms:spatialBoundingBox(?f1,?f2) AS ?box) WHERE {" +
                         "   ?f1 rdfs:label \"1_1\"." +
                         "   ?f2 rdfs:label \"1_2\"." +
                         "}";
@@ -100,8 +100,8 @@ public class SpatialFunctionTest {
 
         String query =
                 "PREFIX ma: <http://www.w3.org/ns/ma-ont#>" +
-                        "PREFIX mms: <" + Constants.NAMESPACE_SPATIAL + ">" +
-                        "SELECT (mms:boundingBox(?l1,?l2) AS ?box) WHERE {" +
+                        "PREFIX mms: <" + Constants.NAMESPACE + ">" +
+                        "SELECT (mms:spatialBoundingBox(?l1,?l2) AS ?box) WHERE {" +
                         "   <http://test.org/resource/fragment1> ma:locator ?l1." +
                         "   <http://test.org/resource/fragment2> ma:locator ?l2." +
                         "}";
@@ -132,8 +132,8 @@ public class SpatialFunctionTest {
 
         String query =
                 "PREFIX ma: <http://www.w3.org/ns/ma-ont#>" +
-                        "PREFIX mms: <" + Constants.NAMESPACE_SPATIAL + ">" +
-                        "SELECT (mms:intersection(?l1,?l2) AS ?box) WHERE {" +
+                        "PREFIX mms: <" + Constants.NAMESPACE + ">" +
+                        "SELECT (mms:spatialIntersection(?l1,?l2) AS ?box) WHERE {" +
                         "   <http://test.org/resource/fragment1> ma:locator ?l1." +
                         "   <http://test.org/resource/fragment2> ma:locator ?l2." +
                         "}";
@@ -164,8 +164,8 @@ public class SpatialFunctionTest {
 
         String query =
                 "PREFIX ma: <http://www.w3.org/ns/ma-ont#>" +
-                        "PREFIX mms: <" + Constants.NAMESPACE_SPATIAL + ">" +
-                        "SELECT ?f1 ?f2 (mms:intersection(?f1,?f2) AS ?box) WHERE {" +
+                        "PREFIX mms: <" + Constants.NAMESPACE + ">" +
+                        "SELECT ?f1 ?f2 (mms:spatialIntersection(?f1,?f2) AS ?box) WHERE {" +
                         "   ?f1 rdfs:label \"1_1\"." +
                         "   ?f2 rdfs:label \"1_2\"." +
                         "}";

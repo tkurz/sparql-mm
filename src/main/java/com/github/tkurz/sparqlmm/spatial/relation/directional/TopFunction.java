@@ -22,7 +22,7 @@ public class TopFunction implements Function {
      * return the URI
      */
     public String getURI() {
-        return Constants.NAMESPACE_SPATIAL + "top";
+        return Constants.NAMESPACE + "top";
     }
 
     @Override
