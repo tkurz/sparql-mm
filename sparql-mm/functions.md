@@ -1,6 +1,5 @@
 ## SPARQL-MM Function Library
 
-The prefix **mm** is <>.
 The URI for this vocabulary is
 
 ```
@@ -16,7 +15,7 @@ http://linkedmultimedia.org/sparql-mm/functions#after
 ```
 
 There are machine readable function description using [SPARQL Extension Description Vocabulary](http://www.ldodds.com/schemas/sparql-extension-description/) in
-[RDF/XML](function.xml) and [Turtle](function.ttl) Format.
+[RDF/XML](https://raw.github.com/tkurz/sparql-mm/master/doc/functions.xml) and [Turtle](https://raw.github.com/tkurz/sparql-mm/master/doc/functions.ttl) Format.
 
 ### Temporal Relations
 
