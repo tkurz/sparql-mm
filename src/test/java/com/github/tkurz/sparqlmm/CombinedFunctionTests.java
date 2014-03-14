@@ -63,8 +63,8 @@ public class CombinedFunctionTests {
 
         String query =
                 "PREFIX ma: <http://www.w3.org/ns/ma-ont#>" +
-                        "PREFIX mmc: <" + Constants.NAMESPACE + ">" +
-                        "SELECT (mmc:intersection(?l1,?l2) AS ?box) WHERE {" +
+                        "PREFIX mm: <" + Constants.NAMESPACE + ">" +
+                        "SELECT (mm:intersection(?l1,?l2) AS ?box) WHERE {" +
                         "   <http://test.org/resource/fragment1> ma:locator ?l1." +
                         "   <http://test.org/resource/fragment2> ma:locator ?l2." +
                         "}";
@@ -103,8 +103,8 @@ public class CombinedFunctionTests {
 
         String query =
                 "PREFIX ma: <http://www.w3.org/ns/ma-ont#>" +
-                        "PREFIX mmc: <" + Constants.NAMESPACE + ">" +
-                        "SELECT (mmc:boundingBox(?l1,?l2) AS ?box) WHERE {" +
+                        "PREFIX mm: <" + Constants.NAMESPACE + ">" +
+                        "SELECT (mm:boundingBox(?l1,?l2) AS ?box) WHERE {" +
                         "   <http://test.org/resource/fragment1> ma:locator ?l1." +
                         "   <http://test.org/resource/fragment2> ma:locator ?l2." +
                         "}";

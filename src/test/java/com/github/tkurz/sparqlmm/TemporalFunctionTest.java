@@ -65,8 +65,8 @@ public class TemporalFunctionTest {
 
         String query =
                 "PREFIX ma: <http://www.w3.org/ns/ma-ont#>" +
-                "PREFIX mmt: <" + Constants.NAMESPACE + ">" +
-                "SELECT ?f1 ?f2 (mmt:temporalBoundingBox(?f1,?f2) AS ?box) WHERE {" +
+                "PREFIX mm: <" + Constants.NAMESPACE + ">" +
+                "SELECT ?f1 ?f2 (mm:temporalBoundingBox(?f1,?f2) AS ?box) WHERE {" +
                 "   ?f1 rdfs:label \"1_1\"." +
                 "   ?f2 rdfs:label \"1_3\"." +
                 "}";
@@ -96,8 +96,8 @@ public class TemporalFunctionTest {
 
         String query =
                 "PREFIX ma: <http://www.w3.org/ns/ma-ont#>" +
-                        "PREFIX mmt: <" + Constants.NAMESPACE + ">" +
-                        "SELECT ?f1 ?f2 (mmt:temporalIntermediate(?f1,?f2) AS ?box) WHERE {" +
+                        "PREFIX mm: <" + Constants.NAMESPACE + ">" +
+                        "SELECT ?f1 ?f2 (mm:temporalIntermediate(?f1,?f2) AS ?box) WHERE {" +
                         "   ?f1 rdfs:label \"1_1\"." +
                         "   ?f2 rdfs:label \"1_3\"." +
                         "}";
@@ -127,8 +127,8 @@ public class TemporalFunctionTest {
 
         String query =
                 "PREFIX ma: <http://www.w3.org/ns/ma-ont#>" +
-                        "PREFIX mmt: <" + Constants.NAMESPACE + ">" +
-                        "SELECT ?f1 ?f2 (mmt:temporalIntersection(?f1,?f2) AS ?box) WHERE {" +
+                        "PREFIX mm: <" + Constants.NAMESPACE + ">" +
+                        "SELECT ?f1 ?f2 (mm:temporalIntersection(?f1,?f2) AS ?box) WHERE {" +
                         "   ?f1 rdfs:label \"1_4\"." +
                         "   ?f2 rdfs:label \"1_3\"." +
                         "}";
