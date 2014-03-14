@@ -4,6 +4,8 @@ The prefix **mmt** is <http://linkedmultimedia.org/sparql-mm/functions/temporal#
 
 The prefix **mms** is <http://linkedmultimedia.org/sparql-mm/functions/spatial#>.
 
+The prefix **mmc** is <http://linkedmultimedia.org/sparql-mm/functions/combined#>.
+
 ### Temporal Relations
 
 | Relation name | Description |
@@ -21,9 +23,9 @@ The prefix **mms** is <http://linkedmultimedia.org/sparql-mm/functions/spatial#>
 
 | Function name | Description |
 | :------------ |:------------|
-| mmt:getBoundingBox( *resource1*, *resource2* ) | returns new *MediaFragmentURI* with temporal fragment ( Min( resource1.start, resource2.start ), Max( resource1.end, resource2.end ) ). |
-| mmt:getIntermediate( *resource1*, *resource2* ) | returns new *MediaFragmentURI* with temporal fragment ( Min( resource1.end, resource2.end ), Max( resource1.start, resource2.start ) ) if intersection not exists, else *null*. |
-| mmt:getIntersection( *resource1*, *resource2* ) | returns new *MediaFragmentURI* with temporal fragment ( Max( resource1.start, resource2.start ), Min( resource1.end, resource2.end ) ) if intersection exists, else *null*. |
+| mmt:boundingBox( *resource1*, *resource2* ) | returns new *MediaFragmentURI* with temporal fragment ( Min( resource1.start, resource2.start ), Max( resource1.end, resource2.end ) ). |
+| mmt:intermediate( *resource1*, *resource2* ) | returns new *MediaFragmentURI* with temporal fragment ( Min( resource1.end, resource2.end ), Max( resource1.start, resource2.start ) ) if intersection not exists, else *null*. |
+| mmt:intersection( *resource1*, *resource2* ) | returns new *MediaFragmentURI* with temporal fragment ( Max( resource1.start, resource2.start ), Min( resource1.end, resource2.end ) ) if intersection exists, else *null*. |
 
 ### Topological Relations
 
@@ -52,5 +54,12 @@ The prefix **mms** is <http://linkedmultimedia.org/sparql-mm/functions/spatial#>
 
 | Function name | Description |
 | :------------ |:------------|
-| mms:getBoundingBox( *resource1*, *resource2* ) | returns new *MediaFragmentURI* with spatial fragment out of existing resources A and B, so that x = min( A.x, B.x ) and y = min( A.y, B.y ) and w = max( A.x + A.w, B.x + B.w ) and h = max( A.y + A.h, B.y + B.h ). |
-| mms:getIntersection( *resource1*, *resource2* ) | returns new *MediaFragmentURI* with spatial fragment out of existing resources A and B, so that x = max( A.x, B.x ) and y = max( A.y, B.y ) and w = min( A.x + A.w, B.x + B.w ) - max( A.x, B.x ) and h = min( A.y + A.h, B.y + B.h ) - max( A.y, A.x ) |
+| mms:boundingBox( *resource1*, *resource2* ) | returns new *MediaFragmentURI* with spatial fragment out of existing resources A and B, so that x = min( A.x, B.x ) and y = min( A.y, B.y ) and w = max( A.x + A.w, B.x + B.w ) and h = max( A.y + A.h, B.y + B.h ). |
+| mms:intersection( *resource1*, *resource2* ) | returns new *MediaFragmentURI* with spatial fragment out of existing resources A and B, so that x = max( A.x, B.x ) and y = max( A.y, B.y ) and w = min( A.x + A.w, B.x + B.w ) - max( A.x, B.x ) and h = min( A.y + A.h, B.y + B.h ) - max( A.y, A.x ) |
+
+### Combined Functions
+
+| Function name | Description |
+| :------------ |:------------|
+| mmc:boundingBox( *resource1*, *resource2* ) | returns new *MediaFragmentURI* with spatial and temporal fragment. It is a combination of spatialFunction:boundingBox and temporalFunction:boundingBox. |
+| mmc:intersection( *resource1*, *resource2* ) | returns new *MediaFragmentURI* with spatial and temporal fragment. It is a combination of spatialFunction:boundingBox and temporalFunction:intersection. |
