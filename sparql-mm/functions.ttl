@@ -2,146 +2,146 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
 @prefix ssd: <http://www.w3.org/ns/sparql-service-description#>.
 @prefix foaf: <http://xmlns.com/foaf/0.1/>.
-@prefix mm: <http://linkedmultimedia.org/sparql-mm/functions#>.
+@prefix mm: <http://linkedmultimedia.org/sparql-mm/functions>.
 @prefix sed: <http://purl.org/net/schemas/sparql-extension-description#>.
 @prefix dc: <http://purl.org/dc/terms/>.
-mm: dc:description "SPARQL Function Library for handling Media Fragments URI like they are recommended from W3C at <a href=\"http://www.w3.org/TR/media-frags/\">Media Fragments URI 1.0 (basic) recommendation</a>.";
-	dc:title "SPARQL Function Library for Media Fragments";
-	sed:includes mm:after,
-		mm:before,
-		mm:bottom,
-		mm:boundingBox,
-		mm:finishes,
-		mm:intersection,
-		mm:isAbove,
-		mm:isBelow,
-		mm:left,
-		mm:leftBeside,
-		mm:right,
-		mm:rightBeside,
-		mm:spatialBoundingBox,
-		mm:spatialIntersection,
-		mm:starts,
-		mm:temporalBoundingBox,
-		mm:temporalContains,
-		mm:temporalCovers,
-		mm:temporalDisjoint,
-		mm:temporalEqual,
-		mm:temporalIntermediate,
-		mm:temporalIntersection,
-		mm:temporalIntersects,
-		mm:temporalMeets,
-		mm:temporalOverlaps,
-		mm:temporalTouches,
-		mm:top;
-	a sed:FunctionLibrary;
-	foaf:homepage <https://github.com/tkurz/sparql-mm>.
-mm:after dc:description "returns *true* if resource1.start >= resource2.end, else *false*.";
-	sed:includedIn mm:;
+<http://linkedmultimedia.org/sparql-mm/functions#after> dc:description "returns *true* if resource1.start >= resource2.end, else *false*.";
+	sed:includedIn <http://linkedmultimedia.org/sparql-mm/functions>;
 	a ssd:extensionFunction;
 	rdfs:label "after".
-mm:before dc:description "returns *true* if resource1.end <= resource2.start, else *false*.";
-	sed:includedIn mm:;
+<http://linkedmultimedia.org/sparql-mm/functions#before> dc:description "returns *true* if resource1.end <= resource2.start, else *false*.";
+	sed:includedIn <http://linkedmultimedia.org/sparql-mm/functions>;
 	a ssd:extensionFunction;
 	rdfs:label "before".
-mm:bottom dc:description "returns *true* if resource.y >= 50%.";
-	sed:includedIn mm:;
+<http://linkedmultimedia.org/sparql-mm/functions#bottom> dc:description "returns *true* if resource.y >= 50%.";
+	sed:includedIn <http://linkedmultimedia.org/sparql-mm/functions>;
 	a ssd:extensionFunction;
 	rdfs:label "bottom".
-mm:boundingBox dc:description "returns new *MediaFragmentURI* with spatial and temporal fragment. It it works like spatialFunction:boundingBox, temporalFunction:boundingBox or both together.";
-	sed:includedIn mm:;
+<http://linkedmultimedia.org/sparql-mm/functions#boundingBox> dc:description "returns new *MediaFragmentURI* with spatial and temporal fragment. It it works like spatialFunction:boundingBox, temporalFunction:boundingBox or both together.";
+	sed:includedIn <http://linkedmultimedia.org/sparql-mm/functions>;
 	a ssd:extensionAggregate;
 	rdfs:label "boundingBox".
-mm:finishes dc:description "returns *true* if resource1.end == resource2.end and resource1.start > resource1.start , else *false*. Boolean *flag* can define if *equal* is included in the result, default is *false*.";
-	sed:includedIn mm:;
+<http://linkedmultimedia.org/sparql-mm/functions#finishes> dc:description "returns *true* if resource1.end == resource2.end and resource1.start > resource1.start , else *false*. Boolean *flag* can define if *equal* is included in the result, default is *false*.";
+	sed:includedIn <http://linkedmultimedia.org/sparql-mm/functions>;
 	a ssd:extensionFunction;
 	rdfs:label "finishes".
-mm:intersection dc:description "returns new *MediaFragmentURI* with spatial and temporal fragment. It works like spatialFunction:boundingBox, temporalFunction:intersection and both.";
-	sed:includedIn mm:;
+<http://linkedmultimedia.org/sparql-mm/functions#intersection> dc:description "returns new *MediaFragmentURI* with spatial and temporal fragment. It works like spatialFunction:boundingBox, temporalFunction:intersection and both.";
+	sed:includedIn <http://linkedmultimedia.org/sparql-mm/functions>;
 	a ssd:extensionAggregate;
 	rdfs:label "intersection".
-mm:isAbove dc:description "returns *true* if resource1.y + resource1.h <= resource2.y, else *false*.";
-	sed:includedIn mm:;
+<http://linkedmultimedia.org/sparql-mm/functions#isAbove> dc:description "returns *true* if resource1.y + resource1.h <= resource2.y, else *false*.";
+	sed:includedIn <http://linkedmultimedia.org/sparql-mm/functions>;
 	a ssd:extensionFunction;
 	rdfs:label "isAbove".
-mm:isBelow dc:description "returns *true* if resource2.y + resource2.h <= resource1.y, else *false*.";
-	sed:includedIn mm:;
+<http://linkedmultimedia.org/sparql-mm/functions#isBelow> dc:description "returns *true* if resource2.y + resource2.h <= resource1.y, else *false*.";
+	sed:includedIn <http://linkedmultimedia.org/sparql-mm/functions>;
 	a ssd:extensionFunction;
 	rdfs:label "isBelow".
-mm:left dc:description "returns *true* if resource.x + resource.w <= 50%.";
-	sed:includedIn mm:;
+<http://linkedmultimedia.org/sparql-mm/functions#left> dc:description "returns *true* if resource.x + resource.w <= 50%.";
+	sed:includedIn <http://linkedmultimedia.org/sparql-mm/functions>;
 	a ssd:extensionFunction;
 	rdfs:label "left".
-mm:leftBeside dc:description "returns *true* if resource1.x + resource1.w <= resource2.x, else *false*.";
-	sed:includedIn mm:;
+<http://linkedmultimedia.org/sparql-mm/functions#leftBeside> dc:description "returns *true* if resource1.x + resource1.w <= resource2.x, else *false*.";
+	sed:includedIn <http://linkedmultimedia.org/sparql-mm/functions>;
 	a ssd:extensionFunction;
 	rdfs:label "leftBeside".
-mm:right dc:description "returns *true* if resource.x >= 50%.";
-	sed:includedIn mm:;
+<http://linkedmultimedia.org/sparql-mm/functions#right> dc:description "returns *true* if resource.x >= 50%.";
+	sed:includedIn <http://linkedmultimedia.org/sparql-mm/functions>;
 	a ssd:extensionFunction;
 	rdfs:label "right".
-mm:rightBeside dc:description "returns *true* if resource2.x + resource2.w <= resource1.x, else *false*.";
-	sed:includedIn mm:;
+<http://linkedmultimedia.org/sparql-mm/functions#rightBeside> dc:description "returns *true* if resource2.x + resource2.w <= resource1.x, else *false*.";
+	sed:includedIn <http://linkedmultimedia.org/sparql-mm/functions>;
 	a ssd:extensionFunction;
 	rdfs:label "rightBeside".
-mm:spatialBoundingBox dc:description "returns new *MediaFragmentURI* with spatial fragment out of existing resources A and B, so that x = min( A.x, B.x ) and y = min( A.y, B.y ) and w = max( A.x + A.w, B.x + B.w ) and h = max( A.y + A.h, B.y + B.h ).";
-	sed:includedIn mm:;
+<http://linkedmultimedia.org/sparql-mm/functions#spatialBoundingBox> dc:description "returns new *MediaFragmentURI* with spatial fragment out of existing resources A and B, so that x = min( A.x, B.x ) and y = min( A.y, B.y ) and w = max( A.x + A.w, B.x + B.w ) and h = max( A.y + A.h, B.y + B.h ).";
+	sed:includedIn <http://linkedmultimedia.org/sparql-mm/functions>;
 	a ssd:extensionAggregate;
 	rdfs:label "spatialBoundingBox".
-mm:spatialIntersection dc:description "returns new *MediaFragmentURI* with spatial fragment out of existing resources A and B, so that x = max( A.x, B.x ) and y = max( A.y, B.y ) and w = min( A.x + A.w, B.x + B.w ) - max( A.x, B.x ) and h = min( A.y + A.h, B.y + B.h ) - max( A.y, A.x )";
-	sed:includedIn mm:;
+<http://linkedmultimedia.org/sparql-mm/functions#spatialIntersection> dc:description "returns new *MediaFragmentURI* with spatial fragment out of existing resources A and B, so that x = max( A.x, B.x ) and y = max( A.y, B.y ) and w = min( A.x + A.w, B.x + B.w ) - max( A.x, B.x ) and h = min( A.y + A.h, B.y + B.h ) - max( A.y, A.x )";
+	sed:includedIn <http://linkedmultimedia.org/sparql-mm/functions>;
 	a ssd:extensionAggregate;
 	rdfs:label "spatialIntersection".
-mm:starts dc:description "returns *true* if resource1.start == resource2.start and resource1.end < resource2.end , else *false*. Boolean *flag* can define if *equal* is included in the result, default is *false*.";
-	sed:includedIn mm:;
+<http://linkedmultimedia.org/sparql-mm/functions#starts> dc:description "returns *true* if resource1.start == resource2.start and resource1.end < resource2.end , else *false*. Boolean *flag* can define if *equal* is included in the result, default is *false*.";
+	sed:includedIn <http://linkedmultimedia.org/sparql-mm/functions>;
 	a ssd:extensionFunction;
 	rdfs:label "starts".
-mm:temporalBoundingBox dc:description "returns new *MediaFragmentURI* with temporal fragment ( Min( resource1.start, resource2.start ), Max( resource1.end, resource2.end ) ).";
-	sed:includedIn mm:;
+<http://linkedmultimedia.org/sparql-mm/functions#temporalBoundingBox> dc:description "returns new *MediaFragmentURI* with temporal fragment ( Min( resource1.start, resource2.start ), Max( resource1.end, resource2.end ) ).";
+	sed:includedIn <http://linkedmultimedia.org/sparql-mm/functions>;
 	a ssd:extensionAggregate;
 	rdfs:label "temporalBoundingBox".
-mm:temporalContains dc:description "returns *true* if resource1.start <= resource2.start and resource1.end >= resource2.end, else *false*. Boolean *flag* can define if *equal* is included in the result, default is *false*.";
-	sed:includedIn mm:;
+<http://linkedmultimedia.org/sparql-mm/functions#temporalContains> dc:description "returns *true* if resource1.start <= resource2.start and resource1.end >= resource2.end, else *false*. Boolean *flag* can define if *equal* is included in the result, default is *false*.";
+	sed:includedIn <http://linkedmultimedia.org/sparql-mm/functions>;
 	a ssd:extensionFunction;
 	rdfs:label "temporalContains".
-mm:temporalCovers dc:description "returns *true* if all points of resource1.box are points of resource2.box, else *false*. Boolean *flag* can define if *equal* is included in the result, default is *false*.";
-	sed:includedIn mm:;
+<http://linkedmultimedia.org/sparql-mm/functions#temporalCovers> dc:description "returns *true* if all points of resource1.box are points of resource2.box, else *false*. Boolean *flag* can define if *equal* is included in the result, default is *false*.";
+	sed:includedIn <http://linkedmultimedia.org/sparql-mm/functions>;
 	a ssd:extensionFunction;
 	rdfs:label "temporalCovers".
-mm:temporalDisjoint dc:description "returns *true* is resource1.box has no common points with resource2.box, else *false*. ";
-	sed:includedIn mm:;
+<http://linkedmultimedia.org/sparql-mm/functions#temporalDisjoint> dc:description "returns *true* is resource1.box has no common points with resource2.box, else *false*. ";
+	sed:includedIn <http://linkedmultimedia.org/sparql-mm/functions>;
 	a ssd:extensionFunction;
 	rdfs:label "temporalDisjoint".
-mm:temporalEqual dc:description "returns *true* if resource1.box == resource2.box, else *false*.",
+<http://linkedmultimedia.org/sparql-mm/functions#temporalEqual> dc:description "returns *true* if resource1.box == resource2.box, else *false*.",
 		"returns *true* if resource1.start == resource2.start and resource1.end == resource2.end, else *false*.";
-	sed:includedIn mm:;
+	sed:includedIn <http://linkedmultimedia.org/sparql-mm/functions>;
 	a ssd:extensionFunction;
 	rdfs:label "temporalEqual".
-mm:temporalIntermediate dc:description "returns new *MediaFragmentURI* with temporal fragment ( Min( resource1.end, resource2.end ), Max( resource1.start, resource2.start ) ) if intersection not exists, else *null*.";
-	sed:includedIn mm:;
+<http://linkedmultimedia.org/sparql-mm/functions#temporalIntermediate> dc:description "returns new *MediaFragmentURI* with temporal fragment ( Min( resource1.end, resource2.end ), Max( resource1.start, resource2.start ) ) if intersection not exists, else *null*.";
+	sed:includedIn <http://linkedmultimedia.org/sparql-mm/functions>;
 	a ssd:extensionAggregate;
 	rdfs:label "temporalIntermediate".
-mm:temporalIntersection dc:description "returns new *MediaFragmentURI* with temporal fragment ( Max( resource1.start, resource2.start ), Min( resource1.end, resource2.end ) ) if intersection exists, else *null*.";
-	sed:includedIn mm:;
+<http://linkedmultimedia.org/sparql-mm/functions#temporalIntersection> dc:description "returns new *MediaFragmentURI* with temporal fragment ( Max( resource1.start, resource2.start ), Min( resource1.end, resource2.end ) ) if intersection exists, else *null*.";
+	sed:includedIn <http://linkedmultimedia.org/sparql-mm/functions>;
 	a ssd:extensionAggregate;
 	rdfs:label "temporalIntersection".
-mm:temporalIntersects dc:description "returns *true* if resource1.box has at least one common point with resource2.box, else *false*. Boolean *flag* can define if *equal* is included in the result, default is *false*.";
-	sed:includedIn mm:;
+<http://linkedmultimedia.org/sparql-mm/functions#temporalIntersects> dc:description "returns *true* if resource1.box has at least one common point with resource2.box, else *false*. Boolean *flag* can define if *equal* is included in the result, default is *false*.";
+	sed:includedIn <http://linkedmultimedia.org/sparql-mm/functions>;
 	a ssd:extensionFunction;
 	rdfs:label "temporalIntersects".
-mm:temporalMeets dc:description "returns *true* if resource1.start = resource2.end or resource1.end = resource2.start, else *false*.";
-	sed:includedIn mm:;
+<http://linkedmultimedia.org/sparql-mm/functions#temporalMeets> dc:description "returns *true* if resource1.start = resource2.end or resource1.end = resource2.start, else *false*.";
+	sed:includedIn <http://linkedmultimedia.org/sparql-mm/functions>;
 	a ssd:extensionFunction;
 	rdfs:label "temporalMeets".
-mm:temporalOverlaps dc:description "returns *true* if resource1.start < resource2.start < resource1.end < resource2.end or resource2.start < resource1.start < resource2.end < resource1.end, else *false*. Boolean *flag* can define if *equal* is included in the result, default is *false*.";
-	sed:includedIn mm:;
+<http://linkedmultimedia.org/sparql-mm/functions#temporalOverlaps> dc:description "returns *true* if resource1.start < resource2.start < resource1.end < resource2.end or resource2.start < resource1.start < resource2.end < resource1.end, else *false*. Boolean *flag* can define if *equal* is included in the result, default is *false*.";
+	sed:includedIn <http://linkedmultimedia.org/sparql-mm/functions>;
 	a ssd:extensionFunction;
 	rdfs:label "temporalOverlaps".
-mm:temporalTouches dc:description "returns *true* if resource1.box.edge has at least one common point with resource2.box.edge and resource1.box.interior has no common point with resource2.box.interior, else *false*.";
-	sed:includedIn mm:;
+<http://linkedmultimedia.org/sparql-mm/functions#temporalTouches> dc:description "returns *true* if resource1.box.edge has at least one common point with resource2.box.edge and resource1.box.interior has no common point with resource2.box.interior, else *false*.";
+	sed:includedIn <http://linkedmultimedia.org/sparql-mm/functions>;
 	a ssd:extensionFunction;
 	rdfs:label "temporalTouches".
-mm:top dc:description "returns *true* if resource.y + resource.h <= 50%.";
-	sed:includedIn mm:;
+<http://linkedmultimedia.org/sparql-mm/functions#top> dc:description "returns *true* if resource.y + resource.h <= 50%.";
+	sed:includedIn <http://linkedmultimedia.org/sparql-mm/functions>;
 	a ssd:extensionFunction;
 	rdfs:label "top".
+<http://linkedmultimedia.org/sparql-mm/functions> dc:description "SPARQL Function Library for handling Media Fragments URI like they are recommended from W3C at <a href=\"http://www.w3.org/TR/media-frags/\">Media Fragments URI 1.0 (basic) recommendation</a>.";
+	dc:title "SPARQL Function Library for Media Fragments";
+	sed:includes <http://linkedmultimedia.org/sparql-mm/functions#after>,
+		<http://linkedmultimedia.org/sparql-mm/functions#before>,
+		<http://linkedmultimedia.org/sparql-mm/functions#bottom>,
+		<http://linkedmultimedia.org/sparql-mm/functions#boundingBox>,
+		<http://linkedmultimedia.org/sparql-mm/functions#finishes>,
+		<http://linkedmultimedia.org/sparql-mm/functions#intersection>,
+		<http://linkedmultimedia.org/sparql-mm/functions#isAbove>,
+		<http://linkedmultimedia.org/sparql-mm/functions#isBelow>,
+		<http://linkedmultimedia.org/sparql-mm/functions#left>,
+		<http://linkedmultimedia.org/sparql-mm/functions#leftBeside>,
+		<http://linkedmultimedia.org/sparql-mm/functions#right>,
+		<http://linkedmultimedia.org/sparql-mm/functions#rightBeside>,
+		<http://linkedmultimedia.org/sparql-mm/functions#spatialBoundingBox>,
+		<http://linkedmultimedia.org/sparql-mm/functions#spatialIntersection>,
+		<http://linkedmultimedia.org/sparql-mm/functions#starts>,
+		<http://linkedmultimedia.org/sparql-mm/functions#temporalBoundingBox>,
+		<http://linkedmultimedia.org/sparql-mm/functions#temporalContains>,
+		<http://linkedmultimedia.org/sparql-mm/functions#temporalCovers>,
+		<http://linkedmultimedia.org/sparql-mm/functions#temporalDisjoint>,
+		<http://linkedmultimedia.org/sparql-mm/functions#temporalEqual>,
+		<http://linkedmultimedia.org/sparql-mm/functions#temporalIntermediate>,
+		<http://linkedmultimedia.org/sparql-mm/functions#temporalIntersection>,
+		<http://linkedmultimedia.org/sparql-mm/functions#temporalIntersects>,
+		<http://linkedmultimedia.org/sparql-mm/functions#temporalMeets>,
+		<http://linkedmultimedia.org/sparql-mm/functions#temporalOverlaps>,
+		<http://linkedmultimedia.org/sparql-mm/functions#temporalTouches>,
+		<http://linkedmultimedia.org/sparql-mm/functions#top>;
+	a sed:FunctionLibrary;
+	foaf:homepage <https://github.com/tkurz/sparql-mm>.
