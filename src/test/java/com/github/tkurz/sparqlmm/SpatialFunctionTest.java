@@ -31,6 +31,7 @@ import java.util.ArrayList;
 public class SpatialFunctionTest {
 
     private final String TEST3 = "/test3.ttl";
+    private final String TEST6 = "/test6.ttl";
     private final String BASE_URI = "http://test.org/resource/";
 
     private RepositoryConnection connection;
@@ -60,17 +61,17 @@ public class SpatialFunctionTest {
     }
 
     @Test
-    public void testBoundingBoxFunction() throws MalformedQueryException, RepositoryException, QueryEvaluationException, MediaFragmentURISyntaxException, RDFParseException, IOException {
+         public void testBoundingBoxFunction() throws MalformedQueryException, RepositoryException, QueryEvaluationException, MediaFragmentURISyntaxException, RDFParseException, IOException {
 
         importFile(TEST3);
 
         String query =
                 "PREFIX ma: <http://www.w3.org/ns/ma-ont#>" +
-                "PREFIX mms: <" + Constants.NAMESPACE_SPATIAL + ">" +
-                "SELECT ?f1 ?f2 (mms:boundingBox(?f1,?f2) AS ?box) WHERE {" +
-                "   ?f1 rdfs:label \"1_1\"." +
-                "   ?f2 rdfs:label \"1_2\"." +
-                "}";
+                        "PREFIX mms: <" + Constants.NAMESPACE_SPATIAL + ">" +
+                        "SELECT ?f1 ?f2 (mms:boundingBox(?f1,?f2) AS ?box) WHERE {" +
+                        "   ?f1 rdfs:label \"1_1\"." +
+                        "   ?f2 rdfs:label \"1_2\"." +
+                        "}";
 
         TupleQuery q = connection.prepareTupleQuery(QueryLanguage.SPARQL,query);
         TupleQueryResult r = q.evaluate();
@@ -90,6 +91,70 @@ public class SpatialFunctionTest {
         Assert.assertEquals(0.0,fragment.getY(),0);
         Assert.assertEquals(3.0,fragment.getW(),0);
         Assert.assertEquals(3.0,fragment.getH(),0);
+    }
+
+    @Test
+    public void testBoundingBoxFunctionPercent() throws MalformedQueryException, RepositoryException, QueryEvaluationException, MediaFragmentURISyntaxException, RDFParseException, IOException {
+
+        importFile(TEST6);
+
+        String query =
+                "PREFIX ma: <http://www.w3.org/ns/ma-ont#>" +
+                        "PREFIX mms: <" + Constants.NAMESPACE_SPATIAL + ">" +
+                        "SELECT (mms:boundingBox(?l1,?l2) AS ?box) WHERE {" +
+                        "   <http://test.org/resource/fragment1> ma:locator ?l1." +
+                        "   <http://test.org/resource/fragment2> ma:locator ?l2." +
+                        "}";
+
+        TupleQuery q = connection.prepareTupleQuery(QueryLanguage.SPARQL,query);
+        TupleQueryResult r = q.evaluate();
+
+        Assert.assertTrue(r.hasNext());
+
+        BindingSet set = r.next();
+
+        Assert.assertFalse(r.hasNext());
+
+        String box = set.getBinding("box").getValue().stringValue();
+
+        SpatialFragment fragment = (new MediaFragmentURI(box)).getMediaFragment().getSpatialFragment();
+
+        Assert.assertEquals(0.0,fragment.getX(),0);
+        Assert.assertEquals(0.0,fragment.getY(),0);
+        Assert.assertEquals(75.0,fragment.getW(),0);
+        Assert.assertEquals(75.0,fragment.getH(),0);
+    }
+
+    @Test
+    public void testIntersectionFunctionPercent() throws MalformedQueryException, RepositoryException, QueryEvaluationException, MediaFragmentURISyntaxException, RDFParseException, IOException {
+
+        importFile(TEST6);
+
+        String query =
+                "PREFIX ma: <http://www.w3.org/ns/ma-ont#>" +
+                        "PREFIX mms: <" + Constants.NAMESPACE_SPATIAL + ">" +
+                        "SELECT (mms:intersection(?l1,?l2) AS ?box) WHERE {" +
+                        "   <http://test.org/resource/fragment1> ma:locator ?l1." +
+                        "   <http://test.org/resource/fragment2> ma:locator ?l2." +
+                        "}";
+
+        TupleQuery q = connection.prepareTupleQuery(QueryLanguage.SPARQL,query);
+        TupleQueryResult r = q.evaluate();
+
+        Assert.assertTrue(r.hasNext());
+
+        BindingSet set = r.next();
+
+        Assert.assertFalse(r.hasNext());
+
+        String box = set.getBinding("box").getValue().stringValue();
+
+        SpatialFragment fragment = (new MediaFragmentURI(box)).getMediaFragment().getSpatialFragment();
+
+        Assert.assertEquals(25.0,fragment.getX(),0);
+        Assert.assertEquals(25.0,fragment.getY(),0);
+        Assert.assertEquals(25.0,fragment.getW(),0);
+        Assert.assertEquals(25.0,fragment.getH(),0);
     }
 
     @Test

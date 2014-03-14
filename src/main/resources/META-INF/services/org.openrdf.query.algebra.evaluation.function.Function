@@ -24,3 +24,5 @@ com.github.tkurz.sparqlmm.spatial.relation.topological.IntersectsFunction
 com.github.tkurz.sparqlmm.spatial.relation.topological.TouchesFunction
 com.github.tkurz.sparqlmm.spatial.function.BoundingBoxFunction
 com.github.tkurz.sparqlmm.spatial.function.IntersectionFunction
+com.github.tkurz.sparqlmm.combined.function.BoundingBoxFunction
+com.github.tkurz.sparqlmm.combined.function.IntersectionFunction
