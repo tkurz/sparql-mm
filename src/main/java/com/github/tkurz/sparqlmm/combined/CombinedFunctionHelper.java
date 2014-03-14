@@ -24,9 +24,6 @@ public class CombinedFunctionHelper {
                 uris[i] = new MediaFragmentURI(values[i].toString());
             }
 
-            Preconditions.checkArgument(MediaFragments.temporalComparable(uris),"Arguments cannot be compared because of differing units or missing temporal fragments");
-            Preconditions.checkArgument(MediaFragments.spatialComparable(uris),"Arguments cannot be compared because of differing units or missing spatial fragments");
-
             return uris;
         } catch (IllegalArgumentException e) {
             throw new MediaFragmentURISyntaxException(e);

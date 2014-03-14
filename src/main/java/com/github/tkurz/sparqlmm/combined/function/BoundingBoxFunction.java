@@ -5,6 +5,7 @@ import com.github.tkurz.media.fragments.exceptions.FunctionException;
 import com.github.tkurz.media.fragments.exceptions.MediaFragmentURISyntaxException;
 import com.github.tkurz.media.fragments.spatial.SpatialFragment;
 import com.github.tkurz.media.fragments.temporal.TemporalFragment;
+import com.github.tkurz.media.fragments.utils.MediaFragments;
 import com.github.tkurz.sparqlmm.combined.CombinedFunctionHelper;
 import com.google.common.base.Preconditions;
 import com.github.tkurz.sparqlmm.Constants;
@@ -35,17 +36,24 @@ public class BoundingBoxFunction implements Function {
             //check if values are correct
             MediaFragmentURI[] uris = CombinedFunctionHelper.parseURIs(values);
 
-            //create intersection
-            TemporalFragment temporal_fragment = uris[0].getMediaFragment().getTemporalFragment().getBoundingBox(uris[1].getMediaFragment().getTemporalFragment());
-            SpatialFragment spatial_fragment = uris[0].getMediaFragment().getSpatialFragment().getBoundingBox(uris[1].getMediaFragment().getSpatialFragment());
+            //create box
+            TemporalFragment temporal_fragment = null;
+            if(MediaFragments.temporalComparable(uris)) {
+                temporal_fragment = uris[0].getMediaFragment().getTemporalFragment().getBoundingBox(uris[1].getMediaFragment().getTemporalFragment());
+            }
 
-            //if no intersection
-            if(temporal_fragment == null || spatial_fragment == null) return null;
+            SpatialFragment spatial_fragment = null;
+            if(MediaFragments.spatialComparable(uris)) {
+                spatial_fragment = uris[0].getMediaFragment().getSpatialFragment().getBoundingBox(uris[1].getMediaFragment().getSpatialFragment());
+            }
 
             MediaFragmentURI uri = new MediaFragmentURI(uris[0].getAbsolutePath());
 
-            uri.getMediaFragment().setTemporalFragment(temporal_fragment);
-            uri.getMediaFragment().setSpatialFragment(spatial_fragment);
+            //if no intersection
+            if(temporal_fragment == null && spatial_fragment == null) return null;
+
+            if(temporal_fragment != null) uri.getMediaFragment().setTemporalFragment(temporal_fragment);
+            if(spatial_fragment != null) uri.getMediaFragment().setSpatialFragment(spatial_fragment);
 
             //evaluate
             return valueFactory.createURI(uri.toString());
