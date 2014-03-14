@@ -1,6 +1,22 @@
 ## SPARQL-MM Function Library
 
-The prefix **mm** is <http://linkedmultimedia.org/sparql-mm/functions#>.
+The prefix **mm** is <>.
+The URI for this vocabulary is
+
+```
+http://linkedmultimedia.org/sparql-mm/functions#
+```
+
+When abbreviating terms the suggested prefix is `mm`.
+
+Each function in this function set has a URI constructed by appending a term name to the vocabulary URI. For example:
+
+```
+http://linkedmultimedia.org/sparql-mm/functions#after
+```
+
+There are machine readable function description using [SPARQL Extension Description Vocabulary](http://www.ldodds.com/schemas/sparql-extension-description/) in
+[RDF/XML](function.xml) and [Turtle](function.ttl) Format.
 
 ### Temporal Relations
 

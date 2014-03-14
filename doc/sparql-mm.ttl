@@ -1,5 +1,0 @@
-@prefix mmt: <http://linkedmultimedia.org/sparql-mm/functions/temporal#>
-@prefix mms: <http://linkedmultimedia.org/sparql-mm/functions/spatial#>
-@prefix sd: <http://www.w3.org/ns/sparql-service-description#>
-
-# TODO
