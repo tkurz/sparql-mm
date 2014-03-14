@@ -22,7 +22,7 @@ public class IsBelowFunction implements Function {
      * return the URI
      */
     public String getURI() {
-        return Constants.NAMESPACE_SPATIAL + "isBelow";
+        return Constants.NAMESPACE + "isBelow";
     }
 
     @Override
