@@ -17,6 +17,8 @@ http://linkedmultimedia.org/sparql-mm/functions#after
 There are machine readable function description using [SPARQL Extension Description Vocabulary](http://www.ldodds.com/schemas/sparql-extension-description/) in
 [RDF/XML](https://raw.github.com/tkurz/sparql-mm/master/sparql-mm/functions.xml) and [Turtle](https://raw.github.com/tkurz/sparql-mm/master/sparql-mm/functions.ttl) Format.
 
+## Temporal
+
 ### Temporal Relations
 
 | Relation name | Description |
@@ -38,15 +40,17 @@ There are machine readable function description using [SPARQL Extension Descript
 | mm:temporalIntermediate( *resource1*, *resource2* ) | returns new *MediaFragmentURI* with temporal fragment ( Min( resource1.end, resource2.end ), Max( resource1.start, resource2.start ) ) if intersection not exists, else *null*. |
 | mm:temporalIntersection( *resource1*, *resource2* ) | returns new *MediaFragmentURI* with temporal fragment ( Max( resource1.start, resource2.start ), Min( resource1.end, resource2.end ) ) if intersection exists, else *null*. |
 
+## Spatial
+
 ### Topological Relations
 
 | Relation name | Description |
 | :------------ |:------------|
-| mm:temporalCovers( *resource1*, *resource2* [, *flag* ] ) | returns *true* if all points of resource1.box are points of resource2.box, else *false*. Boolean *flag* can define if *equal* is included in the result, default is *false*. |
-| mm:temporalDisjoint( *resource1*, *resource2* ) | returns *true* is resource1.box has no common points with resource2.box, else *false*.  |
-| mm:temporalEqual( *resource1*, *resource2* ) | returns *true* if resource1.box == resource2.box, else *false*. |
-| mm:temporalIntersects( *resource1*, *resource2* [, *flag* ] ) | returns *true* if resource1.box has at least one common point with resource2.box, else *false*. Boolean *flag* can define if *equal* is included in the result, default is *false*. |
-| mm:temporalTouches( *resource1*, *resource2* ) | returns *true* if resource1.box.edge has at least one common point with resource2.box.edge and resource1.box.interior has no common point with resource2.box.interior, else *false*. |
+| mm:spatialCovers( *resource1*, *resource2* [, *flag* ] ) | returns *true* if all points of resource1.box are points of resource2.box, else *false*. Boolean *flag* can define if *equal* is included in the result, default is *false*. |
+| mm:spatialDisjoint( *resource1*, *resource2* ) | returns *true* is resource1.box has no common points with resource2.box, else *false*.  |
+| mm:spatialEqual( *resource1*, *resource2* ) | returns *true* if resource1.box == resource2.box, else *false*. |
+| mm:spatialIntersects( *resource1*, *resource2* [, *flag* ] ) | returns *true* if resource1.box has at least one common point with resource2.box, else *false*. Boolean *flag* can define if *equal* is included in the result, default is *false*. |
+| mm:spatialTouches( *resource1*, *resource2* ) | returns *true* if resource1.box.edge has at least one common point with resource2.box.edge and resource1.box.interior has no common point with resource2.box.interior, else *false*. |
 
 ### Directional Relations
 
@@ -68,7 +72,7 @@ There are machine readable function description using [SPARQL Extension Descript
 | mm:spatialBoundingBox( *resource1*, *resource2* ) | returns new *MediaFragmentURI* with spatial fragment out of existing resources A and B, so that x = min( A.x, B.x ) and y = min( A.y, B.y ) and w = max( A.x + A.w, B.x + B.w ) and h = max( A.y + A.h, B.y + B.h ). |
 | mm:spatialIntersection( *resource1*, *resource2* ) | returns new *MediaFragmentURI* with spatial fragment out of existing resources A and B, so that x = max( A.x, B.x ) and y = max( A.y, B.y ) and w = min( A.x + A.w, B.x + B.w ) - max( A.x, B.x ) and h = min( A.y + A.h, B.y + B.h ) - max( A.y, A.x ) |
 
-### Combined Functions
+## Combined
 
 | Function name | Description |
 | :------------ |:------------|
