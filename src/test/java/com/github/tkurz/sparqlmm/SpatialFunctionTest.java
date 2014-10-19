@@ -3,11 +3,8 @@ package com.github.tkurz.sparqlmm;
 import com.github.tkurz.media.fragments.base.MediaFragmentURI;
 import com.github.tkurz.media.fragments.exceptions.MediaFragmentURISyntaxException;
 import com.github.tkurz.media.fragments.spatial.SpatialFragment;
-import com.github.tkurz.media.fragments.temporal.NPTFragment;
-import com.github.tkurz.sparqlmm.Constants;
 import com.github.tkurz.sparqlmm.spatial.function.BoundingBoxFunction;
 import com.github.tkurz.sparqlmm.spatial.function.IntersectionFunction;
-import com.github.tkurz.sparqlmm.spatial.relation.directional.*;
 import org.junit.*;
 import org.openrdf.query.*;
 import org.openrdf.query.algebra.evaluation.function.FunctionRegistry;
@@ -31,6 +28,7 @@ import java.util.ArrayList;
 public class SpatialFunctionTest {
 
     private final String TEST3 = "/test3.ttl";
+    private final String TEST3a = "/test3a.ttl";
     private final String TEST6 = "/test6.ttl";
     private final String BASE_URI = "http://test.org/resource/";
 
@@ -64,6 +62,39 @@ public class SpatialFunctionTest {
     public void testBoundingBoxFunction() throws MalformedQueryException, RepositoryException, QueryEvaluationException, MediaFragmentURISyntaxException, RDFParseException, IOException {
 
         importFile(TEST3);
+
+        String query =
+                "PREFIX ma: <http://www.w3.org/ns/ma-ont#>" +
+                        "PREFIX mm: <" + Constants.NAMESPACE + ">" +
+                        "SELECT ?f1 ?f2 (mm:spatialBoundingBox(?f1,?f2) AS ?box) WHERE {" +
+                        "   ?f1 rdfs:label \"1_1\"." +
+                        "   ?f2 rdfs:label \"1_2\"." +
+                        "}";
+
+        TupleQuery q = connection.prepareTupleQuery(QueryLanguage.SPARQL,query);
+        TupleQueryResult r = q.evaluate();
+
+        ArrayList<BindingSet> list = new ArrayList<BindingSet>();
+        while(r.hasNext()) {
+            list.add(r.next());
+        }
+
+        Assert.assertTrue(list.size() == 1);
+
+        String box = list.get(0).getBinding("box").getValue().stringValue();
+
+        SpatialFragment fragment = (new MediaFragmentURI(box)).getMediaFragment().getSpatialFragment();
+
+        Assert.assertEquals(0.0,fragment.getX(),0);
+        Assert.assertEquals(0.0,fragment.getY(),0);
+        Assert.assertEquals(3.0,fragment.getW(),0);
+        Assert.assertEquals(3.0,fragment.getH(),0);
+    }
+
+    @Test
+    public void testBoundingBoxFunctionWithQueryFragments() throws MalformedQueryException, RepositoryException, QueryEvaluationException, MediaFragmentURISyntaxException, RDFParseException, IOException {
+
+        importFile(TEST3a);
 
         String query =
                 "PREFIX ma: <http://www.w3.org/ns/ma-ont#>" +
