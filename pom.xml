@@ -7,7 +7,6 @@
     <groupId>com.github.tkurz</groupId>
     <artifactId>sparql-mm</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <packaging>pom</packaging>
 
     <parent>
         <groupId>org.sonatype.oss</groupId>
