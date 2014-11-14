@@ -5,6 +5,7 @@ import com.github.tkurz.media.fragments.exceptions.FunctionException;
 import com.github.tkurz.media.fragments.exceptions.MediaFragmentURISyntaxException;
 import com.github.tkurz.media.fragments.spatial.SpatialFragment;
 import com.github.tkurz.sparqlmm.spatial.SpatialFunctionHelper;
+import com.github.tkurz.sparqlmm.utils.FunctionDoc;
 import com.google.common.base.Preconditions;
 import com.github.tkurz.sparqlmm.Constants;
 import org.openrdf.model.Value;
@@ -17,6 +18,7 @@ import org.openrdf.query.algebra.evaluation.function.Function;
  * <p/>
  * Author: Thomas Kurz (tkurz@apache.org)
  */
+@FunctionDoc(title = "spatialIntersection", reference = FunctionDoc.Reference.spatial, description = "returns new MediaFragmentURI with spatial fragment out of existing resources A and B, so that x = max( A.x, B.x ) and y = max( A.y, B.y ) and w = min( A.x + A.w, B.x + B.w ) - max( A.x, B.x ) and h = min( A.y + A.h, B.y + B.h ) - max( A.y, A.x )", type = FunctionDoc.Type.extensionAggregate)
 public class IntersectionFunction implements Function {
     /**
      * return the URI

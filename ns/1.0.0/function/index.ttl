@@ -8,9 +8,198 @@
 	<http://schema.org/license> <http://www.apache.org/licenses/LICENSE-2.0> ;
 	<http://schema.org/url> <http://github.com/tkurz/sparql-mm> .
 
-<http://linkedmultimedia.org/sparql-mm/functions#after> a <http://www.w3.org/ns/sparql-service-description#extensionFunction> ;
+<http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#after> a <http://www.w3.org/ns/sparql-service-description#extensionFunction> ;
 	<http://schema.org/name> "after" ;
 	<http://schema.org/description> "returns *true* if resource1.start >= resource2.end, else *false*." ;
 	<http://purl.org/net/schemas/sparql-extension-description#includedIn> <http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function> .
 
-<http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function> <http://purl.org/net/schemas/sparql-extension-description#includes> <http://linkedmultimedia.org/sparql-mm/functions#after> .
+<http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function> <http://purl.org/net/schemas/sparql-extension-description#includes> <http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#after> .
+
+<http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#before> a <http://www.w3.org/ns/sparql-service-description#extensionFunction> ;
+	<http://schema.org/name> "before" ;
+	<http://schema.org/description> "returns true if resource1.end <= resource2.start, else false." ;
+	<http://purl.org/net/schemas/sparql-extension-description#includedIn> <http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function> .
+
+<http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function> <http://purl.org/net/schemas/sparql-extension-description#includes> <http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#before> .
+
+<http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#bottom> a <http://www.w3.org/ns/sparql-service-description#extensionFunction> ;
+	<http://schema.org/name> "bottom" ;
+	<http://schema.org/description> "returns true if resource.y >= 50%." ;
+	<http://purl.org/net/schemas/sparql-extension-description#includedIn> <http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function> .
+
+<http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function> <http://purl.org/net/schemas/sparql-extension-description#includes> <http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#bottom> .
+
+<http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#boundingBox> a <http://www.w3.org/ns/sparql-service-description#extensionAggregate> ;
+	<http://schema.org/name> "boundingBox" ;
+	<http://schema.org/description> "returns new MediaFragmentURI with spatial and temporal fragment. It it works like spatialFunction:boundingBox, temporalFunction:boundingBox or both together." ;
+	<http://purl.org/net/schemas/sparql-extension-description#includedIn> <http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function> .
+
+<http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function> <http://purl.org/net/schemas/sparql-extension-description#includes> <http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#boundingBox> .
+
+<http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#finishes> a <http://www.w3.org/ns/sparql-service-description#extensionFunction> ;
+	<http://schema.org/name> "finishes" ;
+	<http://schema.org/description> "returns true if resource1.end == resource2.end and resource1.start > resource1.start , else false." ;
+	<http://purl.org/net/schemas/sparql-extension-description#includedIn> <http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function> .
+
+<http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function> <http://purl.org/net/schemas/sparql-extension-description#includes> <http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#finishes> .
+
+<http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#intersection> a <http://www.w3.org/ns/sparql-service-description#extensionAggregate> ;
+	<http://schema.org/name> "intersection" ;
+	<http://schema.org/description> "returns new MediaFragmentURI with spatial and temporal fragment. It works like spatialFunction:boundingBox, temporalFunction:intersection and both." ;
+	<http://purl.org/net/schemas/sparql-extension-description#includedIn> <http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function> .
+
+<http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function> <http://purl.org/net/schemas/sparql-extension-description#includes> <http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#intersection> .
+
+<http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#isAbove> a <http://www.w3.org/ns/sparql-service-description#extensionFunction> ;
+	<http://schema.org/name> "isAbove" ;
+	<http://schema.org/description> "returns true if resource1.y + resource1.h <= resource2.y, else false." ;
+	<http://purl.org/net/schemas/sparql-extension-description#includedIn> <http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function> .
+
+<http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function> <http://purl.org/net/schemas/sparql-extension-description#includes> <http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#isAbove> .
+
+<http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#isBelow> a <http://www.w3.org/ns/sparql-service-description#extensionFunction> ;
+	<http://schema.org/name> "isBelow" ;
+	<http://schema.org/description> "returns true if resource2.y + resource2.h <= resource1.y, else false." ;
+	<http://purl.org/net/schemas/sparql-extension-description#includedIn> <http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function> .
+
+<http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function> <http://purl.org/net/schemas/sparql-extension-description#includes> <http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#isBelow> .
+
+<http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#left> a <http://www.w3.org/ns/sparql-service-description#extensionFunction> ;
+	<http://schema.org/name> "left" ;
+	<http://schema.org/description> "returns true if resource.x + resource.w <= 50%." ;
+	<http://purl.org/net/schemas/sparql-extension-description#includedIn> <http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function> .
+
+<http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function> <http://purl.org/net/schemas/sparql-extension-description#includes> <http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#left> .
+
+<http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#leftBeside> a <http://www.w3.org/ns/sparql-service-description#extensionFunction> ;
+	<http://schema.org/name> "leftBeside" ;
+	<http://schema.org/description> "returns true if resource1.x + resource1.w <= resource2.x, else false." ;
+	<http://purl.org/net/schemas/sparql-extension-description#includedIn> <http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function> .
+
+<http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function> <http://purl.org/net/schemas/sparql-extension-description#includes> <http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#leftBeside> .
+
+<http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#temporalMeets> a <http://www.w3.org/ns/sparql-service-description#extensionFunction> ;
+	<http://schema.org/name> "meets" ;
+	<http://schema.org/description> "returns true if resource1.start = resource2.end or resource1.end = resource2.start, else false." ;
+	<http://purl.org/net/schemas/sparql-extension-description#includedIn> <http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function> .
+
+<http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function> <http://purl.org/net/schemas/sparql-extension-description#includes> <http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#temporalMeets> .
+
+<http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#right> a <http://www.w3.org/ns/sparql-service-description#extensionFunction> ;
+	<http://schema.org/name> "right" ;
+	<http://schema.org/description> "returns true if resource.x >= 50%." ;
+	<http://purl.org/net/schemas/sparql-extension-description#includedIn> <http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function> .
+
+<http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function> <http://purl.org/net/schemas/sparql-extension-description#includes> <http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#right> .
+
+<http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#rightBeside> a <http://www.w3.org/ns/sparql-service-description#extensionFunction> ;
+	<http://schema.org/name> "rightBeside" ;
+	<http://schema.org/description> "returns true if resource2.x + resource2.w <= resource1.x, else false." ;
+	<http://purl.org/net/schemas/sparql-extension-description#includedIn> <http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function> .
+
+<http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function> <http://purl.org/net/schemas/sparql-extension-description#includes> <http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#rightBeside> .
+
+<http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#spatialBoundingBox> a <http://www.w3.org/ns/sparql-service-description#extensionAggregate> ;
+	<http://schema.org/name> "spatialBoundingBox" ;
+	<http://schema.org/description> "returns new MediaFragmentURI with spatial fragment out of existing resources A and B, so that x = min( A.x, B.x ) and y = min( A.y, B.y ) and w = max( A.x + A.w, B.x + B.w ) and h = max( A.y + A.h, B.y + B.h )." ;
+	<http://purl.org/net/schemas/sparql-extension-description#includedIn> <http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function> .
+
+<http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function> <http://purl.org/net/schemas/sparql-extension-description#includes> <http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#spatialBoundingBox> .
+
+<http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#spatialCovers> a <http://www.w3.org/ns/sparql-service-description#extensionFunction> ;
+	<http://schema.org/name> "spatialCovers" ;
+	<http://schema.org/description> "returns true if all points of resource1.box are points of resource2.box, else false. " ;
+	<http://purl.org/net/schemas/sparql-extension-description#includedIn> <http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function> .
+
+<http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function> <http://purl.org/net/schemas/sparql-extension-description#includes> <http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#spatialCovers> .
+
+<http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#spatialDisjoint> a <http://www.w3.org/ns/sparql-service-description#extensionFunction> ;
+	<http://schema.org/name> "spatialDisjoint" ;
+	<http://schema.org/description> "returns true is resource1.box has no common points with resource2.box, else false." ;
+	<http://purl.org/net/schemas/sparql-extension-description#includedIn> <http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function> .
+
+<http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function> <http://purl.org/net/schemas/sparql-extension-description#includes> <http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#spatialDisjoint> .
+
+<http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#spatialEqual> a <http://www.w3.org/ns/sparql-service-description#extensionFunction> ;
+	<http://schema.org/name> "spatialEqual" ;
+	<http://schema.org/description> "returns true if resource1.box == resource2.box, else false." ;
+	<http://purl.org/net/schemas/sparql-extension-description#includedIn> <http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function> .
+
+<http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function> <http://purl.org/net/schemas/sparql-extension-description#includes> <http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#spatialEqual> .
+
+<http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#spatialIntersection> a <http://www.w3.org/ns/sparql-service-description#extensionAggregate> ;
+	<http://schema.org/name> "spatialIntersection" ;
+	<http://schema.org/description> "returns new MediaFragmentURI with spatial fragment out of existing resources A and B, so that x = max( A.x, B.x ) and y = max( A.y, B.y ) and w = min( A.x + A.w, B.x + B.w ) - max( A.x, B.x ) and h = min( A.y + A.h, B.y + B.h ) - max( A.y, A.x )" ;
+	<http://purl.org/net/schemas/sparql-extension-description#includedIn> <http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function> .
+
+<http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function> <http://purl.org/net/schemas/sparql-extension-description#includes> <http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#spatialIntersection> .
+
+<http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#spatialIntersects> a <http://www.w3.org/ns/sparql-service-description#extensionFunction> ;
+	<http://schema.org/name> "spatialIntersects" ;
+	<http://schema.org/description> "returns true if resource1.box has at least one common point with resource2.box, else false." ;
+	<http://purl.org/net/schemas/sparql-extension-description#includedIn> <http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function> .
+
+<http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function> <http://purl.org/net/schemas/sparql-extension-description#includes> <http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#spatialIntersects> .
+
+<http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#spatialTouches> a <http://www.w3.org/ns/sparql-service-description#extensionFunction> ;
+	<http://schema.org/name> "spatialTouches" ;
+	<http://schema.org/description> "returns true if resource1.box.edge has at least one common point with resource2.box.edge and resource1.box.interior has no common point with resource2.box.interior, else false." ;
+	<http://purl.org/net/schemas/sparql-extension-description#includedIn> <http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function> .
+
+<http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function> <http://purl.org/net/schemas/sparql-extension-description#includes> <http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#spatialTouches> .
+
+<http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#starts> a <http://www.w3.org/ns/sparql-service-description#extensionFunction> ;
+	<http://schema.org/name> "starts" ;
+	<http://schema.org/description> "returns true if resource1.start == resource2.start and resource1.end < resource2.end , else false." ;
+	<http://purl.org/net/schemas/sparql-extension-description#includedIn> <http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function> .
+
+<http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function> <http://purl.org/net/schemas/sparql-extension-description#includes> <http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#starts> .
+
+<http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#temporalBoundingBox> a <http://www.w3.org/ns/sparql-service-description#extensionAggregate> ;
+	<http://schema.org/name> "temporalBoundingBox" ;
+	<http://schema.org/description> "returns new MediaFragmentURI with temporal fragment ( Min( resource1.start, resource2.start ), Max( resource1.end, resource2.end ) )." ;
+	<http://purl.org/net/schemas/sparql-extension-description#includedIn> <http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function> .
+
+<http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function> <http://purl.org/net/schemas/sparql-extension-description#includes> <http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#temporalBoundingBox> .
+
+<http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#temporalContains> a <http://www.w3.org/ns/sparql-service-description#extensionFunction> ;
+	<http://schema.org/name> "temporalContains" ;
+	<http://schema.org/description> "returns true if resource1.start <= resource2.start and resource1.end >= resource2.end, else false." ;
+	<http://purl.org/net/schemas/sparql-extension-description#includedIn> <http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function> .
+
+<http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function> <http://purl.org/net/schemas/sparql-extension-description#includes> <http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#temporalContains> .
+
+<http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#temporalEqual> a <http://www.w3.org/ns/sparql-service-description#extensionFunction> ;
+	<http://schema.org/name> "temporalEqual" ;
+	<http://schema.org/description> "returns true if resource1.start == resource2.start and resource1.end == resource2.end, else false." ;
+	<http://purl.org/net/schemas/sparql-extension-description#includedIn> <http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function> .
+
+<http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function> <http://purl.org/net/schemas/sparql-extension-description#includes> <http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#temporalEqual> .
+
+<http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#temporalIntermediate> a <http://www.w3.org/ns/sparql-service-description#extensionAggregate> ;
+	<http://schema.org/name> "temporalIntermediate" ;
+	<http://schema.org/description> "returns new MediaFragmentURI with temporal fragment ( Min( resource1.end, resource2.end ), Max( resource1.start, resource2.start ) ) if intersection not exists, else null." ;
+	<http://purl.org/net/schemas/sparql-extension-description#includedIn> <http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function> .
+
+<http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function> <http://purl.org/net/schemas/sparql-extension-description#includes> <http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#temporalIntermediate> .
+
+<http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#temporalIntersection> a <http://www.w3.org/ns/sparql-service-description#extensionAggregate> ;
+	<http://schema.org/name> "temporalIntersection" ;
+	<http://schema.org/description> "returns new MediaFragmentURI with temporal fragment ( Max( resource1.start, resource2.start ), Min( resource1.end, resource2.end ) ) if intersection exists, else null." ;
+	<http://purl.org/net/schemas/sparql-extension-description#includedIn> <http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function> .
+
+<http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function> <http://purl.org/net/schemas/sparql-extension-description#includes> <http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#temporalIntersection> .
+
+<http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#temporalOverlaps> a <http://www.w3.org/ns/sparql-service-description#extensionFunction> ;
+	<http://schema.org/name> "temporalOverlaps" ;
+	<http://schema.org/description> "returns true if resource1.start < resource2.start < resource1.end < resource2.end or resource2.start < resource1.start < resource2.end < resource1.end, else false." ;
+	<http://purl.org/net/schemas/sparql-extension-description#includedIn> <http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function> .
+
+<http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function> <http://purl.org/net/schemas/sparql-extension-description#includes> <http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#temporalOverlaps> .
+
+<http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#top> a <http://www.w3.org/ns/sparql-service-description#extensionFunction> ;
+	<http://schema.org/name> "top" ;
+	<http://schema.org/description> "returns true if resource.y + resource.h <= 50%." ;
+	<http://purl.org/net/schemas/sparql-extension-description#includedIn> <http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function> .
+
+<http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function> <http://purl.org/net/schemas/sparql-extension-description#includes> <http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#top> .

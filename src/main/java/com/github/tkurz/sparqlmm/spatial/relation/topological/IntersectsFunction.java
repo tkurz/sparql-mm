@@ -3,6 +3,7 @@ package com.github.tkurz.sparqlmm.spatial.relation.topological;
 import com.github.tkurz.media.fragments.base.MediaFragmentURI;
 import com.github.tkurz.media.fragments.exceptions.FunctionException;
 import com.github.tkurz.media.fragments.exceptions.MediaFragmentURISyntaxException;
+import com.github.tkurz.sparqlmm.utils.FunctionDoc;
 import com.google.common.base.Preconditions;
 import com.github.tkurz.sparqlmm.Constants;
 import com.github.tkurz.sparqlmm.spatial.SpatialFunctionHelper;
@@ -17,6 +18,7 @@ import org.openrdf.query.algebra.evaluation.function.Function;
  * <p/>
  * Author: Thomas Kurz (tkurz@apache.org)
  */
+@FunctionDoc(title = "spatialIntersects", reference = FunctionDoc.Reference.spatial, description = "returns true if resource1.box has at least one common point with resource2.box, else false.")
 public class IntersectsFunction implements Function {
 
     /**

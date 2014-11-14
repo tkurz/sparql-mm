@@ -7,6 +7,7 @@ import com.github.tkurz.media.fragments.spatial.SpatialFragment;
 import com.github.tkurz.media.fragments.temporal.TemporalFragment;
 import com.github.tkurz.media.fragments.utils.MediaFragments;
 import com.github.tkurz.sparqlmm.combined.CombinedFunctionHelper;
+import com.github.tkurz.sparqlmm.utils.FunctionDoc;
 import com.google.common.base.Preconditions;
 import com.github.tkurz.sparqlmm.Constants;
 import org.openrdf.model.Value;
@@ -19,6 +20,7 @@ import org.openrdf.query.algebra.evaluation.function.Function;
  * <p/>
  * Author: Thomas Kurz (tkurz@apache.org)
  */
+@FunctionDoc(title = "intersection", reference = FunctionDoc.Reference.combined, description = "returns new MediaFragmentURI with spatial and temporal fragment. It works like spatialFunction:boundingBox, temporalFunction:intersection and both.", type = FunctionDoc.Type.extensionAggregate)
 public class IntersectionFunction implements Function {
     /**
      * return the URI

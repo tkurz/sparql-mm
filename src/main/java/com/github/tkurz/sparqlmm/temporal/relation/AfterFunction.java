@@ -16,7 +16,7 @@ import org.openrdf.query.algebra.evaluation.function.Function;
  * <p/>
  * Author: Thomas Kurz (tkurz@apache.org)
  */
-@FunctionDoc(title = "after", description = "returns *true* if resource1.start >= resource2.end, else *false*.")
+@FunctionDoc(title = "after", reference = FunctionDoc.Reference.temporal, description = "returns *true* if resource1.start >= resource2.end, else *false*.")
 public class AfterFunction implements Function {
 
     /**

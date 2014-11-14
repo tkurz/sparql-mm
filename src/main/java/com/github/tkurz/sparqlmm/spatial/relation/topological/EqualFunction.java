@@ -2,6 +2,7 @@ package com.github.tkurz.sparqlmm.spatial.relation.topological;
 
 import com.github.tkurz.media.fragments.base.MediaFragmentURI;
 import com.github.tkurz.media.fragments.exceptions.MediaFragmentURISyntaxException;
+import com.github.tkurz.sparqlmm.utils.FunctionDoc;
 import com.google.common.base.Preconditions;
 import com.github.tkurz.sparqlmm.Constants;
 import com.github.tkurz.sparqlmm.spatial.SpatialFunctionHelper;
@@ -15,6 +16,7 @@ import org.openrdf.query.algebra.evaluation.function.Function;
  * <p/>
  * Author: Thomas Kurz (tkurz@apache.org)
  */
+@FunctionDoc(title = "spatialEqual", reference = FunctionDoc.Reference.spatial, description = "returns true if resource1.box == resource2.box, else false.")
 public class EqualFunction implements Function {
 
     /**

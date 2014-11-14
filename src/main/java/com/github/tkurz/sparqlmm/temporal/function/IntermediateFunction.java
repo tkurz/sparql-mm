@@ -3,6 +3,7 @@ package com.github.tkurz.sparqlmm.temporal.function;
 import com.github.tkurz.media.fragments.base.MediaFragmentURI;
 import com.github.tkurz.media.fragments.exceptions.MediaFragmentURISyntaxException;
 import com.github.tkurz.media.fragments.temporal.TemporalFragment;
+import com.github.tkurz.sparqlmm.utils.FunctionDoc;
 import com.google.common.base.Preconditions;
 import com.github.tkurz.sparqlmm.Constants;
 import com.github.tkurz.sparqlmm.temporal.TemporalFunctionHelper;
@@ -16,6 +17,7 @@ import org.openrdf.query.algebra.evaluation.function.Function;
  * <p/>
  * Author: Thomas Kurz (tkurz@apache.org)
  */
+@FunctionDoc(title = "temporalIntermediate", reference = FunctionDoc.Reference.temporal, description = "returns new MediaFragmentURI with temporal fragment ( Min( resource1.end, resource2.end ), Max( resource1.start, resource2.start ) ) if intersection not exists, else null.", type = FunctionDoc.Type.extensionAggregate)
 public class IntermediateFunction implements Function {
 
     /**

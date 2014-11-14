@@ -17,18 +17,32 @@ import java.lang.annotation.Target;
 @Target(ElementType.TYPE)
 public @interface FunctionDoc {
 
+    public static enum Reference {
+        spatial, temporal, combined;
+
+        public String getName() {
+            return Character.toString(this.name().charAt(0)).toUpperCase()+this.name().substring(1);
+        }
+    }
+
     public static enum Type {
-        extensionFunction(SSD.extensionFunction),
-        extensionAggregate(SSD.extensionAggregate);
+        extensionFunction("Relation", SSD.extensionFunction),
+        extensionAggregate("Aggregation", SSD.extensionAggregate);
 
         private URI uri;
+        private String name;
 
-        Type(URI uri) {
+        Type(String name, URI uri) {
+            this.name = name;
             this.uri = uri;
         }
 
         public URI getUri() {
             return uri;
+        }
+
+        public String getName() {
+            return name;
         }
     }
 
@@ -49,5 +63,11 @@ public @interface FunctionDoc {
      * @return
      */
     public Type type() default Type.extensionFunction;
+
+    /**
+     * provides
+     * @return
+     */
+    public Reference reference();
 
 }
