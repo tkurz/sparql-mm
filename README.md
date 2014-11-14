@@ -6,28 +6,28 @@ By now it supports relation and aggregation functions for Media Fragments [URI 1
 
 ## Examples
 Here we just show a few functions that are supported. Get more examples within the [tests](https://github.com/tkurz/sparql-mm/blob/master/src/test/java/com/github/tkurz/sparqlmm).
-All list of all supported functions can be found [here](https://github.com/tkurz/sparql-mm/blob/master/sparql-mm/functions.md).
+All list of all supported functions can be found [here](https://github.com/tkurz/sparql-mm/blob/master/ns/1.0.0/function).
 
 ### Temporal Relations
 
 ```SPARQL
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX mmt: <http://linkedmultimedia.org/sparql-mm/functions/temporal#>
+PREFIX mmf: <http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#>
 
 SELECT ?t1 ?t2 WHERE {
     ?f1 rdfs:label ?t1.
     ?f2 rdfs:label ?t2.
-    FILTER mmt:before(?f1,?f2)
+    FILTER mm:before(?f1,?f2)
 } ORDER BY ?t1 ?t2
 ```
 
-### Temporal Functions
+### Temporal Aggregation
 
 ```SPARQL
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX mmt:  <http://linkedmultimedia.org/sparql-mm/functions/temporal#>
+PREFIX mmf:  <http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#>
 
-SELECT ?f1 ?f2 (mmt:boundingBox(?f1,?f2) AS ?box) WHERE {
+SELECT ?f1 ?f2 (mmf:intermediate(?f1,?f2) AS ?box) WHERE {
     ?f1 rdfs:label "a".
     ?f2 rdfs:label "b".
 }
@@ -37,32 +37,22 @@ SELECT ?f1 ?f2 (mmt:boundingBox(?f1,?f2) AS ?box) WHERE {
 
 ```SPARQL
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX mms: <http://linkedmultimedia.org/sparql-mm/functions/spatial#>
+PREFIX mmf: <http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#>
 
 SELECT ?t1 ?t2 WHERE {
     ?f1 rdfs:label ?t1.
     ?f2 rdfs:label ?t2.
-    FILTER mms:covers(?f1,?f2)
+    FILTER mmf:rightBeside(?f1,?f2)
 } ORDER BY ?t1 ?t2
 ```
 
-```SPARQL
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX mms: <http://linkedmultimedia.org/sparql-mm/functions/spatial#>
-
-SELECT ?t WHERE {
-    ?f rdfs:label ?t.
-    FILTER mms:top(?f1)
-} ORDER BY ?t1 ?t2
-```
-
-### Spatial Functions
+### Combined Aggregation
 
 ```SPARQL
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX mmt:  <http://linkedmultimedia.org/sparql-mm/functions/temporal#>
+PREFIX mmf:  <http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#>
 
-SELECT ?f1 ?f2 (mms:intersection(?f1,?f2) AS ?box) WHERE {
+SELECT ?f1 ?f2 (mmf:boundingBox(?f1,?f2) AS ?box) WHERE {
     ?f1 rdfs:label "a".
     ?f2 rdfs:label "b".
 }
