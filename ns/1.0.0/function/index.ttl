@@ -1,0 +1,16 @@
+
+<http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function> a <http://purl.org/net/schemas/sparql-extension-description#FunctionLibrary> ;
+	<http://schema.org/name> "SPARQL-MM Function Library for Media Fragments" ;
+	<http://schema.org/description> "SPARQL Function Library for handling Media Fragments URI like they are recommended from W3C at http://www.w3.org/TR/media-frags/ Media Fragments URI 1.0 (basic) recommendation." ;
+	<http://schema.org/version> "1.0.0" ;
+	<http://schema.org/creator> <http://github.com/tkurz> ;
+	<http://schema.org/provider> <http://mico-project.eu> ;
+	<http://schema.org/license> <http://www.apache.org/licenses/LICENSE-2.0> ;
+	<http://schema.org/url> <http://github.com/tkurz/sparql-mm> .
+
+<http://linkedmultimedia.org/sparql-mm/functions#after> a <http://www.w3.org/ns/sparql-service-description#extensionFunction> ;
+	<http://schema.org/name> "after" ;
+	<http://schema.org/description> "returns *true* if resource1.start >= resource2.end, else *false*." ;
+	<http://purl.org/net/schemas/sparql-extension-description#includedIn> <http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function> .
+
+<http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function> <http://purl.org/net/schemas/sparql-extension-description#includes> <http://linkedmultimedia.org/sparql-mm/functions#after> .

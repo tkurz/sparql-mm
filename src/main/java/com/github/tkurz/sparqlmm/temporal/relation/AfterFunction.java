@@ -2,6 +2,7 @@ package com.github.tkurz.sparqlmm.temporal.relation;
 
 import com.github.tkurz.media.fragments.base.MediaFragmentURI;
 import com.github.tkurz.media.fragments.exceptions.MediaFragmentURISyntaxException;
+import com.github.tkurz.sparqlmm.utils.FunctionDoc;
 import com.google.common.base.Preconditions;
 import com.github.tkurz.sparqlmm.Constants;
 import com.github.tkurz.sparqlmm.temporal.TemporalFunctionHelper;
@@ -15,9 +16,11 @@ import org.openrdf.query.algebra.evaluation.function.Function;
  * <p/>
  * Author: Thomas Kurz (tkurz@apache.org)
  */
+@FunctionDoc(title = "after", description = "returns *true* if resource1.start >= resource2.end, else *false*.")
 public class AfterFunction implements Function {
 
     /**
+     * @type
      * return the URI
      */
     public String getURI() {

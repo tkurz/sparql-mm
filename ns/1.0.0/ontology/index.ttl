@@ -1,0 +1,468 @@
+@prefix : <http://linkedmultimedia.org/sparql-mm/1.0.0/ontology#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://linkedmultimedia.org/sparql-mm/ns/1.0.0/ontology> .
+
+<http://linkedmultimedia.org/sparql-mm/ns/1.0.0/ontology> rdf:type owl:Ontology .
+
+
+#################################################################
+#
+#    Object Properties
+#
+#################################################################
+
+
+###  http://linkedmultimedia.org/sparql-mm/ns/1.0.0/ontology#hasEndPoint
+
+:hasEndPoint rdf:type owl:ObjectProperty ;
+             
+             rdfs:label "hasEndPoint" ;
+             
+             rdfs:comment "A shape has a two dimensional Vector as endpoint (e.g. a line)." ;
+             
+             rdfs:domain :Line ;
+             
+             rdfs:subPropertyOf :hasVector_2D .
+
+
+
+###  http://linkedmultimedia.org/sparql-mm/ns/1.0.0/ontology#hasEndTime
+
+:hasEndTime rdf:type owl:ObjectProperty ;
+            
+            rdfs:label "hasEndTime" ;
+            
+            rdfs:comment "A time class has a certain Time as endpoint." ;
+            
+            rdfs:domain :Interval ;
+            
+            rdfs:subPropertyOf :hasTime .
+
+
+
+###  http://linkedmultimedia.org/sparql-mm/ns/1.0.0/ontology#hasHeight
+
+:hasHeight rdf:type owl:ObjectProperty ;
+           
+           rdfs:label "hasHeight" ;
+           
+           rdfs:comment "A shape has a one dimensional vector as height (e.g. a rectangle)." ;
+           
+           rdfs:domain :Rectangle ;
+           
+           rdfs:subPropertyOf :hasVector_1D .
+
+
+
+###  http://linkedmultimedia.org/sparql-mm/ns/1.0.0/ontology#hasRadius
+
+:hasRadius rdf:type owl:ObjectProperty ;
+           
+           rdfs:label "hasRadius" ;
+           
+           rdfs:comment "A shape has a one dimensional vector as radius (e.g. a circle)." ;
+           
+           rdfs:domain :Circle ;
+           
+           rdfs:subPropertyOf :hasVector_1D .
+
+
+
+###  http://linkedmultimedia.org/sparql-mm/ns/1.0.0/ontology#hasStartPoint
+
+:hasStartPoint rdf:type owl:ObjectProperty ;
+               
+               rdfs:label "hasStartPoint" ;
+               
+               rdfs:comment "A shape has a two dimensional Vector as startpoint (e.g. a line)." ;
+               
+               rdfs:domain :Line ;
+               
+               rdfs:subPropertyOf :hasVector_2D .
+
+
+
+###  http://linkedmultimedia.org/sparql-mm/ns/1.0.0/ontology#hasStartTime
+
+:hasStartTime rdf:type owl:ObjectProperty ;
+              
+              rdfs:label "hasStartTime" ;
+              
+              rdfs:comment "A time class has a certain Time as startpoint." ;
+              
+              rdfs:domain :Interval ;
+              
+              rdfs:subPropertyOf :hasTime .
+
+
+
+###  http://linkedmultimedia.org/sparql-mm/ns/1.0.0/ontology#hasTime
+
+:hasTime rdf:type owl:ObjectProperty ;
+         
+         rdfs:label "hasTime" ;
+         
+         rdfs:comment "A time class has a certain Time." ;
+         
+         rdfs:domain :Instant ;
+         
+         rdfs:range :Time .
+
+
+
+###  http://linkedmultimedia.org/sparql-mm/ns/1.0.0/ontology#hasVector
+
+:hasVector rdf:type owl:ObjectProperty ;
+           
+           rdfs:label "hasVector" ;
+           
+           rdfs:comment "A superclass of any relation between Thing and Vector." ;
+           
+           rdfs:range :Vector .
+
+
+
+###  http://linkedmultimedia.org/sparql-mm/ns/1.0.0/ontology#hasVector_1D
+
+:hasVector_1D rdf:type owl:ObjectProperty ;
+              
+              rdfs:label "hasVector 1D" ;
+              
+              rdfs:comment "A supertype for any relation between Thing an one dimensional Vectors." ;
+              
+              rdfs:range :Vector_1D ;
+              
+              rdfs:subPropertyOf :hasVector .
+
+
+
+###  http://linkedmultimedia.org/sparql-mm/ns/1.0.0/ontology#hasVector_2D
+
+:hasVector_2D rdf:type owl:ObjectProperty ;
+              
+              rdfs:label "hasVector 2D" ;
+              
+              rdfs:comment "A supertype for any relation between Thing an two dimensional Vectors." ;
+              
+              rdfs:range :Vector_2D ;
+              
+              rdfs:subPropertyOf :hasVector .
+
+
+
+###  http://linkedmultimedia.org/sparql-mm/ns/1.0.0/ontology#hasWidth
+
+:hasWidth rdf:type owl:ObjectProperty ;
+          
+          rdfs:label "hasWidth" ;
+          
+          rdfs:comment "A shape has a one dimensional vector as width (e.g. a rectangle)." ;
+          
+          rdfs:domain :Rectangle ;
+          
+          rdfs:subPropertyOf :hasVector_1D .
+
+
+
+###  http://linkedmultimedia.org/sparql-mm/ns/1.0.0/ontology#hasXY
+
+:hasXY rdf:type owl:ObjectProperty ;
+       
+       rdfs:label "hasXY" ;
+       
+       rdfs:comment "A shape has a two dimensional Vector (e.g. center of a circle)." ;
+       
+       rdfs:domain :Circle ,
+                   :Point ,
+                   :Rectangle ;
+       
+       rdfs:subPropertyOf :hasVector_2D .
+
+
+
+
+
+#################################################################
+#
+#    Classes
+#
+#################################################################
+
+
+###  http://linkedmultimedia.org/sparql-mm/ns/1.0.0/ontology#Circle
+
+:Circle rdf:type owl:Class ;
+        
+        rdfs:label "Circle" ;
+        
+        rdfs:subClassOf :Curved ;
+        
+        rdfs:comment "A circle is defined by a two dimensional vector (center) and a one dimensional vector (radius)." .
+
+
+
+###  http://linkedmultimedia.org/sparql-mm/ns/1.0.0/ontology#Curved
+
+:Curved rdf:type owl:Class ;
+        
+        rdfs:label "Curved" ;
+        
+        rdfs:subClassOf :Shape ;
+        
+        owl:disjointWith :Polygon ;
+        
+        rdfs:comment "A superclass for all curved shapes." .
+
+
+
+###  http://linkedmultimedia.org/sparql-mm/ns/1.0.0/ontology#Instant
+
+:Instant rdf:type owl:Class ;
+         
+         rdfs:label "Instant" ;
+         
+         rdfs:subClassOf :TemporalEntity ;
+         
+         owl:disjointWith :Interval ;
+         
+         rdfs:comment "An Instant is defined by a Time." .
+
+
+
+###  http://linkedmultimedia.org/sparql-mm/ns/1.0.0/ontology#Interval
+
+:Interval rdf:type owl:Class ;
+          
+          rdfs:label "Interval" ;
+          
+          rdfs:subClassOf :TemporalEntity ;
+          
+          rdfs:comment "An Interval is defined by 2 Times (start and end)." .
+
+
+
+###  http://linkedmultimedia.org/sparql-mm/ns/1.0.0/ontology#Line
+
+:Line rdf:type owl:Class ;
+      
+      rdfs:label "Line" ;
+      
+      rdfs:subClassOf :SpatialEntity ;
+      
+      rdfs:comment "A line is defined by 2 two dimensional vectors (start and endpoint)." .
+
+
+
+###  http://linkedmultimedia.org/sparql-mm/ns/1.0.0/ontology#NPT
+
+:NPT rdf:type owl:Class ;
+     
+     rdfs:label "NPT" ;
+     
+     rdfs:subClassOf :Time ;
+     
+     rdfs:comment "Normal Play Time (NPT) like described in: Real Time Streaming Protocol (RTSP). IETF RFC 2326, April 1998. Available at http://www.ietf.org/rfc/rfc2326.txt." .
+
+
+
+###  http://linkedmultimedia.org/sparql-mm/ns/1.0.0/ontology#Point
+
+:Point rdf:type owl:Class ;
+       
+       rdfs:label "Point" ;
+       
+       rdfs:subClassOf :SpatialEntity ;
+       
+       rdfs:comment "A Point is defined by 1 two dimensional vector." .
+
+
+
+###  http://linkedmultimedia.org/sparql-mm/ns/1.0.0/ontology#Polygon
+
+:Polygon rdf:type owl:Class ;
+         
+         rdfs:label "Polygon" ;
+         
+         rdfs:subClassOf :Shape ;
+         
+         rdfs:comment "A superclass for all polygonial shapes." .
+
+
+
+###  http://linkedmultimedia.org/sparql-mm/ns/1.0.0/ontology#Rectangle
+
+:Rectangle rdf:type owl:Class ;
+           
+           rdfs:label "Rectangle" ;
+           
+           rdfs:subClassOf :Polygon ;
+           
+           rdfs:comment "A Rectangle is defined by a two dimensional vector (left-upper point) and 2 one dimensional vectors (width and height)." .
+
+
+
+###  http://linkedmultimedia.org/sparql-mm/ns/1.0.0/ontology#SMPTE
+
+:SMPTE rdf:type owl:Class ;
+       
+       rdfs:label "SMPTE" ;
+       
+       rdfs:subClassOf :Time ;
+       
+       rdfs:comment "SMPTE RP 136 Time and Control Codes for 24, 25 or 30 Frame-Per-Second Motion-Picture Systems." .
+
+
+
+###  http://linkedmultimedia.org/sparql-mm/ns/1.0.0/ontology#Shape
+
+:Shape rdf:type owl:Class ;
+       
+       rdfs:label "Shape" ;
+       
+       rdfs:subClassOf :SpatialEntity ;
+       
+       rdfs:comment "A superclass for all shapes." .
+
+
+
+###  http://linkedmultimedia.org/sparql-mm/ns/1.0.0/ontology#SpatialEntity
+
+:SpatialEntity rdf:type owl:Class ;
+               
+               rdfs:label "Spatial Entity" ;
+               
+               rdfs:subClassOf :SpatialThing ;
+               
+               rdfs:comment "A superclass of any spatial entities like point, line, polygone, curcle, etc." .
+
+
+
+###  http://linkedmultimedia.org/sparql-mm/ns/1.0.0/ontology#SpatialThing
+
+:SpatialThing rdf:type owl:Class ;
+              
+              rdfs:label "Spatial Thing" ;
+              
+              rdfs:comment "A superclass for any spatial thing." .
+
+
+
+###  http://linkedmultimedia.org/sparql-mm/ns/1.0.0/ontology#TemporalEntity
+
+:TemporalEntity rdf:type owl:Class ;
+                
+                rdfs:label "Temporal Entity" ;
+                
+                rdfs:subClassOf :TemporalThing ;
+                
+                owl:disjointWith :Time ;
+                
+                rdfs:comment "A superclass of any the temporal entity like instant, interval, etc." ;
+                
+                owl:disjointUnionOf ( :Instant
+                                      :Interval
+                                    ) .
+
+
+
+###  http://linkedmultimedia.org/sparql-mm/ns/1.0.0/ontology#TemporalThing
+
+:TemporalThing rdf:type owl:Class ;
+               
+               rdfs:label "Temporal Thing" ;
+               
+               rdfs:comment "A superclass for any temporal thing." .
+
+
+
+###  http://linkedmultimedia.org/sparql-mm/ns/1.0.0/ontology#Time
+
+:Time rdf:type owl:Class ;
+      
+      rdfs:label "Time" ;
+      
+      rdfs:subClassOf :TemporalThing ;
+      
+      rdfs:comment "A superclass for any kind of time specification." .
+
+
+
+###  http://linkedmultimedia.org/sparql-mm/ns/1.0.0/ontology#UTC
+
+:UTC rdf:type owl:Class ;
+     
+     rdfs:label "UTC" ;
+     
+     rdfs:subClassOf :Time ;
+     
+     rdfs:comment "Coordinated Universal Time (UTC) like defined in: Real Time Streaming Protocol (RTSP). IETF RFC 2326, April 1998. Available at http://www.ietf.org/rfc/rfc2326.txt." .
+
+
+
+###  http://linkedmultimedia.org/sparql-mm/ns/1.0.0/ontology#Vector
+
+:Vector rdf:type owl:Class ;
+        
+        rdfs:label "Vector" ;
+        
+        rdfs:subClassOf :SpatialThing ;
+        
+        rdfs:comment "A superclass for vectors." .
+
+
+
+###  http://linkedmultimedia.org/sparql-mm/ns/1.0.0/ontology#Vector_1D
+
+:Vector_1D rdf:type owl:Class ;
+           
+           rdfs:label "Vector 1D" ;
+           
+           rdfs:subClassOf :Vector ;
+           
+           rdfs:comment "A one dimensional vector." .
+
+
+
+###  http://linkedmultimedia.org/sparql-mm/ns/1.0.0/ontology#Vector_2D
+
+:Vector_2D rdf:type owl:Class ;
+           
+           rdfs:label "Vector 2D" ;
+           
+           rdfs:subClassOf :Vector ;
+           
+           rdfs:comment "A two dimensional vector." .
+
+
+
+
+
+#################################################################
+#
+#    General axioms
+#
+#################################################################
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Line
+                :Point
+                :Shape
+              )
+] .
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :NPT
+                :SMPTE
+                :UTC
+              )
+] .
+
+
+
+
+###  Generated by the OWL API (version 3.5.0) http://owlapi.sourceforge.net
+
