@@ -6,7 +6,7 @@ By now it supports relation and aggregation functions for Media Fragments [URI 1
 
 ## Examples
 Here we just show a few functions that are supported. Get more examples within the [tests](https://github.com/tkurz/sparql-mm/blob/master/src/test/java/com/github/tkurz/sparqlmm).
-All list of all supported functions can be found [here](https://github.com/tkurz/sparql-mm/blob/master/ns/1.0.0/function).
+All list of all supported functions can be found [here](https://github.com/tkurz/sparql-mm/blob/master/ns/1.0.0/function/index.md).
 
 ### Temporal Relations
 
