@@ -4,7 +4,7 @@
 
     <groupId>com.github.tkurz</groupId>
     <artifactId>sparql-mm</artifactId>
-    <version>1.0</version>
+    <version>1.1-SNAPSHOT</version>
 
     <parent>
         <groupId>org.sonatype.oss</groupId>
