@@ -1,8 +1,7 @@
 package com.github.tkurz.sparqlmm;
 
 import com.github.tkurz.media.fragments.exceptions.MediaFragmentURISyntaxException;
-import com.github.tkurz.sparqlmm.Constants;
-import com.github.tkurz.sparqlmm.spatial.relation.topological.*;
+import com.github.tkurz.sparqlmm.function.spatial.relation.topological.*;
 import org.junit.*;
 import org.openrdf.query.*;
 import org.openrdf.query.algebra.evaluation.function.FunctionRegistry;
@@ -34,7 +33,7 @@ public class SpatialTopologicalRelationTest {
     public static void beforeClass() {
         FunctionRegistry.getInstance().add(new CoversFunction());
         FunctionRegistry.getInstance().add(new DisjointFunction());
-        FunctionRegistry.getInstance().add(new EqualFunction());
+        FunctionRegistry.getInstance().add(new SpatialEqualsFunction());
         FunctionRegistry.getInstance().add(new IntersectsFunction());
         FunctionRegistry.getInstance().add(new TouchesFunction());
     }
@@ -68,7 +67,8 @@ public class SpatialTopologicalRelationTest {
                 "SELECT ?t1 ?t2 WHERE {" +
                 "   ?f1 rdfs:label ?t1." +
                 "   ?f2 rdfs:label ?t2." +
-                "   FILTER mm:spatialCovers(?f1,?f2)" +
+                "   FILTER mm:covers(?f1,?f2)" +
+                "   FILTER (?f1 != ?f2)" +
                 "} ORDER BY ?t1 ?t2";
         TupleQuery q = connection.prepareTupleQuery(QueryLanguage.SPARQL,query);
         TupleQueryResult r = q.evaluate();
@@ -92,7 +92,7 @@ public class SpatialTopologicalRelationTest {
                         "SELECT ?t1 ?t2 WHERE {" +
                         "   ?f1 rdfs:label ?t1." +
                         "   ?f2 rdfs:label ?t2." +
-                        "   FILTER mm:spatialCovers(?f1,?f2, true)" +
+                        "   FILTER mm:covers(?f1,?f2)" +
                         "} ORDER BY ?t1 ?t2";
         TupleQuery q2 = connection.prepareTupleQuery(QueryLanguage.SPARQL,query2);
         TupleQueryResult r2 = q2.evaluate();
@@ -153,7 +153,7 @@ public class SpatialTopologicalRelationTest {
                 "SELECT ?t1 ?t2 WHERE {" +
                 "   ?f1 rdfs:label ?t1." +
                 "   ?f2 rdfs:label ?t2." +
-                "   FILTER mm:spatialEqual(?f1,?f2)" +
+                "   FILTER mm:spatialEquals(?f1,?f2)" +
                 "} ORDER BY ?t1 ?t2";
         TupleQuery q = connection.prepareTupleQuery(QueryLanguage.SPARQL,query);
         TupleQueryResult r = q.evaluate();
@@ -177,7 +177,8 @@ public class SpatialTopologicalRelationTest {
                 "SELECT ?t1 ?t2 WHERE {" +
                 "   ?f1 rdfs:label ?t1." +
                 "   ?f2 rdfs:label ?t2." +
-                "   FILTER mm:spatialIntersects(?f1,?f2)" +
+                "   FILTER mm:intersects(?f1,?f2)" +
+                "   FILTER (?f1 != ?f2)" +
                 "} ORDER BY ?t1 ?t2";
         TupleQuery q = connection.prepareTupleQuery(QueryLanguage.SPARQL,query);
         TupleQueryResult r = q.evaluate();
@@ -205,7 +206,7 @@ public class SpatialTopologicalRelationTest {
                         "SELECT ?t1 ?t2 WHERE {" +
                         "   ?f1 rdfs:label ?t1." +
                         "   ?f2 rdfs:label ?t2." +
-                        "   FILTER mm:spatialIntersects(?f1,?f2,true)" +
+                        "   FILTER mm:intersects(?f1,?f2)" +
                         "} ORDER BY ?t1 ?t2";
         TupleQuery q2 = connection.prepareTupleQuery(QueryLanguage.SPARQL,query2);
         TupleQueryResult r2 = q2.evaluate();
@@ -229,7 +230,7 @@ public class SpatialTopologicalRelationTest {
                 "SELECT ?t1 ?t2 WHERE {" +
                 "   ?f1 rdfs:label ?t1." +
                 "   ?f2 rdfs:label ?t2." +
-                "   FILTER mm:spatialTouches(?f1,?f2)" +
+                "   FILTER mm:touches(?f1,?f2)" +
                 "} ORDER BY ?t1 ?t2";
         TupleQuery q = connection.prepareTupleQuery(QueryLanguage.SPARQL,query);
         TupleQueryResult r = q.evaluate();

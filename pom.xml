@@ -23,17 +23,6 @@
         <system>GitHub Issues</system>
     </issueManagement>
 
-    <pluginRepositories>
-        <pluginRepository>
-            <id>oss-sonatype</id>
-            <name>oss-sonatype</name>
-            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </pluginRepository>
-    </pluginRepositories>
-
     <licenses>
         <license>
             <name>Apache License, Version 2.0</name>
@@ -138,12 +127,17 @@
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
-            <version>15.0</version>
+            <version>18.0</version>
+        </dependency>
+        <dependency>
+            <groupId>batik</groupId>
+            <artifactId>batik-parser</artifactId>
+            <version>1.6-1</version>
         </dependency>
         <dependency>
             <groupId>com.github.tkurz</groupId>
             <artifactId>media-fragments-uri</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>2.0</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>

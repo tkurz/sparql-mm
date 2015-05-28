@@ -1,7 +1,15 @@
+body {
+    color: #222;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
 table {
     border: 1px solid black;
+    border-collapse: collapse;
 }
+
 table th, td {
     border: 1px solid black;
     text-align: left;
+    padding: 5px 10px;
 }

@@ -1,8 +1,7 @@
 package com.github.tkurz.sparqlmm;
 
 import com.github.tkurz.media.fragments.exceptions.MediaFragmentURISyntaxException;
-import com.github.tkurz.sparqlmm.Constants;
-import com.github.tkurz.sparqlmm.spatial.relation.directional.*;
+import com.github.tkurz.sparqlmm.function.spatial.relation.directional.*;
 import org.junit.*;
 import org.openrdf.query.*;
 import org.openrdf.query.algebra.evaluation.function.FunctionRegistry;
@@ -33,14 +32,14 @@ public class SpatialDirectionalRelationTest {
 
     @BeforeClass
     public static void beforeClass() {
-        FunctionRegistry.getInstance().add(new BottomFunction());
-        FunctionRegistry.getInstance().add(new IsAboveFunction());
-        FunctionRegistry.getInstance().add(new IsBelowFunction());
+        FunctionRegistry.getInstance().add(new AboveFunction());
+        FunctionRegistry.getInstance().add(new BelowFunction());
         FunctionRegistry.getInstance().add(new LeftBesideFunction());
-        FunctionRegistry.getInstance().add(new LeftFunction());
         FunctionRegistry.getInstance().add(new RightBesideFunction());
-        FunctionRegistry.getInstance().add(new RightFunction());
-        FunctionRegistry.getInstance().add(new TopFunction());
+        FunctionRegistry.getInstance().add(new RightBelowFunction());
+        FunctionRegistry.getInstance().add(new LeftBelowFunction());
+        FunctionRegistry.getInstance().add(new RightAboveFunction());
+        FunctionRegistry.getInstance().add(new LeftAboveFunction());
     }
 
     private void importFile(String filename) throws RepositoryException, RDFParseException, IOException {
@@ -129,7 +128,7 @@ public class SpatialDirectionalRelationTest {
         String query =
                 "PREFIX ma: <http://www.w3.org/ns/ma-ont#>" +
                         "PREFIX mm: <" + Constants.NAMESPACE + ">" +
-                        "SELECT ?t1 ?t2 (mm:isAbove(?f1,?f2) AS ?test) WHERE {" +
+                        "SELECT ?t1 ?t2 (mm:above(?f1,?f2) AS ?test) WHERE {" +
                         "   ?f1 rdfs:label \"1_1\";" +
                         "       rdfs:label ?t1." +
                         "   ?f2 a ma:MediaFragment;" +
@@ -159,7 +158,7 @@ public class SpatialDirectionalRelationTest {
         String query =
                 "PREFIX ma: <http://www.w3.org/ns/ma-ont#>" +
                         "PREFIX mm: <" + Constants.NAMESPACE + ">" +
-                        "SELECT ?t1 ?t2 (mm:isBelow(?f1,?f2) AS ?test) WHERE {" +
+                        "SELECT ?t1 ?t2 (mm:below(?f1,?f2) AS ?test) WHERE {" +
                         "   ?f1 rdfs:label \"1_3\";" +
                         "       rdfs:label ?t1." +
                         "   ?f2 a ma:MediaFragment;" +
@@ -182,47 +181,19 @@ public class SpatialDirectionalRelationTest {
     }
 
     @Test
-    public void testTopFunction() throws MalformedQueryException, RepositoryException, QueryEvaluationException, MediaFragmentURISyntaxException, RDFParseException, IOException {
+    public void testIsLeftBelowFunction() throws MalformedQueryException, RepositoryException, QueryEvaluationException, MediaFragmentURISyntaxException, RDFParseException, IOException {
 
-        importFile(TEST5);
-
-        String query =
-                "PREFIX ma: <http://www.w3.org/ns/ma-ont#>" +
-                "PREFIX mm: <" + Constants.NAMESPACE + ">" +
-                "SELECT ?t (mm:top(?f) AS ?test) WHERE {" +
-                "   ?f rdfs:label ?t;" +
-                "      a ma:MediaFragment;" +
-                "} ORDER BY ?t";
-        TupleQuery q = connection.prepareTupleQuery(QueryLanguage.SPARQL,query);
-        TupleQueryResult r = q.evaluate();
-
-        ArrayList<BindingSet> list = new ArrayList<BindingSet>();
-        while(r.hasNext()) {
-            list.add(r.next());
-        }
-
-        Assert.assertTrue(list.size() == 6);
-
-        Assert.assertEquals("true",list.get(0).getBinding("test").getValue().stringValue());
-        Assert.assertEquals("true",list.get(1).getBinding("test").getValue().stringValue());
-        Assert.assertEquals("false",list.get(2).getBinding("test").getValue().stringValue());
-        Assert.assertEquals("false",list.get(3).getBinding("test").getValue().stringValue());
-        Assert.assertEquals("false",list.get(4).getBinding("test").getValue().stringValue());
-        Assert.assertEquals("false",list.get(5).getBinding("test").getValue().stringValue());
-    }
-
-    @Test
-    public void testLeftFunction() throws MalformedQueryException, RepositoryException, QueryEvaluationException, MediaFragmentURISyntaxException, RDFParseException, IOException {
-
-        importFile(TEST5);
+        importFile(TEST4);
 
         String query =
                 "PREFIX ma: <http://www.w3.org/ns/ma-ont#>" +
                         "PREFIX mm: <" + Constants.NAMESPACE + ">" +
-                        "SELECT ?t (mm:left(?f) AS ?test) WHERE {" +
-                        "   ?f rdfs:label ?t;" +
-                        "      a ma:MediaFragment;" +
-                        "} ORDER BY ?t";
+                        "SELECT ?t1 ?t2 (mm:leftBelow(?f1,?f2) AS ?test) WHERE {" +
+                        "   ?f1 rdfs:label \"1_3\";" +
+                        "       rdfs:label ?t1." +
+                        "   ?f2 a ma:MediaFragment;" +
+                        "       rdfs:label ?t2." +
+                        "} ORDER BY ?t2";
         TupleQuery q = connection.prepareTupleQuery(QueryLanguage.SPARQL,query);
         TupleQueryResult r = q.evaluate();
 
@@ -231,58 +202,28 @@ public class SpatialDirectionalRelationTest {
             list.add(r.next());
         }
 
-        Assert.assertTrue(list.size() == 6);
-
-        Assert.assertEquals("true",list.get(0).getBinding("test").getValue().stringValue());
-        Assert.assertEquals("false",list.get(1).getBinding("test").getValue().stringValue());
-        Assert.assertEquals("true",list.get(2).getBinding("test").getValue().stringValue());
-        Assert.assertEquals("false",list.get(3).getBinding("test").getValue().stringValue());
-        Assert.assertEquals("false",list.get(4).getBinding("test").getValue().stringValue());
-        Assert.assertEquals("false",list.get(5).getBinding("test").getValue().stringValue());
-    }
-
-    @Test
-    public void testRightFunction() throws MalformedQueryException, RepositoryException, QueryEvaluationException, MediaFragmentURISyntaxException, RDFParseException, IOException {
-
-        importFile(TEST5);
-
-        String query =
-                "PREFIX ma: <http://www.w3.org/ns/ma-ont#>" +
-                        "PREFIX mm: <" + Constants.NAMESPACE + ">" +
-                        "SELECT ?t (mm:right(?f) AS ?test) WHERE {" +
-                        "   ?f rdfs:label ?t;" +
-                        "      a ma:MediaFragment;" +
-                        "} ORDER BY ?t";
-        TupleQuery q = connection.prepareTupleQuery(QueryLanguage.SPARQL,query);
-        TupleQueryResult r = q.evaluate();
-
-        ArrayList<BindingSet> list = new ArrayList<BindingSet>();
-        while(r.hasNext()) {
-            list.add(r.next());
-        }
-
-        Assert.assertTrue(list.size() == 6);
+        Assert.assertTrue(list.size() == 4);
 
         Assert.assertEquals("false",list.get(0).getBinding("test").getValue().stringValue());
         Assert.assertEquals("true",list.get(1).getBinding("test").getValue().stringValue());
         Assert.assertEquals("false",list.get(2).getBinding("test").getValue().stringValue());
-        Assert.assertEquals("true",list.get(3).getBinding("test").getValue().stringValue());
-        Assert.assertEquals("false",list.get(4).getBinding("test").getValue().stringValue());
-        Assert.assertEquals("false",list.get(5).getBinding("test").getValue().stringValue());
+        Assert.assertEquals("false",list.get(3).getBinding("test").getValue().stringValue());
     }
 
     @Test
-    public void testBottomFunction() throws MalformedQueryException, RepositoryException, QueryEvaluationException, MediaFragmentURISyntaxException, RDFParseException, IOException {
+    public void testIsRightBelowFunction() throws MalformedQueryException, RepositoryException, QueryEvaluationException, MediaFragmentURISyntaxException, RDFParseException, IOException {
 
-        importFile(TEST5);
+        importFile(TEST4);
 
         String query =
                 "PREFIX ma: <http://www.w3.org/ns/ma-ont#>" +
                         "PREFIX mm: <" + Constants.NAMESPACE + ">" +
-                        "SELECT ?t (mm:bottom(?f) AS ?test) WHERE {" +
-                        "   ?f rdfs:label ?t;" +
-                        "      a ma:MediaFragment;" +
-                        "} ORDER BY ?t";
+                        "SELECT ?t1 ?t2 (mm:rightBelow(?f1,?f2) AS ?test) WHERE {" +
+                        "   ?f1 rdfs:label \"1_4\";" +
+                        "       rdfs:label ?t1." +
+                        "   ?f2 a ma:MediaFragment;" +
+                        "       rdfs:label ?t2." +
+                        "} ORDER BY ?t2";
         TupleQuery q = connection.prepareTupleQuery(QueryLanguage.SPARQL,query);
         TupleQueryResult r = q.evaluate();
 
@@ -291,13 +232,71 @@ public class SpatialDirectionalRelationTest {
             list.add(r.next());
         }
 
-        Assert.assertTrue(list.size() == 6);
+        Assert.assertTrue(list.size() == 4);
+
+        Assert.assertEquals("true",list.get(0).getBinding("test").getValue().stringValue());
+        Assert.assertEquals("false",list.get(1).getBinding("test").getValue().stringValue());
+        Assert.assertEquals("false",list.get(2).getBinding("test").getValue().stringValue());
+        Assert.assertEquals("false",list.get(3).getBinding("test").getValue().stringValue());
+    }
+
+    @Test
+    public void testIsRightAboveFunction() throws MalformedQueryException, RepositoryException, QueryEvaluationException, MediaFragmentURISyntaxException, RDFParseException, IOException {
+
+        importFile(TEST4);
+
+        String query =
+                "PREFIX ma: <http://www.w3.org/ns/ma-ont#>" +
+                        "PREFIX mm: <" + Constants.NAMESPACE + ">" +
+                        "SELECT ?t1 ?t2 (mm:rightAbove(?f1,?f2) AS ?test) WHERE {" +
+                        "   ?f1 rdfs:label \"1_2\";" +
+                        "       rdfs:label ?t1." +
+                        "   ?f2 a ma:MediaFragment;" +
+                        "       rdfs:label ?t2." +
+                        "} ORDER BY ?t2";
+        TupleQuery q = connection.prepareTupleQuery(QueryLanguage.SPARQL,query);
+        TupleQueryResult r = q.evaluate();
+
+        ArrayList<BindingSet> list = new ArrayList<BindingSet>();
+        while(r.hasNext()) {
+            list.add(r.next());
+        }
+
+        Assert.assertTrue(list.size() == 4);
 
         Assert.assertEquals("false",list.get(0).getBinding("test").getValue().stringValue());
         Assert.assertEquals("false",list.get(1).getBinding("test").getValue().stringValue());
         Assert.assertEquals("true",list.get(2).getBinding("test").getValue().stringValue());
+        Assert.assertEquals("false",list.get(3).getBinding("test").getValue().stringValue());
+    }
+
+    @Test
+    public void testIsLeftAboveFunction() throws MalformedQueryException, RepositoryException, QueryEvaluationException, MediaFragmentURISyntaxException, RDFParseException, IOException {
+
+        importFile(TEST4);
+
+        String query =
+                "PREFIX ma: <http://www.w3.org/ns/ma-ont#>" +
+                        "PREFIX mm: <" + Constants.NAMESPACE + ">" +
+                        "SELECT ?t1 ?t2 (mm:leftAbove(?f1,?f2) AS ?test) WHERE {" +
+                        "   ?f1 rdfs:label \"1_1\";" +
+                        "       rdfs:label ?t1." +
+                        "   ?f2 a ma:MediaFragment;" +
+                        "       rdfs:label ?t2." +
+                        "} ORDER BY ?t2";
+        TupleQuery q = connection.prepareTupleQuery(QueryLanguage.SPARQL,query);
+        TupleQueryResult r = q.evaluate();
+
+        ArrayList<BindingSet> list = new ArrayList<BindingSet>();
+        while(r.hasNext()) {
+            list.add(r.next());
+        }
+
+        Assert.assertTrue(list.size() == 4);
+
+        Assert.assertEquals("false",list.get(0).getBinding("test").getValue().stringValue());
+        Assert.assertEquals("false",list.get(1).getBinding("test").getValue().stringValue());
+        Assert.assertEquals("false",list.get(2).getBinding("test").getValue().stringValue());
         Assert.assertEquals("true",list.get(3).getBinding("test").getValue().stringValue());
-        Assert.assertEquals("false",list.get(4).getBinding("test").getValue().stringValue());
-        Assert.assertEquals("false",list.get(5).getBinding("test").getValue().stringValue());
     }
 }

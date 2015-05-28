@@ -3,8 +3,8 @@ package com.github.tkurz.sparqlmm;
 import com.github.tkurz.media.fragments.base.MediaFragmentURI;
 import com.github.tkurz.media.fragments.exceptions.MediaFragmentURISyntaxException;
 import com.github.tkurz.media.fragments.spatial.SpatialFragment;
-import com.github.tkurz.sparqlmm.spatial.function.BoundingBoxFunction;
-import com.github.tkurz.sparqlmm.spatial.function.IntersectionFunction;
+import com.github.tkurz.sparqlmm.function.spatial.function.BoundingBoxFunction;
+import com.github.tkurz.sparqlmm.function.spatial.function.IntersectionFunction;
 import org.junit.*;
 import org.openrdf.query.*;
 import org.openrdf.query.algebra.evaluation.function.FunctionRegistry;
@@ -87,8 +87,8 @@ public class SpatialFunctionTest {
 
         Assert.assertEquals(0.0,fragment.getX(),0);
         Assert.assertEquals(0.0,fragment.getY(),0);
-        Assert.assertEquals(3.0,fragment.getW(),0);
-        Assert.assertEquals(3.0,fragment.getH(),0);
+        Assert.assertEquals(3.0,fragment.getWidth(),0);
+        Assert.assertEquals(3.0,fragment.getHeight(),0);
     }
 
     @Test
@@ -120,8 +120,8 @@ public class SpatialFunctionTest {
 
         Assert.assertEquals(0.0,fragment.getX(),0);
         Assert.assertEquals(0.0,fragment.getY(),0);
-        Assert.assertEquals(3.0,fragment.getW(),0);
-        Assert.assertEquals(3.0,fragment.getH(),0);
+        Assert.assertEquals(3.0,fragment.getWidth(),0);
+        Assert.assertEquals(3.0,fragment.getHeight(),0);
     }
 
     @Test
@@ -152,8 +152,8 @@ public class SpatialFunctionTest {
 
         Assert.assertEquals(0.0,fragment.getX(),0);
         Assert.assertEquals(0.0,fragment.getY(),0);
-        Assert.assertEquals(75.0,fragment.getW(),0);
-        Assert.assertEquals(75.0,fragment.getH(),0);
+        Assert.assertEquals(75.0,fragment.getWidth(),0);
+        Assert.assertEquals(75.0,fragment.getHeight(),0);
     }
 
     @Test
@@ -184,8 +184,8 @@ public class SpatialFunctionTest {
 
         Assert.assertEquals(25.0,fragment.getX(),0);
         Assert.assertEquals(25.0,fragment.getY(),0);
-        Assert.assertEquals(25.0,fragment.getW(),0);
-        Assert.assertEquals(25.0,fragment.getH(),0);
+        Assert.assertEquals(25.0,fragment.getWidth(),0);
+        Assert.assertEquals(25.0,fragment.getHeight(),0);
     }
 
     @Test
@@ -217,7 +217,7 @@ public class SpatialFunctionTest {
 
         Assert.assertEquals(1.0,fragment.getX(),0);
         Assert.assertEquals(1.0,fragment.getY(),0);
-        Assert.assertEquals(1.0,fragment.getW(),0);
-        Assert.assertEquals(1.0,fragment.getH(),0);
+        Assert.assertEquals(1.0,fragment.getWidth(),0);
+        Assert.assertEquals(1.0,fragment.getHeight(),0);
     }
 }

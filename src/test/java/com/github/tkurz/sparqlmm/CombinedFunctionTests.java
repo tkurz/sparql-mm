@@ -4,8 +4,8 @@ import com.github.tkurz.media.fragments.base.MediaFragmentURI;
 import com.github.tkurz.media.fragments.exceptions.MediaFragmentURISyntaxException;
 import com.github.tkurz.media.fragments.spatial.SpatialFragment;
 import com.github.tkurz.media.fragments.temporal.NPTFragment;
-import com.github.tkurz.sparqlmm.combined.function.BoundingBoxFunction;
-import com.github.tkurz.sparqlmm.combined.function.IntersectionFunction;
+import com.github.tkurz.sparqlmm.function.combined.BoundingBoxFunction;
+import com.github.tkurz.sparqlmm.function.combined.IntersectionFunction;
 import org.junit.*;
 import org.openrdf.query.*;
 import org.openrdf.query.algebra.evaluation.function.FunctionRegistry;
@@ -87,8 +87,8 @@ public class CombinedFunctionTests {
 
         Assert.assertEquals(25.0,sfragment.getX(),0);
         Assert.assertEquals(25.0,sfragment.getY(),0);
-        Assert.assertEquals(25.0,sfragment.getW(),0);
-        Assert.assertEquals(25.0,sfragment.getH(),0);
+        Assert.assertEquals(25.0,sfragment.getWidth(),0);
+        Assert.assertEquals(25.0,sfragment.getHeight(),0);
 
         NPTFragment tfragment = (NPTFragment) uri.getMediaFragment().getTemporalFragment();
 
@@ -127,8 +127,8 @@ public class CombinedFunctionTests {
 
         Assert.assertEquals(0.0,sfragment.getX(),0);
         Assert.assertEquals(0.0,sfragment.getY(),0);
-        Assert.assertEquals(75.0,sfragment.getW(),0);
-        Assert.assertEquals(75.0,sfragment.getH(),0);
+        Assert.assertEquals(75.0,sfragment.getWidth(),0);
+        Assert.assertEquals(75.0,sfragment.getHeight(),0);
 
         NPTFragment tfragment = (NPTFragment) uri.getMediaFragment().getTemporalFragment();
 
@@ -167,8 +167,8 @@ public class CombinedFunctionTests {
 
         Assert.assertEquals(26.0,sfragment.getX(),0);
         Assert.assertEquals(0.0,sfragment.getY(),0);
-        Assert.assertEquals(74.0,sfragment.getW(),0);
-        Assert.assertEquals(100.0,sfragment.getH(),0);
+        Assert.assertEquals(74.0,sfragment.getWidth(),0);
+        Assert.assertEquals(100.0,sfragment.getHeight(),0);
 
         NPTFragment tfragment = (NPTFragment) uri.getMediaFragment().getTemporalFragment();
 

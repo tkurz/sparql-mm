@@ -1,9 +1,7 @@
 package com.github.tkurz.sparqlmm;
 
-import com.github.tkurz.sparqlmm.Constants;
 import com.github.tkurz.media.fragments.exceptions.MediaFragmentURISyntaxException;
-import com.github.tkurz.sparqlmm.temporal.function.IntersectionFunction;
-import com.github.tkurz.sparqlmm.temporal.relation.*;
+import com.github.tkurz.sparqlmm.function.temporal.relation.*;
 import org.junit.*;
 import org.openrdf.query.*;
 import org.openrdf.query.algebra.evaluation.function.FunctionRegistry;
@@ -34,8 +32,8 @@ public class TemporalRelationTest {
 
     @BeforeClass
     public static void beforeClass() {
-        FunctionRegistry.getInstance().add(new AfterFunction());
-        FunctionRegistry.getInstance().add(new BeforeFunction());
+        FunctionRegistry.getInstance().add(new PrecededByFunction());
+        FunctionRegistry.getInstance().add(new PrecedesFunction());
         FunctionRegistry.getInstance().add(new ContainsFunction());
         FunctionRegistry.getInstance().add(new EqualFunction());
         FunctionRegistry.getInstance().add(new FinishesFunction());
@@ -83,7 +81,7 @@ public class TemporalRelationTest {
             list.add(r.next());
         }
 
-        Assert.assertTrue(list.size() == 13);
+        Assert.assertTrue(list.size() == 11);
 
         for(BindingSet set : list) {
             String t1 = set.getBinding("t1").getValue().stringValue();
@@ -105,7 +103,7 @@ public class TemporalRelationTest {
                         "SELECT ?t1 ?t2 WHERE {" +
                         "   ?f1 rdfs:label ?t1." +
                         "   ?f2 rdfs:label ?t2." +
-                        "   FILTER mm:before(?f1,?f2)" +
+                        "   FILTER mm:precedes(?f1,?f2)" +
                         "} ORDER BY ?t1 ?t2";
         TupleQuery q = connection.prepareTupleQuery(QueryLanguage.SPARQL,query);
         TupleQueryResult r = q.evaluate();
@@ -115,7 +113,7 @@ public class TemporalRelationTest {
             list.add(r.next());
         }
 
-        Assert.assertTrue(list.size() == 13);
+        Assert.assertTrue(list.size() == 11);
 
         for(BindingSet set : list) {
             String t1 = set.getBinding("t1").getValue().stringValue();
@@ -137,7 +135,7 @@ public class TemporalRelationTest {
                         "SELECT ?t1 ?t2 WHERE {" +
                         "   ?f1 rdfs:label ?t1." +
                         "   ?f2 rdfs:label ?t2." +
-                        "   FILTER mm:temporalContains(?f1,?f2)" +
+                        "   FILTER mm:contains(?f1,?f2)" +
                         "} ORDER BY ?t1 ?t2";
         TupleQuery q = connection.prepareTupleQuery(QueryLanguage.SPARQL,query);
         TupleQueryResult r = q.evaluate();
@@ -150,6 +148,7 @@ public class TemporalRelationTest {
 
         Assert.assertFalse(r.hasNext());
 
+        /*
         String query1 =
                 "PREFIX ma: <http://www.w3.org/ns/ma-ont#>" +
                         "PREFIX mm: <" + Constants.NAMESPACE + ">" +
@@ -170,6 +169,7 @@ public class TemporalRelationTest {
         }
 
         Assert.assertEquals(10, size);
+        */
     }
 
     @Test
@@ -183,7 +183,7 @@ public class TemporalRelationTest {
                         "SELECT ?t1 ?t2 WHERE {" +
                         "   ?f1 rdfs:label ?t1." +
                         "   ?f2 rdfs:label ?t2." +
-                        "   FILTER mm:temporalEqual(?f1,?f2)" +
+                        "   FILTER mm:equals(?f1,?f2)" +
                         "} ORDER BY ?t1 ?t2";
         TupleQuery q = connection.prepareTupleQuery(QueryLanguage.SPARQL,query);
         TupleQueryResult r = q.evaluate();
@@ -214,31 +214,12 @@ public class TemporalRelationTest {
                         "SELECT ?t1 ?t2 WHERE {" +
                         "   ?f1 rdfs:label ?t1." +
                         "   ?f2 rdfs:label ?t2." +
-                        "   FILTER mm:finishes(?f1,?f2,true)" +
+                        "   FILTER mm:finishes(?f1,?f2)" +
                         "} ORDER BY ?t1 ?t2";
         TupleQuery q = connection.prepareTupleQuery(QueryLanguage.SPARQL,query);
         TupleQueryResult r = q.evaluate();
 
         ArrayList<BindingSet> list = new ArrayList<BindingSet>();
-        while(r.hasNext()) {
-            list.add(r.next());
-        }
-
-        Assert.assertTrue(list.size() == 8);
-
-        //test without equals
-        query =
-                "PREFIX ma: <http://www.w3.org/ns/ma-ont#>" +
-                        "PREFIX mm: <" + Constants.NAMESPACE + ">" +
-                        "SELECT ?t1 ?t2 WHERE {" +
-                        "   ?f1 rdfs:label ?t1." +
-                        "   ?f2 rdfs:label ?t2." +
-                        "   FILTER mm:finishes(?f1,?f2)" +
-                        "} ORDER BY ?t1 ?t2";
-        q = connection.prepareTupleQuery(QueryLanguage.SPARQL,query);
-        r = q.evaluate();
-
-        list = new ArrayList<BindingSet>();
         while(r.hasNext()) {
             list.add(r.next());
         }
@@ -273,7 +254,7 @@ public class TemporalRelationTest {
             list.add(r.next());
         }
 
-        Assert.assertTrue(list.size() == 4);
+        Assert.assertTrue(list.size() == 2);
 
         String t1 = list.get(0).getBinding("t1").getValue().stringValue();
         String t2 = list.get(0).getBinding("t2").getValue().stringValue();
@@ -281,23 +262,11 @@ public class TemporalRelationTest {
         Assert.assertEquals("1_1",t1);
         Assert.assertEquals("1_2",t2);
 
-        String t3 = list.get(1).getBinding("t1").getValue().stringValue();
-        String t4 = list.get(1).getBinding("t2").getValue().stringValue();
-
-        Assert.assertEquals("1_2",t3);
-        Assert.assertEquals("1_1",t4);
-
-        String t5 = list.get(2).getBinding("t1").getValue().stringValue();
-        String t6 = list.get(2).getBinding("t2").getValue().stringValue();
+        String t5 = list.get(1).getBinding("t1").getValue().stringValue();
+        String t6 = list.get(1).getBinding("t2").getValue().stringValue();
 
         Assert.assertEquals("2_1",t5);
         Assert.assertEquals("2_2",t6);
-
-        String t7 = list.get(3).getBinding("t1").getValue().stringValue();
-        String t8 = list.get(3).getBinding("t2").getValue().stringValue();
-
-        Assert.assertEquals("2_2",t7);
-        Assert.assertEquals("2_1",t8);
     }
 
     @Test
@@ -311,7 +280,7 @@ public class TemporalRelationTest {
                         "SELECT ?t1 ?t2 WHERE {" +
                         "   ?f1 rdfs:label ?t1." +
                         "   ?f2 rdfs:label ?t2." +
-                        "   FILTER mm:temporalOverlaps(?f1,?f2)" +
+                        "   FILTER mm:overlaps(?f1,?f2)" +
                         "} ORDER BY ?t1 ?t2";
         TupleQuery q = connection.prepareTupleQuery(QueryLanguage.SPARQL,query);
         TupleQueryResult r = q.evaluate();
@@ -321,7 +290,7 @@ public class TemporalRelationTest {
             list.add(r.next());
         }
 
-        Assert.assertTrue(list.size() == 6);
+        Assert.assertTrue(list.size() == 2);
 
         String t1 = list.get(0).getBinding("t1").getValue().stringValue();
         String t2 = list.get(0).getBinding("t2").getValue().stringValue();
@@ -332,20 +301,8 @@ public class TemporalRelationTest {
         String t3 = list.get(1).getBinding("t1").getValue().stringValue();
         String t4 = list.get(1).getBinding("t2").getValue().stringValue();
 
-        Assert.assertEquals("1_4",t3);
-        Assert.assertEquals("1_3",t4);
-
-        String t5 = list.get(2).getBinding("t1").getValue().stringValue();
-        String t6 = list.get(2).getBinding("t2").getValue().stringValue();
-
-        Assert.assertEquals("2_3",t5);
-        Assert.assertEquals("2_4",t6);
-
-        String t7 = list.get(3).getBinding("t1").getValue().stringValue();
-        String t8 = list.get(3).getBinding("t2").getValue().stringValue();
-
-        Assert.assertEquals("2_4",t7);
-        Assert.assertEquals("2_3",t8);
+        Assert.assertEquals("2_3",t3);
+        Assert.assertEquals("2_4",t4);
     }
 
     @Test
@@ -359,31 +316,12 @@ public class TemporalRelationTest {
                         "SELECT ?t1 ?t2 WHERE {" +
                         "   ?f1 rdfs:label ?t1." +
                         "   ?f2 rdfs:label ?t2." +
-                        "   FILTER mm:starts(?f1,?f2,true)" +
+                        "   FILTER mm:starts(?f1,?f2)" +
                         "} ORDER BY ?t1 ?t2";
         TupleQuery q = connection.prepareTupleQuery(QueryLanguage.SPARQL,query);
         TupleQueryResult r = q.evaluate();
 
         ArrayList<BindingSet> list = new ArrayList<BindingSet>();
-        while(r.hasNext()) {
-            list.add(r.next());
-        }
-
-        Assert.assertTrue(list.size() == 9);
-
-        //test without equals
-        query =
-                "PREFIX ma: <http://www.w3.org/ns/ma-ont#>" +
-                        "PREFIX mm: <" + Constants.NAMESPACE + ">" +
-                        "SELECT ?t1 ?t2 WHERE {" +
-                        "   ?f1 rdfs:label ?t1." +
-                        "   ?f2 rdfs:label ?t2." +
-                        "   FILTER mm:starts(?f1,?f2)" +
-                        "} ORDER BY ?t1 ?t2";
-        q = connection.prepareTupleQuery(QueryLanguage.SPARQL,query);
-        r = q.evaluate();
-
-        list = new ArrayList<BindingSet>();
         while(r.hasNext()) {
             list.add(r.next());
         }
