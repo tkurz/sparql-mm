@@ -2,7 +2,6 @@ package com.github.tkurz.sparqlmm.doc;
 
 import com.github.tkurz.sparqlmm.Constants;
 import com.github.tkurz.sparqlmm.vocabularies.SCHEMA;
-import com.github.tkurz.sparqlmm.vocabularies.SED;
 import com.google.common.base.Joiner;
 import com.google.common.collect.FluentIterable;
 import com.google.common.io.Files;
@@ -66,7 +65,7 @@ public class FunctionSet {
         ValueFactory f = ValueFactoryImpl.getInstance();
 
         URI vocabulary = f.createURI(URL);
-        model.add(vocabulary, RDF.TYPE, SED.FunctionLibrary);
+        model.add(vocabulary, RDF.TYPE, ValueFactoryImpl.getInstance().createURI("http://purl.org/net/schemas/sparql-extension-description#FunctionLibrary"));
         model.add(vocabulary, SCHEMA.name, f.createLiteral(TITLE));
         model.add(vocabulary, SCHEMA.description, f.createLiteral(DESCRIPTION));
         model.add(vocabulary, SCHEMA.version, f.createLiteral(Constants.VERSION));
@@ -79,8 +78,8 @@ public class FunctionSet {
             model.add(function.uri, RDF.TYPE, function.type);
             model.add(function.uri, SCHEMA.name, f.createLiteral(function.title));
             model.add(function.uri, SCHEMA.description, f.createLiteral(function.description));
-            model.add(function.uri, SED.includedIn, vocabulary);
-            model.add(vocabulary, SED.includes, function.uri);
+            model.add(function.uri, ValueFactoryImpl.getInstance().createURI("http://purl.org/net/schemas/sparql-extension-description#includedIn"), vocabulary);
+            model.add(vocabulary, ValueFactoryImpl.getInstance().createURI("http://purl.org/net/schemas/sparql-extension-description#includes"), function.uri);
         }
 
     }
