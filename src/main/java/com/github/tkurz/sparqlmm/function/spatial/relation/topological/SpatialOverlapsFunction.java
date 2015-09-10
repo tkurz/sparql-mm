@@ -22,7 +22,7 @@ public class SpatialOverlapsFunction implements Function {
      * return the URI
      */
     public String getURI() {
-        return Constants.NAMESPACE + "crosses";
+        return Constants.NAMESPACE + "spatialOverlaps";
     }
 
     @Override
