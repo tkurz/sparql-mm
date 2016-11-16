@@ -25,7 +25,7 @@ All list of all supported functions can be found [here](https://github.com/tkurz
 
 ```SPARQL
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX mm: <http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#>
+PREFIX mm: <http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#>
 
 SELECT ?t1 ?t2 WHERE {
     ?f1 rdfs:label ?t1.
@@ -38,7 +38,7 @@ SELECT ?t1 ?t2 WHERE {
 
 ```SPARQL
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX mm:  <http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#>
+PREFIX mm:  <http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#>
 
 SELECT ?f1 ?f2 (mm:temporalIntermediate(?f1,?f2) AS ?box) WHERE {
     ?f1 rdfs:label "a".
@@ -46,11 +46,22 @@ SELECT ?f1 ?f2 (mm:temporalIntermediate(?f1,?f2) AS ?box) WHERE {
 }
 ```
 
+### Temporal Accessors
+
+```SPARQL
+PREFIX ma: <http://www.w3.org/ns/ma-ont#>
+PREFIX mm: <http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#>
+
+SELECT ?f1 WHERE {
+    ?f1 a ma:MediaFragment.
+} ORDER BY mm:duration(?f1)
+```
+
 ### Spatial Relations
 
 ```SPARQL
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX mm: <http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#>
+PREFIX mm: <http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#>
 
 SELECT ?t1 ?t2 WHERE {
     ?f1 rdfs:label ?t1.
@@ -63,7 +74,7 @@ SELECT ?t1 ?t2 WHERE {
 
 ```SPARQL
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX mm:  <http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#>
+PREFIX mm:  <http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#>
 
 SELECT ?f1 ?f2 (mm:spatialIntersection(?f1,?f2) AS ?box) WHERE {
     ?f1 rdfs:label "a".
@@ -71,11 +82,35 @@ SELECT ?f1 ?f2 (mm:spatialIntersection(?f1,?f2) AS ?box) WHERE {
 }
 ```
 
-### Combined Aggregation
+### Spatial Accessors
+
+```SPARQL
+PREFIX ma: <http://www.w3.org/ns/ma-ont#>
+PREFIX mm: <http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#>
+
+SELECT ?f1 WHERE {
+    ?f1 a ma:MediaFragment.
+} ORDER BY mm:duration(?f1)
+```
+
+### General Relation
 
 ```SPARQL
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX mm:  <http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#>
+PREFIX mm: <http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#>
+
+SELECT ?t1 ?t2 WHERE {
+    ?f1 rdfs:label ?t1.
+    ?f2 rdfs:label ?t2.
+    FILTER mm:equals(?f1,?f2)
+} ORDER BY ?t1 ?t2
+```
+
+### General Aggregation
+
+```SPARQL
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX mm:  <http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#>
 
 SELECT ?f1 ?f2 (mm:boundingBox(?f1,?f2) AS ?box) WHERE {
     ?f1 rdfs:label "a".
@@ -83,13 +118,14 @@ SELECT ?f1 ?f2 (mm:boundingBox(?f1,?f2) AS ?box) WHERE {
 }
 ```
 
-### Accessor Method
+### General Accessor
 
 ```SPARQL
 PREFIX ma: <http://www.w3.org/ns/ma-ont#>
-PREFIX mm: <http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#>
+PREFIX mm: <http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#>
 
-SELECT ?f1 WHERE {
-    ?f1 a ma:MediaFragment.
-} ORDER BY mm:duration(?f1)
+SELECT ?pixelURI WHERE {
+    ?f1 ma:hasFragment ?f1.
+    BIND (mm:toPixel(?f1) AS ?pixelURI)
+} ORDER BY ?t1 ?t2
 ```
