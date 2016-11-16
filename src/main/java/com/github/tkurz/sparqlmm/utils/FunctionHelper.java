@@ -5,6 +5,7 @@ import com.github.tkurz.media.fragments.base.MediaFragment;
 import com.github.tkurz.media.fragments.base.MediaFragmentURI;
 import com.github.tkurz.media.fragments.exceptions.MediaFragmentURISyntaxException;
 import com.github.tkurz.media.ontology.type.SpatialEntity;
+import com.github.tkurz.media.ontology.type.SpatialTemporalEntity;
 import com.github.tkurz.media.ontology.type.TemporalEntity;
 import org.openrdf.model.Literal;
 import org.openrdf.model.URI;
@@ -70,6 +71,50 @@ public class FunctionHelper {
             try {
                 MediaFragment fragment = MediaFragment.create(v.stringValue());
                 return fragment.hasSpatialFragment() ? fragment.getSpatialFragment() : null;
+            } catch (com.github.tkurz.media.fragments.ParseException e) {
+                return null;
+            }
+        }
+        return null;
+    }
+
+    public static MediaFragmentURI toMediaFragmentURI(Value v) {
+        if(v instanceof URI) {
+            //try to parse media fragment from uri
+            try {
+                return new MediaFragmentURI(v.stringValue());
+            } catch (MediaFragmentURISyntaxException e) {
+                return null;
+            }
+        }
+        return null;
+    }
+
+    public static MediaFragment toMediaFragment(Value v) {
+        if(v instanceof URI) {
+            //try to parse media fragment from uri
+            try {
+                return new MediaFragmentURI(v.stringValue()).getMediaFragment();
+            } catch (MediaFragmentURISyntaxException e) {
+                return null;
+            }
+        }
+        return null;
+    }
+
+    public static SpatialTemporalEntity toSpatialTemporalEntity(Value v) {
+        if(v instanceof URI) {
+            //try to parse media fragment from uri
+            try {
+                MediaFragmentURI uri = new MediaFragmentURI(v.stringValue());
+                return uri.getMediaFragment() != null ? uri.getMediaFragment() : null;
+            } catch (MediaFragmentURISyntaxException e) {
+                return null;
+            }
+        } else if(v instanceof Literal) {
+            //try to parse simple fragment TODO add object parsing
+            try {
+                return MediaFragment.create(v.stringValue());
             } catch (com.github.tkurz.media.fragments.ParseException e) {
                 return null;
             }

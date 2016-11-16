@@ -1,8 +1,8 @@
 package com.github.tkurz.sparqlmm;
 
 import com.github.tkurz.media.fragments.exceptions.MediaFragmentURISyntaxException;
-import com.github.tkurz.sparqlmm.function.accessor.SpatialFragmentTest;
-import com.github.tkurz.sparqlmm.function.combined.BoundingBoxFunction;
+import com.github.tkurz.sparqlmm.function.spatial.accessor.SpatialFragmentTest;
+import com.github.tkurz.sparqlmm.function.general.aggregation.BoundingBoxFunction;
 import org.junit.*;
 import org.openrdf.query.*;
 import org.openrdf.query.algebra.evaluation.function.FunctionRegistry;
@@ -71,8 +71,8 @@ public class StringFragmentTest {
                         "   ?s2 oa:hasSource ?s;" +
                         "       rdf:value ?v2." +
                         "   FILTER (?s1 != ?s2)" +
-                        "   FILTER mm:isSpatialFragment(?v1)" +
-                        "   FILTER mm:isSpatialFragment(?v2)" +
+                        "   FILTER mm:hasSpatialFragment(?v1)" +
+                        "   FILTER mm:hasSpatialFragment(?v2)" +
                         "}";
 
         TupleQuery q = connection.prepareTupleQuery(QueryLanguage.SPARQL,query);

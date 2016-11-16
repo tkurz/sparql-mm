@@ -1,0 +1,6 @@
+@PREFIX : <http://test.org/resource/> .
+@PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@PREFIX ma : <http://www.w3.org/ns/ma-ont#> .
+
+:fragment1 ma:locator <https://www.redbullcontentpool.com/resources/2013/02/28/00001-01000/P-20130228-00116/proxy_normal.mp4#xywh=percent:26,20,22,80&t=194,198> .
+:fragment2 ma:locator <https://www.redbullcontentpool.com/resources/2013/02/28/00001-01000/P-20130228-00116/proxy_normal.mp4#xywh=percent:71,0,29,100&t=193,198> .

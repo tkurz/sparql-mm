@@ -16,14 +16,14 @@ import org.openrdf.query.algebra.evaluation.function.Function;
  * <p/>
  * Author: Thomas Kurz (tkurz@apache.org)
  */
-@FunctionDoc(title = "equals", properties = {TemporalEntity.class, TemporalEntity.class}, reference = FunctionDoc.Reference.temporal, description = "returns true if p1.start == p2.start and p1.end == p2.end, else false.")
+@FunctionDoc(title = "temporalEquals", properties = {TemporalEntity.class, TemporalEntity.class}, reference = FunctionDoc.Reference.temporal, description = "returns true if p1.start == p2.start and p1.end == p2.end, else false.")
 public class EqualFunction implements Function {
 
     /**
      * return the URI
      */
     public String getURI() {
-        return Constants.NAMESPACE + "equals";
+        return Constants.NAMESPACE + "temporalEquals";
     }
 
     @Override

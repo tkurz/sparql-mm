@@ -16,14 +16,14 @@ import org.openrdf.query.algebra.evaluation.function.Function;
  * <p/>
  * Author: Thomas Kurz (tkurz@apache.org)
  */
-@FunctionDoc(title = "Overlaps", properties = {TemporalEntity.class, TemporalEntity.class}, reference = FunctionDoc.Reference.temporal, description = "returns true if p1.start < p2.start < p1.end < p2.end or p2.start < p.start < p.end < p.end, else false.")
+@FunctionDoc(title = "temporalOverlaps", properties = {TemporalEntity.class, TemporalEntity.class}, reference = FunctionDoc.Reference.temporal, description = "returns true if p1.start < p2.start < p1.end < p2.end or p2.start < p.start < p.end < p.end, else false.")
 public class OverlapsFunction implements Function {
 
     /**
      * return the URI
      */
     public String getURI() {
-        return Constants.NAMESPACE + "overlaps";
+        return Constants.NAMESPACE + "temporalOverlaps";
     }
 
     @Override

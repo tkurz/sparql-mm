@@ -1,0 +1,27 @@
+@prefix : <http://test.org/resource/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ma : <http://www.w3.org/ns/ma-ont#> .
+
+:video1 rdfs:label "1" ;
+        ma:hasFragment <http://test.org/resource/video1#t=1,5> ,
+                       <http://test.org/resource/video1#t=5,10> ,
+                       <http://test.org/resource/video1#t=15,25> ,
+                       <http://test.org/resource/video1#t=20,30>.
+
+:video2 rdfs:label "2" ;
+        ma:hasFragment <http://test.org/resource/video2#t=1,5> ,
+                       <http://test.org/resource/video2#t=5,10> ,
+                       <http://test.org/resource/video2#t=15,25> ,
+                       <http://test.org/resource/video2#t=20,30> ,
+                       <http://test.org/resource/video2#t=28,29> .
+
+<http://test.org/resource/video1#t=1,5> a ma:MediaFragment; rdfs:label "1_1" .
+<http://test.org/resource/video1#t=5,10> a ma:MediaFragment; rdfs:label "1_2" .
+<http://test.org/resource/video1#t=15,25> a ma:MediaFragment; rdfs:label "1_3" .
+<http://test.org/resource/video1#t=20,30> a ma:MediaFragment; rdfs:label "1_4" .
+
+<http://test.org/resource/video2#t=1,5> a ma:MediaFragment; rdfs:label "2_1" .
+<http://test.org/resource/video2#t=5,10> a ma:MediaFragment; rdfs:label "2_2" .
+<http://test.org/resource/video2#t=15,25> a ma:MediaFragment; rdfs:label "2_3" .
+<http://test.org/resource/video2#t=20,30> a ma:MediaFragment; rdfs:label "2_4" .
+<http://test.org/resource/video2#t=28,29> a ma:MediaFragment; rdfs:label "2_5" .

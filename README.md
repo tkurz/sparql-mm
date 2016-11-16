@@ -13,7 +13,7 @@ SPARQL-MM can easily appended to any Sesame Triplestore via Java Class Loader Te
 <dependency>
     <groupId>com.github.tkurz</groupId>
     <artifactId>sparql-mm</artifactId>
-    <version>1.0</version>
+    <version>2.0</version>
 </dependency>
 ```
 

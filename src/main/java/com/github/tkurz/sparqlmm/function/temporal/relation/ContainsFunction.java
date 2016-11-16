@@ -16,14 +16,14 @@ import org.openrdf.query.algebra.evaluation.function.Function;
  * <p/>
  * Author: Thomas Kurz (tkurz@apache.org)
  */
-@FunctionDoc(title = "contains", properties = {TemporalEntity.class, TemporalEntity.class}, reference = FunctionDoc.Reference.temporal, description = "returns true if p1.start < p2.start and p1.end > p2.end, else false.")
+@FunctionDoc(title = "temporalContains", properties = {TemporalEntity.class, TemporalEntity.class}, reference = FunctionDoc.Reference.temporal, description = "returns true if p1.start < p2.start and p1.end > p2.end, else false.")
 public class ContainsFunction implements Function {
 
     /**
      * return the URI
      */
     public String getURI() {
-        return Constants.NAMESPACE + "contains";
+        return Constants.NAMESPACE + "temporalContains";
     }
 
     @Override

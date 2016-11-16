@@ -1,8 +1,8 @@
 package com.github.tkurz.sparqlmm;
 
 import com.github.tkurz.media.fragments.exceptions.MediaFragmentURISyntaxException;
-import com.github.tkurz.sparqlmm.function.accessor.SpatialFragmentTest;
-import com.github.tkurz.sparqlmm.function.accessor.DurationAccessor;
+import com.github.tkurz.sparqlmm.function.spatial.accessor.SpatialFragmentTest;
+import com.github.tkurz.sparqlmm.function.temporal.accessor.DurationAccessor;
 import org.junit.*;
 import org.openrdf.query.*;
 import org.openrdf.query.algebra.evaluation.function.FunctionRegistry;
@@ -26,6 +26,7 @@ import java.util.ArrayList;
 public class AccessorTests {
 
     private final String TEST8 = "/test8.ttl";
+    private final String TEST10 = "/test10.ttl";
     private final String BASE_URI = "http://test.org/resource/";
 
     private RepositoryConnection connection;
@@ -106,5 +107,34 @@ public class AccessorTests {
         Assert.assertEquals("3.0",list.get(0).getBinding("duration").getValue().stringValue());
         Assert.assertEquals("1.0",list.get(1).getBinding("duration").getValue().stringValue());
         Assert.assertNull(list.get(2).getBinding("duration"));
+    }
+
+    @Test
+    public void testTransformers() throws MalformedQueryException, RepositoryException, QueryEvaluationException, MediaFragmentURISyntaxException, RDFParseException, IOException {
+
+        importFile(TEST10);
+
+        String query =
+                "PREFIX ma: <http://www.w3.org/ns/ma-ont#>" +
+                        "PREFIX mm: <" + Constants.NAMESPACE + ">" +
+                        "SELECT DISTINCT ?x WHERE {" +
+                        "   ?x ma:hasFragment ?f1, ?f2." +
+                        "   ?x ma:width ?w." +
+                        "   BIND (?w/100 AS ?c)" +
+                        "   BIND (mm:toPixel(?f1,?c) AS ?pf1)" +
+                        "   BIND (mm:toPixel(?f2,?c) AS ?pf2)" +
+                        "   FILTER mm:spatialEquals(?pf1,?pf2)" +
+                        "   FILTER(?f1 != ?f2)" +
+                        "}";
+
+        TupleQuery q = connection.prepareTupleQuery(QueryLanguage.SPARQL,query);
+        TupleQueryResult r = q.evaluate();
+
+        ArrayList<BindingSet> list = new ArrayList<BindingSet>();
+        while(r.hasNext()) {
+            list.add(r.next());
+        }
+
+        Assert.assertTrue(list.size() == 1);
     }
 }

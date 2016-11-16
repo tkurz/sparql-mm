@@ -135,7 +135,7 @@ public class TemporalRelationTest {
                         "SELECT ?t1 ?t2 WHERE {" +
                         "   ?f1 rdfs:label ?t1." +
                         "   ?f2 rdfs:label ?t2." +
-                        "   FILTER mm:contains(?f1,?f2)" +
+                        "   FILTER mm:temporalContains(?f1,?f2)" +
                         "} ORDER BY ?t1 ?t2";
         TupleQuery q = connection.prepareTupleQuery(QueryLanguage.SPARQL,query);
         TupleQueryResult r = q.evaluate();
@@ -183,7 +183,7 @@ public class TemporalRelationTest {
                         "SELECT ?t1 ?t2 WHERE {" +
                         "   ?f1 rdfs:label ?t1." +
                         "   ?f2 rdfs:label ?t2." +
-                        "   FILTER mm:equals(?f1,?f2)" +
+                        "   FILTER mm:temporalEquals(?f1,?f2)" +
                         "} ORDER BY ?t1 ?t2";
         TupleQuery q = connection.prepareTupleQuery(QueryLanguage.SPARQL,query);
         TupleQueryResult r = q.evaluate();
@@ -280,7 +280,7 @@ public class TemporalRelationTest {
                         "SELECT ?t1 ?t2 WHERE {" +
                         "   ?f1 rdfs:label ?t1." +
                         "   ?f2 rdfs:label ?t2." +
-                        "   FILTER mm:overlaps(?f1,?f2)" +
+                        "   FILTER mm:temporalOverlaps(?f1,?f2)" +
                         "} ORDER BY ?t1 ?t2";
         TupleQuery q = connection.prepareTupleQuery(QueryLanguage.SPARQL,query);
         TupleQueryResult r = q.evaluate();
