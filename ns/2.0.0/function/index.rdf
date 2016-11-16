@@ -2,537 +2,653 @@
 <rdf:RDF
 	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
 
-<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function">
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function">
 	<rdf:type rdf:resource="http://purl.org/net/schemas/sparql-extension-description#FunctionLibrary"/>
 	<name xmlns="http://schema.org/">SPARQL-MM Function Library for Media Fragments</name>
 	<description xmlns="http://schema.org/">SPARQL Function Library for handling Media Fragments URI like they are recommended from W3C at http://www.w3.org/TR/media-frags/ Media Fragments URI 1.0 (basic) recommendation.</description>
-	<version xmlns="http://schema.org/">1.0.0</version>
+	<version xmlns="http://schema.org/">2.0.0</version>
 	<creator xmlns="http://schema.org/" rdf:resource="http://github.com/tkurz"/>
 	<provider xmlns="http://schema.org/" rdf:resource="http://mico-project.eu"/>
 	<license xmlns="http://schema.org/" rdf:resource="http://www.apache.org/licenses/LICENSE-2.0"/>
 	<url xmlns="http://schema.org/" rdf:resource="http://github.com/tkurz/sparql-mm"/>
 </rdf:Description>
 
-<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#getBoxArea">
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#area">
 	<rdf:type rdf:resource="http://www.w3.org/ns/sparql-service-description#extensionFunction"/>
 	<name xmlns="http://schema.org/">Bounding Box Area Accessor</name>
 	<description xmlns="http://schema.org/">returns the area of BoundingBox of a shape, null if there is none.</description>
-	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function"/>
+	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function"/>
 </rdf:Description>
 
-<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function">
-	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#getBoxArea"/>
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function">
+	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#area"/>
 </rdf:Description>
 
-<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#getDuration">
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#center">
+	<rdf:type rdf:resource="http://www.w3.org/ns/sparql-service-description#extensionFunction"/>
+	<name xmlns="http://schema.org/">Center Accessor</name>
+	<description xmlns="http://schema.org/">returns the center of a BoundingBox of a shape, null if there is none.</description>
+	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function">
+	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#center"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#duration">
 	<rdf:type rdf:resource="http://www.w3.org/ns/sparql-service-description#extensionFunction"/>
 	<name xmlns="http://schema.org/">Duration Accessor</name>
 	<description xmlns="http://schema.org/">returns the duration of an interval, null if there is none.</description>
-	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function"/>
+	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function"/>
 </rdf:Description>
 
-<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function">
-	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#getDuration"/>
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function">
+	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#duration"/>
 </rdf:Description>
 
-<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#getEnd">
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#end">
 	<rdf:type rdf:resource="http://www.w3.org/ns/sparql-service-description#extensionFunction"/>
 	<name xmlns="http://schema.org/">End Accessor</name>
 	<description xmlns="http://schema.org/">returns the end of an interval, null if there is none.</description>
-	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function"/>
+	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function"/>
 </rdf:Description>
 
-<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function">
-	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#getEnd"/>
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function">
+	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#end"/>
 </rdf:Description>
 
-<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#getBoxHeight">
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#height">
 	<rdf:type rdf:resource="http://www.w3.org/ns/sparql-service-description#extensionFunction"/>
 	<name xmlns="http://schema.org/">Height Accessor</name>
 	<description xmlns="http://schema.org/">returns the height of a shape, null if there is none.</description>
-	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function"/>
+	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function"/>
 </rdf:Description>
 
-<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function">
-	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#getBoxHeight"/>
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function">
+	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#height"/>
 </rdf:Description>
 
-<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#intersects">
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#intersects">
 	<rdf:type rdf:resource="http://www.w3.org/ns/sparql-service-description#extensionFunction"/>
 	<name xmlns="http://schema.org/">Intersects</name>
 	<description xmlns="http://schema.org/">returns true if p1 has at least one common point with p2, else false.</description>
-	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function"/>
+	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function"/>
 </rdf:Description>
 
-<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function">
-	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#intersects"/>
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function">
+	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#intersects"/>
 </rdf:Description>
 
-<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#isMediaFragment">
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#mediaFragment">
+	<rdf:type rdf:resource="http://www.w3.org/ns/sparql-service-description#extensionFunction"/>
+	<name xmlns="http://schema.org/">MediaFragment</name>
+	<description xmlns="http://schema.org/">returns a string representation of a media fragment.</description>
+	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function">
+	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#mediaFragment"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#isMediaFragment">
 	<rdf:type rdf:resource="http://www.w3.org/ns/sparql-service-description#extensionFunction"/>
 	<name xmlns="http://schema.org/">MediaFragment Test</name>
 	<description xmlns="http://schema.org/">returns if value is a MediaFragment</description>
-	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function"/>
+	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function"/>
 </rdf:Description>
 
-<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function">
-	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#isMediaFragment"/>
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function">
+	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#isMediaFragment"/>
 </rdf:Description>
 
-<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#isMediaFragmentURI">
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#isMediaFragmentURI">
 	<rdf:type rdf:resource="http://www.w3.org/ns/sparql-service-description#extensionFunction"/>
 	<name xmlns="http://schema.org/">MediaFragmentURI Test</name>
 	<description xmlns="http://schema.org/">returns if value is a MediaFragmentURI</description>
-	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function"/>
+	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function"/>
 </rdf:Description>
 
-<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function">
-	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#isMediaFragmentURI"/>
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function">
+	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#isMediaFragmentURI"/>
 </rdf:Description>
 
-<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#overlappedBy">
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#overlappedBy">
 	<rdf:type rdf:resource="http://www.w3.org/ns/sparql-service-description#extensionFunction"/>
 	<name xmlns="http://schema.org/">Overlapped by</name>
 	<description xmlns="http://schema.org/">is the inverse function of overlaps.</description>
-	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function"/>
+	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function"/>
 </rdf:Description>
 
-<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function">
-	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#overlappedBy"/>
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function">
+	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#overlappedBy"/>
 </rdf:Description>
 
-<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#overlaps">
-	<rdf:type rdf:resource="http://www.w3.org/ns/sparql-service-description#extensionFunction"/>
-	<name xmlns="http://schema.org/">Overlaps</name>
-	<description xmlns="http://schema.org/">returns true if p1.start &lt; p2.start &lt; p1.end &lt; p2.end or p2.start &lt; p.start &lt; p.end &lt; p.end, else false.</description>
-	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function"/>
-</rdf:Description>
-
-<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function">
-	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#overlaps"/>
-</rdf:Description>
-
-<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#precedes">
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#precedes">
 	<rdf:type rdf:resource="http://www.w3.org/ns/sparql-service-description#extensionFunction"/>
 	<name xmlns="http://schema.org/">Precedes</name>
 	<description xmlns="http://schema.org/">returns true if p1.end &lt; p2.start, else false.</description>
-	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function"/>
+	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function"/>
 </rdf:Description>
 
-<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function">
-	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#precedes"/>
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function">
+	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#precedes"/>
 </rdf:Description>
 
-<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#isSpatialFragment">
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#spatialFragment">
+	<rdf:type rdf:resource="http://www.w3.org/ns/sparql-service-description#extensionFunction"/>
+	<name xmlns="http://schema.org/">SpatialFragment</name>
+	<description xmlns="http://schema.org/">returns a string representation of a spatial fragment.</description>
+	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function">
+	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#spatialFragment"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#hasSpatialFragment">
 	<rdf:type rdf:resource="http://www.w3.org/ns/sparql-service-description#extensionFunction"/>
 	<name xmlns="http://schema.org/">SpatialFragment Test</name>
-	<description xmlns="http://schema.org/">returns true is value is a spatial fragment.</description>
-	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function"/>
+	<description xmlns="http://schema.org/">returns true is value is or includes a spatial fragment.</description>
+	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function"/>
 </rdf:Description>
 
-<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function">
-	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#isSpatialFragment"/>
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function">
+	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#hasSpatialFragment"/>
 </rdf:Description>
 
-<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#getStart">
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#start">
 	<rdf:type rdf:resource="http://www.w3.org/ns/sparql-service-description#extensionFunction"/>
 	<name xmlns="http://schema.org/">Start Accessor</name>
 	<description xmlns="http://schema.org/">returns the start of an interval, null if there is none.</description>
-	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function"/>
+	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function"/>
 </rdf:Description>
 
-<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function">
-	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#getStart"/>
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function">
+	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#start"/>
 </rdf:Description>
 
-<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#isTemporalFragment">
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#temporalFragment">
+	<rdf:type rdf:resource="http://www.w3.org/ns/sparql-service-description#extensionFunction"/>
+	<name xmlns="http://schema.org/">TemporalFragment</name>
+	<description xmlns="http://schema.org/">returns a string representation of a temporal fragment.</description>
+	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function">
+	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#temporalFragment"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#hasTemporalFragment">
 	<rdf:type rdf:resource="http://www.w3.org/ns/sparql-service-description#extensionFunction"/>
 	<name xmlns="http://schema.org/">TemporalFragment Test</name>
-	<description xmlns="http://schema.org/">returns true is value is a temporal fragment.</description>
-	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function"/>
+	<description xmlns="http://schema.org/">returns true is value is or includes a temporal fragment.</description>
+	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function"/>
 </rdf:Description>
 
-<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function">
-	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#isTemporalFragment"/>
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function">
+	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#hasTemporalFragment"/>
 </rdf:Description>
 
-<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#getBoxWidth">
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#width">
 	<rdf:type rdf:resource="http://www.w3.org/ns/sparql-service-description#extensionFunction"/>
 	<name xmlns="http://schema.org/">Width Accessor</name>
 	<description xmlns="http://schema.org/">returns the width of a shape, null if there is none.</description>
-	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function"/>
+	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function"/>
 </rdf:Description>
 
-<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function">
-	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#getBoxWidth"/>
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function">
+	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#width"/>
 </rdf:Description>
 
-<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#within">
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#within">
 	<rdf:type rdf:resource="http://www.w3.org/ns/sparql-service-description#extensionFunction"/>
 	<name xmlns="http://schema.org/">Within</name>
 	<description xmlns="http://schema.org/">returns true if p1.shape contains all points of p2.shape an p1.shape.edge has not point in common with p2.shape.edge, else false.</description>
-	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function"/>
+	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function"/>
 </rdf:Description>
 
-<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function">
-	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#within"/>
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function">
+	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#within"/>
 </rdf:Description>
 
-<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#above">
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#xy">
+	<rdf:type rdf:resource="http://www.w3.org/ns/sparql-service-description#extensionFunction"/>
+	<name xmlns="http://schema.org/">XY Accessor</name>
+	<description xmlns="http://schema.org/">returns the left-upper-bound of a BoundingBox of a shape, null if there is none.</description>
+	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function">
+	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#xy"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#above">
 	<rdf:type rdf:resource="http://www.w3.org/ns/sparql-service-description#extensionFunction"/>
 	<name xmlns="http://schema.org/">above</name>
 	<description xmlns="http://schema.org/">returns true p1 if is above p2 (based on model m), else false.</description>
-	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function"/>
+	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function"/>
 </rdf:Description>
 
-<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function">
-	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#above"/>
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function">
+	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#above"/>
 </rdf:Description>
 
-<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#after">
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#after">
 	<rdf:type rdf:resource="http://www.w3.org/ns/sparql-service-description#extensionFunction"/>
 	<name xmlns="http://schema.org/">after</name>
 	<description xmlns="http://schema.org/">returns *true* if resource1.start &gt;= resource2.end, else *false*.</description>
-	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function"/>
+	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function"/>
 </rdf:Description>
 
-<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function">
-	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#after"/>
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function">
+	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#after"/>
 </rdf:Description>
 
-<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#below">
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#below">
 	<rdf:type rdf:resource="http://www.w3.org/ns/sparql-service-description#extensionFunction"/>
 	<name xmlns="http://schema.org/">below</name>
 	<description xmlns="http://schema.org/">returns true p1 if is below p2 (based on model m), else false.</description>
-	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function"/>
+	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function"/>
 </rdf:Description>
 
-<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function">
-	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#below"/>
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function">
+	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#below"/>
 </rdf:Description>
 
-<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#boundingBox">
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#boundingBox">
 	<rdf:type rdf:resource="http://www.w3.org/ns/sparql-service-description#extensionAggregate"/>
 	<name xmlns="http://schema.org/">boundingBox</name>
 	<description xmlns="http://schema.org/">returns new MediaFragment / MediaFragmentURI with spatial and temporal fragment. It it works like spatialFunction:boundingBox, temporalFunction:boundingBox or both together.</description>
-	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function"/>
+	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function"/>
 </rdf:Description>
 
-<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function">
-	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#boundingBox"/>
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function">
+	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#boundingBox"/>
 </rdf:Description>
 
-<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#contains">
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#contains">
 	<rdf:type rdf:resource="http://www.w3.org/ns/sparql-service-description#extensionFunction"/>
 	<name xmlns="http://schema.org/">contains</name>
-	<description xmlns="http://schema.org/">returns true if p1.start &lt; p2.start and p1.end &gt; p2.end, else false.</description>
-	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function"/>
+	<description xmlns="http://schema.org/">returns if mm:temporalContains(p1,p2) and mm:spatialContains(p1,p2).</description>
+	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function"/>
 </rdf:Description>
 
-<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function">
-	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#contains"/>
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function">
+	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#contains"/>
 </rdf:Description>
 
-<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#coveredBy">
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#coveredBy">
 	<rdf:type rdf:resource="http://www.w3.org/ns/sparql-service-description#extensionFunction"/>
 	<name xmlns="http://schema.org/">covered by</name>
 	<description xmlns="http://schema.org/">is the inverse function to covers.</description>
-	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function"/>
+	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function"/>
 </rdf:Description>
 
-<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function">
-	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#coveredBy"/>
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function">
+	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#coveredBy"/>
 </rdf:Description>
 
-<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#covers">
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#covers">
 	<rdf:type rdf:resource="http://www.w3.org/ns/sparql-service-description#extensionFunction"/>
 	<name xmlns="http://schema.org/">covers</name>
 	<description xmlns="http://schema.org/">returns true if all points of p1.shape are points of p2.shape, else false. </description>
-	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function"/>
+	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function"/>
 </rdf:Description>
 
-<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function">
-	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#covers"/>
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function">
+	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#covers"/>
 </rdf:Description>
 
-<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#crosses">
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#crosses">
 	<rdf:type rdf:resource="http://www.w3.org/ns/sparql-service-description#extensionFunction"/>
 	<name xmlns="http://schema.org/">crosses</name>
 	<description xmlns="http://schema.org/">returns true if p1.shape and p2.shape have common points and p1.shape.edge and p2.shape.edge has common points, else false.</description>
-	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function"/>
+	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function"/>
 </rdf:Description>
 
-<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function">
-	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#crosses"/>
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function">
+	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#crosses"/>
 </rdf:Description>
 
-<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#during">
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#during">
 	<rdf:type rdf:resource="http://www.w3.org/ns/sparql-service-description#extensionFunction"/>
 	<name xmlns="http://schema.org/">during</name>
 	<description xmlns="http://schema.org/">inverse function of contains.</description>
-	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function"/>
+	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function"/>
 </rdf:Description>
 
-<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function">
-	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#during"/>
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function">
+	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#during"/>
 </rdf:Description>
 
-<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#equals">
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#equals">
 	<rdf:type rdf:resource="http://www.w3.org/ns/sparql-service-description#extensionFunction"/>
 	<name xmlns="http://schema.org/">equals</name>
-	<description xmlns="http://schema.org/">returns true if p1.start == p2.start and p1.end == p2.end, else false.</description>
-	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function"/>
+	<description xmlns="http://schema.org/">returns if mm:temporalEquals(p1,p2) and mm:spatialEquals(p1,p2).</description>
+	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function"/>
 </rdf:Description>
 
-<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function">
-	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#equals"/>
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function">
+	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#equals"/>
 </rdf:Description>
 
-<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#finishedBy">
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#finishedBy">
 	<rdf:type rdf:resource="http://www.w3.org/ns/sparql-service-description#extensionFunction"/>
 	<name xmlns="http://schema.org/">finishes</name>
 	<description xmlns="http://schema.org/">is the inverse function of finishes.</description>
-	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function"/>
+	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function"/>
 </rdf:Description>
 
-<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function">
-	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#finishedBy"/>
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function">
+	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#finishedBy"/>
 </rdf:Description>
 
-<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#finishes">
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#finishes">
 	<rdf:type rdf:resource="http://www.w3.org/ns/sparql-service-description#extensionFunction"/>
 	<name xmlns="http://schema.org/">finishes</name>
 	<description xmlns="http://schema.org/">returns true if p1.end == p2.end and p1.start &gt; p1.start , else false.</description>
-	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function"/>
+	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function"/>
 </rdf:Description>
 
-<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function">
-	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#finishes"/>
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function">
+	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#finishes"/>
 </rdf:Description>
 
-<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#intersection">
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#intersection">
 	<rdf:type rdf:resource="http://www.w3.org/ns/sparql-service-description#extensionAggregate"/>
 	<name xmlns="http://schema.org/">intersection</name>
 	<description xmlns="http://schema.org/">returns new MediaFragment / MediaFragmentURI with spatial and temporal fragment. It works like spatialFunction:boundingBox, temporalFunction:intersection and both.</description>
-	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function"/>
+	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function"/>
 </rdf:Description>
 
-<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function">
-	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#intersection"/>
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function">
+	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#intersection"/>
 </rdf:Description>
 
-<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#leftAbove">
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#leftAbove">
 	<rdf:type rdf:resource="http://www.w3.org/ns/sparql-service-description#extensionFunction"/>
 	<name xmlns="http://schema.org/">leftAbove</name>
 	<description xmlns="http://schema.org/">returns true p1 if is left above p2 (based on model m), else false.</description>
-	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function"/>
+	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function"/>
 </rdf:Description>
 
-<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function">
-	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#leftAbove"/>
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function">
+	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#leftAbove"/>
 </rdf:Description>
 
-<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#leftBelow">
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#leftBelow">
 	<rdf:type rdf:resource="http://www.w3.org/ns/sparql-service-description#extensionFunction"/>
 	<name xmlns="http://schema.org/">leftBelow</name>
 	<description xmlns="http://schema.org/">returns true p1 if is left below p2 (based on model m), else false.</description>
-	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function"/>
+	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function"/>
 </rdf:Description>
 
-<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function">
-	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#leftBelow"/>
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function">
+	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#leftBelow"/>
 </rdf:Description>
 
-<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#leftBeside">
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#leftBeside">
 	<rdf:type rdf:resource="http://www.w3.org/ns/sparql-service-description#extensionFunction"/>
 	<name xmlns="http://schema.org/">leftBeside</name>
 	<description xmlns="http://schema.org/">returns true p1 if is left beside p2 (based on model m), else false.</description>
-	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function"/>
+	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function"/>
 </rdf:Description>
 
-<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function">
-	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#leftBeside"/>
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function">
+	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#leftBeside"/>
 </rdf:Description>
 
-<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#temporalMeets">
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#temporalMeets">
 	<rdf:type rdf:resource="http://www.w3.org/ns/sparql-service-description#extensionFunction"/>
 	<name xmlns="http://schema.org/">meets</name>
 	<description xmlns="http://schema.org/">returns true if resource1.start = resource2.end or resource1.end = resource2.start, else false.</description>
-	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function"/>
+	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function"/>
 </rdf:Description>
 
-<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function">
-	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#temporalMeets"/>
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function">
+	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#temporalMeets"/>
 </rdf:Description>
 
-<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#metBy">
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#metBy">
 	<rdf:type rdf:resource="http://www.w3.org/ns/sparql-service-description#extensionFunction"/>
 	<name xmlns="http://schema.org/">metBy</name>
 	<description xmlns="http://schema.org/">is the inverse function of meets.</description>
-	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function"/>
+	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function"/>
 </rdf:Description>
 
-<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function">
-	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#metBy"/>
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function">
+	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#metBy"/>
 </rdf:Description>
 
-<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#rightAbove">
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#overlaps">
+	<rdf:type rdf:resource="http://www.w3.org/ns/sparql-service-description#extensionFunction"/>
+	<name xmlns="http://schema.org/">overlaps</name>
+	<description xmlns="http://schema.org/">returns if mm:temporalOverlaps(p1,p2) and mm:spatialOverlaps(p1,p2).</description>
+	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function">
+	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#overlaps"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#rightAbove">
 	<rdf:type rdf:resource="http://www.w3.org/ns/sparql-service-description#extensionFunction"/>
 	<name xmlns="http://schema.org/">rightAbove</name>
 	<description xmlns="http://schema.org/">returns true p1 if is right above p2 (based on model m), else false.</description>
-	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function"/>
+	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function"/>
 </rdf:Description>
 
-<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function">
-	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#rightAbove"/>
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function">
+	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#rightAbove"/>
 </rdf:Description>
 
-<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#rightBelow">
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#rightBelow">
 	<rdf:type rdf:resource="http://www.w3.org/ns/sparql-service-description#extensionFunction"/>
 	<name xmlns="http://schema.org/">rightBelow</name>
 	<description xmlns="http://schema.org/">returns true p1 if is right below p2 (based on model m), else false.</description>
-	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function"/>
+	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function"/>
 </rdf:Description>
 
-<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function">
-	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#rightBelow"/>
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function">
+	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#rightBelow"/>
 </rdf:Description>
 
-<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#rightBeside">
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#rightBeside">
 	<rdf:type rdf:resource="http://www.w3.org/ns/sparql-service-description#extensionFunction"/>
 	<name xmlns="http://schema.org/">rightBeside</name>
 	<description xmlns="http://schema.org/">returns true p1 if is right beside p2 (based on model m), else false.</description>
-	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function"/>
+	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function"/>
 </rdf:Description>
 
-<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function">
-	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#rightBeside"/>
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function">
+	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#rightBeside"/>
 </rdf:Description>
 
-<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#spatialBoundingBox">
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#spatialBoundingBox">
 	<rdf:type rdf:resource="http://www.w3.org/ns/sparql-service-description#extensionAggregate"/>
 	<name xmlns="http://schema.org/">spatialBoundingBox</name>
 	<description xmlns="http://schema.org/">returns new MediaFragment / MediaFragmentURI with spatial fragment out of existing resources p1 and p2, so that x = min( p1.x, p2.x ) and y = min( p1.y, p2.y ) and w = max( p1.x + p1.w, p2.x + p2.w ) and h = max( p1.y + p1.h, p2.y + p2.h ).</description>
-	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function"/>
+	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function"/>
 </rdf:Description>
 
-<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function">
-	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#spatialBoundingBox"/>
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function">
+	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#spatialBoundingBox"/>
 </rdf:Description>
 
-<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#spatialContains">
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#spatialContains">
 	<rdf:type rdf:resource="http://www.w3.org/ns/sparql-service-description#extensionFunction"/>
 	<name xmlns="http://schema.org/">spatialContains</name>
 	<description xmlns="http://schema.org/">returns true if p1.shape contains p2.shape</description>
-	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function"/>
+	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function"/>
 </rdf:Description>
 
-<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function">
-	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#spatialContains"/>
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function">
+	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#spatialContains"/>
 </rdf:Description>
 
-<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#spatialDisjoint">
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#spatialDisjoint">
 	<rdf:type rdf:resource="http://www.w3.org/ns/sparql-service-description#extensionFunction"/>
 	<name xmlns="http://schema.org/">spatialDisjoint</name>
 	<description xmlns="http://schema.org/">returns true is p1.shape has no common points with p2.shape, else false.</description>
-	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function"/>
+	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function"/>
 </rdf:Description>
 
-<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function">
-	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#spatialDisjoint"/>
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function">
+	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#spatialDisjoint"/>
 </rdf:Description>
 
-<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#spatialEquals">
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#spatialEquals">
 	<rdf:type rdf:resource="http://www.w3.org/ns/sparql-service-description#extensionFunction"/>
 	<name xmlns="http://schema.org/">spatialEquals</name>
 	<description xmlns="http://schema.org/">returns true if p1.shape == p2.shape, else false.</description>
-	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function"/>
+	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function"/>
 </rdf:Description>
 
-<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function">
-	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#spatialEquals"/>
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function">
+	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#spatialEquals"/>
 </rdf:Description>
 
-<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#spatialIntersection">
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#spatialIntersection">
 	<rdf:type rdf:resource="http://www.w3.org/ns/sparql-service-description#extensionAggregate"/>
 	<name xmlns="http://schema.org/">spatialIntersection</name>
 	<description xmlns="http://schema.org/">returns new MediaFragment / MediaFragmentURI with spatial fragment out of existing resources p1 and p2, so that x = max( p1.x, p2.x ) and y = max( p1.y, p2.y ) and w = min( p1.x + p1.w, p2.x + p2.w ) - max( p1.x, p2.x ) and h = min( p1.y + p1.h, p2.y + p2.h ) - max( p1.y, p1.x )</description>
-	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function"/>
+	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function"/>
 </rdf:Description>
 
-<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function">
-	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#spatialIntersection"/>
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function">
+	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#spatialIntersection"/>
 </rdf:Description>
 
-<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#crosses">
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#spatialOverlaps">
+	<rdf:type rdf:resource="http://www.w3.org/ns/sparql-service-description#extensionFunction"/>
 	<name xmlns="http://schema.org/">spatialOverlaps</name>
 	<description xmlns="http://schema.org/">returns true if p1.shape and p2.shape have common points, else false.</description>
+	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function"/>
 </rdf:Description>
 
-<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#touches">
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function">
+	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#spatialOverlaps"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#touches">
 	<rdf:type rdf:resource="http://www.w3.org/ns/sparql-service-description#extensionFunction"/>
 	<name xmlns="http://schema.org/">spatialTouches</name>
 	<description xmlns="http://schema.org/">returns true if p1.shape.edge has at least one common point with p2.shape.edge and p1.shape.interior has no common point with p2.shape.interior, else false.</description>
-	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function"/>
+	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function"/>
 </rdf:Description>
 
-<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function">
-	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#touches"/>
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function">
+	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#touches"/>
 </rdf:Description>
 
-<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#startedBy">
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#startedBy">
 	<rdf:type rdf:resource="http://www.w3.org/ns/sparql-service-description#extensionFunction"/>
 	<name xmlns="http://schema.org/">startedBy</name>
 	<description xmlns="http://schema.org/">is the inverse function of starts.</description>
-	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function"/>
+	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function"/>
 </rdf:Description>
 
-<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function">
-	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#startedBy"/>
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function">
+	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#startedBy"/>
 </rdf:Description>
 
-<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#starts">
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#starts">
 	<rdf:type rdf:resource="http://www.w3.org/ns/sparql-service-description#extensionFunction"/>
 	<name xmlns="http://schema.org/">starts</name>
 	<description xmlns="http://schema.org/">returns true if p1.start == p2.start and p1.end &lt; p2.end , else false.</description>
-	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function"/>
+	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function"/>
 </rdf:Description>
 
-<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function">
-	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#starts"/>
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function">
+	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#starts"/>
 </rdf:Description>
 
-<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#temporalBoundingBox">
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#temporalIntermediate">
+	<rdf:type rdf:resource="http://www.w3.org/ns/sparql-service-description#extensionAggregate"/>
+	<name xmlns="http://schema.org/">temporal Intermediate</name>
+	<description xmlns="http://schema.org/">returns new MediaFragment / MediaFragmentURI with temporal fragment ( Min( p1.end, p2.end ), Max( p1.start, p2.start ) ) if intersection not exists, else null.</description>
+	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function">
+	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#temporalIntermediate"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#temporalBoundingBox">
 	<rdf:type rdf:resource="http://www.w3.org/ns/sparql-service-description#extensionAggregate"/>
 	<name xmlns="http://schema.org/">temporalBoundingBox</name>
 	<description xmlns="http://schema.org/">returns new MediaFragment / MediaFragmentURI with temporal fragment ( Min( p1.start, p2.start ), Max( p1.end, p2.end ) ).</description>
-	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function"/>
+	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function"/>
 </rdf:Description>
 
-<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function">
-	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#temporalBoundingBox"/>
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function">
+	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#temporalBoundingBox"/>
 </rdf:Description>
 
-<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#temporalIntermediate">
-	<rdf:type rdf:resource="http://www.w3.org/ns/sparql-service-description#extensionAggregate"/>
-	<name xmlns="http://schema.org/">temporalIntermediate</name>
-	<description xmlns="http://schema.org/">returns new MediaFragment / MediaFragmentURI with temporal fragment ( Min( p1.end, p2.end ), Max( p1.start, p2.start ) ) if intersection not exists, else null.</description>
-	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function"/>
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#temporalContains">
+	<rdf:type rdf:resource="http://www.w3.org/ns/sparql-service-description#extensionFunction"/>
+	<name xmlns="http://schema.org/">temporalContains</name>
+	<description xmlns="http://schema.org/">returns true if p1.start &lt; p2.start and p1.end &gt; p2.end, else false.</description>
+	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function"/>
 </rdf:Description>
 
-<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function">
-	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#temporalIntermediate"/>
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function">
+	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#temporalContains"/>
 </rdf:Description>
 
-<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#temporalIntersection">
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#temporalEquals">
+	<rdf:type rdf:resource="http://www.w3.org/ns/sparql-service-description#extensionFunction"/>
+	<name xmlns="http://schema.org/">temporalEquals</name>
+	<description xmlns="http://schema.org/">returns true if p1.start == p2.start and p1.end == p2.end, else false.</description>
+	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function">
+	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#temporalEquals"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#temporalIntersection">
 	<rdf:type rdf:resource="http://www.w3.org/ns/sparql-service-description#extensionAggregate"/>
 	<name xmlns="http://schema.org/">temporalIntersection</name>
 	<description xmlns="http://schema.org/">returns new MediaFragmentURI with temporal fragment ( Max( resource1.start, resource2.start ), Min( resource1.end, resource2.end ) ) if intersection exists, else null.</description>
-	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function"/>
+	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function"/>
 </rdf:Description>
 
-<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function">
-	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#temporalIntersection"/>
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function">
+	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#temporalIntersection"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#temporalOverlaps">
+	<rdf:type rdf:resource="http://www.w3.org/ns/sparql-service-description#extensionFunction"/>
+	<name xmlns="http://schema.org/">temporalOverlaps</name>
+	<description xmlns="http://schema.org/">returns true if p1.start &lt; p2.start &lt; p1.end &lt; p2.end or p2.start &lt; p.start &lt; p.end &lt; p.end, else false.</description>
+	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function">
+	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#temporalOverlaps"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#toPercent">
+	<rdf:type rdf:resource="http://www.w3.org/ns/sparql-service-description#extensionFunction"/>
+	<name xmlns="http://schema.org/">toPercent Transformer</name>
+	<description xmlns="http://schema.org/">returns a string representation of a media fragment (uri) transformed to percent using a double parameter.</description>
+	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function">
+	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#toPercent"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#toPixel">
+	<rdf:type rdf:resource="http://www.w3.org/ns/sparql-service-description#extensionFunction"/>
+	<name xmlns="http://schema.org/">toPixel Transformer</name>
+	<description xmlns="http://schema.org/">returns a string representation of a media fragment (uri) transformed to pixel using a double parameter.</description>
+	<includedIn xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function">
+	<includes xmlns="http://purl.org/net/schemas/sparql-extension-description#" rdf:resource="http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#toPixel"/>
 </rdf:Description>
 
 </rdf:RDF>

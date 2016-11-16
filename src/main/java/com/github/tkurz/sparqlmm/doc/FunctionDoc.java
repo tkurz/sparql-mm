@@ -18,10 +18,16 @@ import java.lang.annotation.Target;
 public @interface FunctionDoc {
 
     public static enum Reference {
-        spatial, temporal, combined, other;
+        spatial("Spatial"), temporal("Temporal"), combined("General"), other("Other");
+
+        private String value;
+
+        Reference(String value) {
+            this.value = value;
+        }
 
         public String getName() {
-            return Character.toString(this.name().charAt(0)).toUpperCase()+this.name().substring(1);
+            return value;
         }
     }
 

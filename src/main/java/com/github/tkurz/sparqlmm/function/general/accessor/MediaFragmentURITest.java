@@ -14,7 +14,7 @@ import org.openrdf.query.algebra.evaluation.function.Function;
  * <p/>
  * Author: Thomas Kurz (tkurz@apache.org)
  */
-@FunctionDoc(title = "MediaFragmentURI Test", properties = {URI.class}, reference = FunctionDoc.Reference.other, description = "returns if value is a MediaFragmentURI", type = FunctionDoc.Type.accessorFunction)
+@FunctionDoc(title = "MediaFragmentURI Test", properties = {URI.class}, reference = FunctionDoc.Reference.combined, description = "returns if value is a MediaFragmentURI", type = FunctionDoc.Type.accessorFunction)
 public class MediaFragmentURITest implements Function {
 
     @Override

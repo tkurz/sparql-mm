@@ -2,7 +2,7 @@
 <h1>SPARQL-MM Function Library for Media Fragments</h1>
 
 <p>
-The URI for this vocabulary is <code>http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#</code>. When abbreviating terms the suggested prefix is <code>mm</code>. Each function in this function set has a URI constructed by appending a term name to the vocabulary URI. For example <code>http://linkedmultimedia.org/sparql-mm/ns/1.0.0/function#getBoxArea</code>. There are machine readable function description using <a href="http://www.ldodds.com/schemas/sparql-extension-description/">SPARQL Extension Description Vocabulary]</a> in <a href="index.rdf">RDF/XML</a> and <a href="index.ttl">TURTLE</a>.</p>
+The URI for this vocabulary is <code>http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#</code>. When abbreviating terms the suggested prefix is <code>mm</code>. Each function in this function set has a URI constructed by appending a term name to the vocabulary URI. For example <code>http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#area</code>. There are machine readable function description using <a href="http://www.ldodds.com/schemas/sparql-extension-description/">SPARQL Extension Description Vocabulary]</a> in <a href="index.rdf">RDF/XML</a> and <a href="index.ttl">TURTLE</a>.</p>
 <h2>Spatial Relations</h2><table>
 <tr><th>Relation name</th><th>Description</th>
 <tr><td>mm:intersects( <i>SpatialEntity</i>, <i>SpatialEntity</i> )</td><td>returns true if p1 has at least one common point with p2, else false.</td>
@@ -21,7 +21,7 @@ The URI for this vocabulary is <code>http://linkedmultimedia.org/sparql-mm/ns/1.
 <tr><td>mm:spatialContains( <i>SpatialEntity</i>, <i>SpatialEntity</i> )</td><td>returns true if p1.shape contains p2.shape</td>
 <tr><td>mm:spatialDisjoint( <i>SpatialEntity</i>, <i>SpatialEntity</i> )</td><td>returns true is p1.shape has no common points with p2.shape, else false.</td>
 <tr><td>mm:spatialEquals( <i>SpatialEntity</i>, <i>SpatialEntity</i> )</td><td>returns true if p1.shape == p2.shape, else false.</td>
-<tr><td>mm:crosses( <i>SpatialEntity</i>, <i>SpatialEntity</i> )</td><td>returns true if p1.shape and p2.shape have common points, else false.</td>
+<tr><td>mm:spatialOverlaps( <i>SpatialEntity</i>, <i>SpatialEntity</i> )</td><td>returns true if p1.shape and p2.shape have common points, else false.</td>
 <tr><td>mm:touches( <i>SpatialEntity</i>, <i>SpatialEntity</i> )</td><td>returns true if p1.shape.edge has at least one common point with p2.shape.edge and p1.shape.interior has no common point with p2.shape.interior, else false.</td>
 </table>
 <h2>Spatial Aggregations</h2><table>
@@ -31,47 +31,60 @@ The URI for this vocabulary is <code>http://linkedmultimedia.org/sparql-mm/ns/1.
 </table>
 <h2>Spatial Accessors</h2><table>
 <tr><th>Relation name</th><th>Description</th>
-<tr><td>mm:getBoxArea( <i>SpatialEntity</i> )</td><td>returns the area of BoundingBox of a shape, null if there is none.</td>
-<tr><td>mm:getBoxHeight( <i>SpatialEntity</i> )</td><td>returns the height of a shape, null if there is none.</td>
-<tr><td>mm:isSpatialFragment( <i>SpatialEntity</i> )</td><td>returns true is value is a spatial fragment.</td>
-<tr><td>mm:getBoxWidth( <i>SpatialEntity</i> )</td><td>returns the width of a shape, null if there is none.</td>
+<tr><td>mm:area( <i>SpatialEntity</i> )</td><td>returns the area of BoundingBox of a shape, null if there is none.</td>
+<tr><td>mm:center( <i>SpatialEntity</i> )</td><td>returns the center of a BoundingBox of a shape, null if there is none.</td>
+<tr><td>mm:height( <i>SpatialEntity</i> )</td><td>returns the height of a shape, null if there is none.</td>
+<tr><td>mm:spatialFragment( <i>SpatialEntity</i> )</td><td>returns a string representation of a spatial fragment.</td>
+<tr><td>mm:hasSpatialFragment( <i>SpatialEntity</i> )</td><td>returns true is value is or includes a spatial fragment.</td>
+<tr><td>mm:width( <i>SpatialEntity</i> )</td><td>returns the width of a shape, null if there is none.</td>
+<tr><td>mm:xy( <i>SpatialEntity</i> )</td><td>returns the left-upper-bound of a BoundingBox of a shape, null if there is none.</td>
 </table>
 <h2>Temporal Relations</h2><table>
 <tr><th>Relation name</th><th>Description</th>
 <tr><td>mm:overlappedBy( <i>TemporalEntity</i>, <i>TemporalEntity</i> )</td><td>is the inverse function of overlaps.</td>
-<tr><td>mm:overlaps( <i>TemporalEntity</i>, <i>TemporalEntity</i> )</td><td>returns true if p1.start < p2.start < p1.end < p2.end or p2.start < p.start < p.end < p.end, else false.</td>
 <tr><td>mm:precedes( <i>TemporalEntity</i>, <i>TemporalEntity</i> )</td><td>returns true if p1.end < p2.start, else false.</td>
 <tr><td>mm:after( <i>TemporalEntity</i>, <i>TemporalEntity</i> )</td><td>returns *true* if resource1.start >= resource2.end, else *false*.</td>
-<tr><td>mm:contains( <i>TemporalEntity</i>, <i>TemporalEntity</i> )</td><td>returns true if p1.start < p2.start and p1.end > p2.end, else false.</td>
 <tr><td>mm:during( <i>TemporalEntity</i>, <i>TemporalEntity</i> )</td><td>inverse function of contains.</td>
-<tr><td>mm:equals( <i>TemporalEntity</i>, <i>TemporalEntity</i> )</td><td>returns true if p1.start == p2.start and p1.end == p2.end, else false.</td>
 <tr><td>mm:finishedBy( <i>TemporalEntity</i>, <i>TemporalEntity</i> )</td><td>is the inverse function of finishes.</td>
 <tr><td>mm:finishes( <i>TemporalEntity</i>, <i>TemporalEntity</i> )</td><td>returns true if p1.end == p2.end and p1.start > p1.start , else false.</td>
 <tr><td>mm:temporalMeets( <i>TemporalEntity</i>, <i>TemporalEntity</i> )</td><td>returns true if resource1.start = resource2.end or resource1.end = resource2.start, else false.</td>
 <tr><td>mm:metBy( <i>TemporalEntity</i>, <i>TemporalEntity</i> )</td><td>is the inverse function of meets.</td>
 <tr><td>mm:startedBy( <i>TemporalEntity</i>, <i>TemporalEntity</i> )</td><td>is the inverse function of starts.</td>
 <tr><td>mm:starts( <i>TemporalEntity</i>, <i>TemporalEntity</i> )</td><td>returns true if p1.start == p2.start and p1.end < p2.end , else false.</td>
+<tr><td>mm:temporalContains( <i>TemporalEntity</i>, <i>TemporalEntity</i> )</td><td>returns true if p1.start < p2.start and p1.end > p2.end, else false.</td>
+<tr><td>mm:temporalEquals( <i>TemporalEntity</i>, <i>TemporalEntity</i> )</td><td>returns true if p1.start == p2.start and p1.end == p2.end, else false.</td>
+<tr><td>mm:temporalOverlaps( <i>TemporalEntity</i>, <i>TemporalEntity</i> )</td><td>returns true if p1.start < p2.start < p1.end < p2.end or p2.start < p.start < p.end < p.end, else false.</td>
 </table>
 <h2>Temporal Aggregations</h2><table>
 <tr><th>Relation name</th><th>Description</th>
-<tr><td>mm:temporalBoundingBox( <i>TemporalEntity</i>, <i>TemporalEntity</i> )</td><td>returns new MediaFragment / MediaFragmentURI with temporal fragment ( Min( p1.start, p2.start ), Max( p1.end, p2.end ) ).</td>
 <tr><td>mm:temporalIntermediate( <i>TemporalEntity</i>, <i>TemporalEntity</i> )</td><td>returns new MediaFragment / MediaFragmentURI with temporal fragment ( Min( p1.end, p2.end ), Max( p1.start, p2.start ) ) if intersection not exists, else null.</td>
+<tr><td>mm:temporalBoundingBox( <i>TemporalEntity</i>, <i>TemporalEntity</i> )</td><td>returns new MediaFragment / MediaFragmentURI with temporal fragment ( Min( p1.start, p2.start ), Max( p1.end, p2.end ) ).</td>
 <tr><td>mm:temporalIntersection( <i>TemporalEntity</i>, <i>TemporalEntity</i> )</td><td>returns new MediaFragmentURI with temporal fragment ( Max( resource1.start, resource2.start ), Min( resource1.end, resource2.end ) ) if intersection exists, else null.</td>
 </table>
 <h2>Temporal Accessors</h2><table>
 <tr><th>Relation name</th><th>Description</th>
-<tr><td>mm:getDuration( <i>TemporalEntity</i> )</td><td>returns the duration of an interval, null if there is none.</td>
-<tr><td>mm:getEnd( <i>TemporalEntity</i> )</td><td>returns the end of an interval, null if there is none.</td>
-<tr><td>mm:getStart( <i>TemporalEntity</i> )</td><td>returns the start of an interval, null if there is none.</td>
-<tr><td>mm:isTemporalFragment( <i>TemporalEntity</i> )</td><td>returns true is value is a temporal fragment.</td>
+<tr><td>mm:duration( <i>TemporalEntity</i> )</td><td>returns the duration of an interval, null if there is none.</td>
+<tr><td>mm:end( <i>TemporalEntity</i> )</td><td>returns the end of an interval, null if there is none.</td>
+<tr><td>mm:start( <i>TemporalEntity</i> )</td><td>returns the start of an interval, null if there is none.</td>
+<tr><td>mm:temporalFragment( <i>TemporalEntity</i> )</td><td>returns a string representation of a temporal fragment.</td>
+<tr><td>mm:hasTemporalFragment( <i>TemporalEntity</i> )</td><td>returns true is value is or includes a temporal fragment.</td>
 </table>
-<h2>Combined Aggregations</h2><table>
+<h2>General Relations</h2><table>
+<tr><th>Relation name</th><th>Description</th>
+<tr><td>mm:contains( <i>SpatialTemporalEntity</i>, <i>SpatialTemporalEntity</i> )</td><td>returns if mm:temporalContains(p1,p2) and mm:spatialContains(p1,p2).</td>
+<tr><td>mm:equals( <i>SpatialTemporalEntity</i>, <i>SpatialTemporalEntity</i> )</td><td>returns if mm:temporalEquals(p1,p2) and mm:spatialEquals(p1,p2).</td>
+<tr><td>mm:overlaps( <i>SpatialTemporalEntity</i>, <i>SpatialTemporalEntity</i> )</td><td>returns if mm:temporalOverlaps(p1,p2) and mm:spatialOverlaps(p1,p2).</td>
+</table>
+<h2>General Aggregations</h2><table>
 <tr><th>Relation name</th><th>Description</th>
 <tr><td>mm:boundingBox( <i>SpatialTemporalEntity</i>, <i>SpatialTemporalEntity</i> )</td><td>returns new MediaFragment / MediaFragmentURI with spatial and temporal fragment. It it works like spatialFunction:boundingBox, temporalFunction:boundingBox or both together.</td>
 <tr><td>mm:intersection( <i>SpatialTemporalEntity</i>, <i>SpatialTemporalEntity</i> )</td><td>returns new MediaFragment / MediaFragmentURI with spatial and temporal fragment. It works like spatialFunction:boundingBox, temporalFunction:intersection and both.</td>
 </table>
-<h2>Other Accessors</h2><table>
+<h2>General Accessors</h2><table>
 <tr><th>Relation name</th><th>Description</th>
+<tr><td>mm:mediaFragment( <i>SpatialTemporalEntity</i> )</td><td>returns a string representation of a media fragment.</td>
 <tr><td>mm:isMediaFragment( <i>URI</i> )</td><td>returns if value is a MediaFragment</td>
 <tr><td>mm:isMediaFragmentURI( <i>URI</i> )</td><td>returns if value is a MediaFragmentURI</td>
+<tr><td>mm:toPercent( <i>SpatialTemporalEntity</i>, <i>Double</i> )</td><td>returns a string representation of a media fragment (uri) transformed to percent using a double parameter.</td>
+<tr><td>mm:toPixel( <i>SpatialTemporalEntity</i>, <i>Double</i> )</td><td>returns a string representation of a media fragment (uri) transformed to pixel using a double parameter.</td>
 </table>

@@ -1,0 +1,480 @@
+The id number follow the scheme described in D4.2.1-SPEC (Table 3)The base URI for the SPARQL-MM vocabulary is
+\texttt{http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#}.
+When abbreviating terms the suggested prefix is \texttt{mm}.
+Each function in this function set has a URI constructed by appending a term name to the vocabulary URI. For example:
+\texttt{http://linkedmultimedia.org/sparql-mm/ns/2.0.0/function#area}.
+There are machine readable function description using \textit{SPARQL Extension Description Vocabulary}\footurl{http://www.ldodds.com/schemas/sparql-extension-description/} e.g. in RDF/XML\footurl{https://raw.githubusercontent.com/tkurz/sparql-mm/master/ns/1.0.0/function/index.rdf}.
+%
+\subsubsection*{Spatial Relations}
+\begin{tabular}{|p{3cm}|p{10cm}|}
+\hline Name & mm:intersects\\
+\hline Properties & \textit{SpatialEntity}, \textit{SpatialEntity} \\
+\hline Description & returns true if p1 has at least one common point with p2, else false.\\
+\hline
+\end{tabular}
+\vspace{0.3cm}
+\newline
+\begin{tabular}{|p{3cm}|p{10cm}|}
+\hline Name & mm:within\\
+\hline Properties & \textit{SpatialEntity}, \textit{SpatialEntity} \\
+\hline Description & returns true if p1.shape contains all points of p2.shape an p1.shape.edge has not point in common with p2.shape.edge, else false.\\
+\hline
+\end{tabular}
+\vspace{0.3cm}
+\newline
+\begin{tabular}{|p{3cm}|p{10cm}|}
+\hline Name & mm:above\\
+\hline Properties & \textit{SpatialEntity}, \textit{SpatialEntity} \\
+\hline Description & returns true p1 if is above p2 (based on model m), else false.\\
+\hline
+\end{tabular}
+\vspace{0.3cm}
+\newline
+\begin{tabular}{|p{3cm}|p{10cm}|}
+\hline Name & mm:below\\
+\hline Properties & \textit{SpatialEntity}, \textit{SpatialEntity} \\
+\hline Description & returns true p1 if is below p2 (based on model m), else false.\\
+\hline
+\end{tabular}
+\vspace{0.3cm}
+\newline
+\begin{tabular}{|p{3cm}|p{10cm}|}
+\hline Name & mm:coveredBy\\
+\hline Properties & \textit{SpatialEntity}, \textit{SpatialEntity} \\
+\hline Description & is the inverse function to covers.\\
+\hline
+\end{tabular}
+\vspace{0.3cm}
+\newline
+\begin{tabular}{|p{3cm}|p{10cm}|}
+\hline Name & mm:covers\\
+\hline Properties & \textit{SpatialEntity}, \textit{SpatialEntity} \\
+\hline Description & returns true if all points of p1.shape are points of p2.shape, else false. \\
+\hline
+\end{tabular}
+\vspace{0.3cm}
+\newline
+\begin{tabular}{|p{3cm}|p{10cm}|}
+\hline Name & mm:crosses\\
+\hline Properties & \textit{SpatialEntity}, \textit{SpatialEntity} \\
+\hline Description & returns true if p1.shape and p2.shape have common points and p1.shape.edge and p2.shape.edge has common points, else false.\\
+\hline
+\end{tabular}
+\vspace{0.3cm}
+\newline
+\begin{tabular}{|p{3cm}|p{10cm}|}
+\hline Name & mm:leftAbove\\
+\hline Properties & \textit{SpatialEntity}, \textit{SpatialEntity} \\
+\hline Description & returns true p1 if is left above p2 (based on model m), else false.\\
+\hline
+\end{tabular}
+\vspace{0.3cm}
+\newline
+\begin{tabular}{|p{3cm}|p{10cm}|}
+\hline Name & mm:leftBelow\\
+\hline Properties & \textit{SpatialEntity}, \textit{SpatialEntity} \\
+\hline Description & returns true p1 if is left below p2 (based on model m), else false.\\
+\hline
+\end{tabular}
+\vspace{0.3cm}
+\newline
+\begin{tabular}{|p{3cm}|p{10cm}|}
+\hline Name & mm:leftBeside\\
+\hline Properties & \textit{SpatialEntity}, \textit{SpatialEntity} \\
+\hline Description & returns true p1 if is left beside p2 (based on model m), else false.\\
+\hline
+\end{tabular}
+\vspace{0.3cm}
+\newline
+\begin{tabular}{|p{3cm}|p{10cm}|}
+\hline Name & mm:rightAbove\\
+\hline Properties & \textit{SpatialEntity}, \textit{SpatialEntity} \\
+\hline Description & returns true p1 if is right above p2 (based on model m), else false.\\
+\hline
+\end{tabular}
+\vspace{0.3cm}
+\newline
+\begin{tabular}{|p{3cm}|p{10cm}|}
+\hline Name & mm:rightBelow\\
+\hline Properties & \textit{SpatialEntity}, \textit{SpatialEntity} \\
+\hline Description & returns true p1 if is right below p2 (based on model m), else false.\\
+\hline
+\end{tabular}
+\vspace{0.3cm}
+\newline
+\begin{tabular}{|p{3cm}|p{10cm}|}
+\hline Name & mm:rightBeside\\
+\hline Properties & \textit{SpatialEntity}, \textit{SpatialEntity} \\
+\hline Description & returns true p1 if is right beside p2 (based on model m), else false.\\
+\hline
+\end{tabular}
+\vspace{0.3cm}
+\newline
+\begin{tabular}{|p{3cm}|p{10cm}|}
+\hline Name & mm:spatialContains\\
+\hline Properties & \textit{SpatialEntity}, \textit{SpatialEntity} \\
+\hline Description & returns true if p1.shape contains p2.shape\\
+\hline
+\end{tabular}
+\vspace{0.3cm}
+\newline
+\begin{tabular}{|p{3cm}|p{10cm}|}
+\hline Name & mm:spatialDisjoint\\
+\hline Properties & \textit{SpatialEntity}, \textit{SpatialEntity} \\
+\hline Description & returns true is p1.shape has no common points with p2.shape, else false.\\
+\hline
+\end{tabular}
+\vspace{0.3cm}
+\newline
+\begin{tabular}{|p{3cm}|p{10cm}|}
+\hline Name & mm:spatialEquals\\
+\hline Properties & \textit{SpatialEntity}, \textit{SpatialEntity} \\
+\hline Description & returns true if p1.shape == p2.shape, else false.\\
+\hline
+\end{tabular}
+\vspace{0.3cm}
+\newline
+\begin{tabular}{|p{3cm}|p{10cm}|}
+\hline Name & mm:spatialOverlaps\\
+\hline Properties & \textit{SpatialEntity}, \textit{SpatialEntity} \\
+\hline Description & returns true if p1.shape and p2.shape have common points, else false.\\
+\hline
+\end{tabular}
+\vspace{0.3cm}
+\newline
+\begin{tabular}{|p{3cm}|p{10cm}|}
+\hline Name & mm:touches\\
+\hline Properties & \textit{SpatialEntity}, \textit{SpatialEntity} \\
+\hline Description & returns true if p1.shape.edge has at least one common point with p2.shape.edge and p1.shape.interior has no common point with p2.shape.interior, else false.\\
+\hline
+\end{tabular}
+\vspace{0.3cm}
+\newline
+\subsubsection*{Spatial Aggregations}
+\begin{tabular}{|p{3cm}|p{10cm}|}
+\hline Name & mm:spatialBoundingBox\\
+\hline Properties & \textit{SpatialEntity}, \textit{SpatialEntity} \\
+\hline Description & returns new MediaFragment / MediaFragmentURI with spatial fragment out of existing resources p1 and p2, so that x = min( p1.x, p2.x ) and y = min( p1.y, p2.y ) and w = max( p1.x + p1.w, p2.x + p2.w ) and h = max( p1.y + p1.h, p2.y + p2.h ).\\
+\hline
+\end{tabular}
+\vspace{0.3cm}
+\newline
+\begin{tabular}{|p{3cm}|p{10cm}|}
+\hline Name & mm:spatialIntersection\\
+\hline Properties & \textit{SpatialEntity}, \textit{SpatialEntity} \\
+\hline Description & returns new MediaFragment / MediaFragmentURI with spatial fragment out of existing resources p1 and p2, so that x = max( p1.x, p2.x ) and y = max( p1.y, p2.y ) and w = min( p1.x + p1.w, p2.x + p2.w ) - max( p1.x, p2.x ) and h = min( p1.y + p1.h, p2.y + p2.h ) - max( p1.y, p1.x )\\
+\hline
+\end{tabular}
+\vspace{0.3cm}
+\newline
+\subsubsection*{Spatial Accessors}
+\begin{tabular}{|p{3cm}|p{10cm}|}
+\hline Name & mm:area\\
+\hline Properties & \textit{SpatialEntity} \\
+\hline Description & returns the area of BoundingBox of a shape, null if there is none.\\
+\hline
+\end{tabular}
+\vspace{0.3cm}
+\newline
+\begin{tabular}{|p{3cm}|p{10cm}|}
+\hline Name & mm:center\\
+\hline Properties & \textit{SpatialEntity} \\
+\hline Description & returns the center of a BoundingBox of a shape, null if there is none.\\
+\hline
+\end{tabular}
+\vspace{0.3cm}
+\newline
+\begin{tabular}{|p{3cm}|p{10cm}|}
+\hline Name & mm:height\\
+\hline Properties & \textit{SpatialEntity} \\
+\hline Description & returns the height of a shape, null if there is none.\\
+\hline
+\end{tabular}
+\vspace{0.3cm}
+\newline
+\begin{tabular}{|p{3cm}|p{10cm}|}
+\hline Name & mm:spatialFragment\\
+\hline Properties & \textit{SpatialEntity} \\
+\hline Description & returns a string representation of a spatial fragment.\\
+\hline
+\end{tabular}
+\vspace{0.3cm}
+\newline
+\begin{tabular}{|p{3cm}|p{10cm}|}
+\hline Name & mm:hasSpatialFragment\\
+\hline Properties & \textit{SpatialEntity} \\
+\hline Description & returns true is value is or includes a spatial fragment.\\
+\hline
+\end{tabular}
+\vspace{0.3cm}
+\newline
+\begin{tabular}{|p{3cm}|p{10cm}|}
+\hline Name & mm:width\\
+\hline Properties & \textit{SpatialEntity} \\
+\hline Description & returns the width of a shape, null if there is none.\\
+\hline
+\end{tabular}
+\vspace{0.3cm}
+\newline
+\begin{tabular}{|p{3cm}|p{10cm}|}
+\hline Name & mm:xy\\
+\hline Properties & \textit{SpatialEntity} \\
+\hline Description & returns the left-upper-bound of a BoundingBox of a shape, null if there is none.\\
+\hline
+\end{tabular}
+\vspace{0.3cm}
+\newline
+\subsubsection*{Temporal Relations}
+\begin{tabular}{|p{3cm}|p{10cm}|}
+\hline Name & mm:overlappedBy\\
+\hline Properties & \textit{TemporalEntity}, \textit{TemporalEntity} \\
+\hline Description & is the inverse function of overlaps.\\
+\hline
+\end{tabular}
+\vspace{0.3cm}
+\newline
+\begin{tabular}{|p{3cm}|p{10cm}|}
+\hline Name & mm:precedes\\
+\hline Properties & \textit{TemporalEntity}, \textit{TemporalEntity} \\
+\hline Description & returns true if p1.end < p2.start, else false.\\
+\hline
+\end{tabular}
+\vspace{0.3cm}
+\newline
+\begin{tabular}{|p{3cm}|p{10cm}|}
+\hline Name & mm:after\\
+\hline Properties & \textit{TemporalEntity}, \textit{TemporalEntity} \\
+\hline Description & returns *true* if resource1.start >= resource2.end, else *false*.\\
+\hline
+\end{tabular}
+\vspace{0.3cm}
+\newline
+\begin{tabular}{|p{3cm}|p{10cm}|}
+\hline Name & mm:during\\
+\hline Properties & \textit{TemporalEntity}, \textit{TemporalEntity} \\
+\hline Description & inverse function of contains.\\
+\hline
+\end{tabular}
+\vspace{0.3cm}
+\newline
+\begin{tabular}{|p{3cm}|p{10cm}|}
+\hline Name & mm:finishedBy\\
+\hline Properties & \textit{TemporalEntity}, \textit{TemporalEntity} \\
+\hline Description & is the inverse function of finishes.\\
+\hline
+\end{tabular}
+\vspace{0.3cm}
+\newline
+\begin{tabular}{|p{3cm}|p{10cm}|}
+\hline Name & mm:finishes\\
+\hline Properties & \textit{TemporalEntity}, \textit{TemporalEntity} \\
+\hline Description & returns true if p1.end == p2.end and p1.start > p1.start , else false.\\
+\hline
+\end{tabular}
+\vspace{0.3cm}
+\newline
+\begin{tabular}{|p{3cm}|p{10cm}|}
+\hline Name & mm:temporalMeets\\
+\hline Properties & \textit{TemporalEntity}, \textit{TemporalEntity} \\
+\hline Description & returns true if resource1.start = resource2.end or resource1.end = resource2.start, else false.\\
+\hline
+\end{tabular}
+\vspace{0.3cm}
+\newline
+\begin{tabular}{|p{3cm}|p{10cm}|}
+\hline Name & mm:metBy\\
+\hline Properties & \textit{TemporalEntity}, \textit{TemporalEntity} \\
+\hline Description & is the inverse function of meets.\\
+\hline
+\end{tabular}
+\vspace{0.3cm}
+\newline
+\begin{tabular}{|p{3cm}|p{10cm}|}
+\hline Name & mm:startedBy\\
+\hline Properties & \textit{TemporalEntity}, \textit{TemporalEntity} \\
+\hline Description & is the inverse function of starts.\\
+\hline
+\end{tabular}
+\vspace{0.3cm}
+\newline
+\begin{tabular}{|p{3cm}|p{10cm}|}
+\hline Name & mm:starts\\
+\hline Properties & \textit{TemporalEntity}, \textit{TemporalEntity} \\
+\hline Description & returns true if p1.start == p2.start and p1.end < p2.end , else false.\\
+\hline
+\end{tabular}
+\vspace{0.3cm}
+\newline
+\begin{tabular}{|p{3cm}|p{10cm}|}
+\hline Name & mm:temporalContains\\
+\hline Properties & \textit{TemporalEntity}, \textit{TemporalEntity} \\
+\hline Description & returns true if p1.start < p2.start and p1.end > p2.end, else false.\\
+\hline
+\end{tabular}
+\vspace{0.3cm}
+\newline
+\begin{tabular}{|p{3cm}|p{10cm}|}
+\hline Name & mm:temporalEquals\\
+\hline Properties & \textit{TemporalEntity}, \textit{TemporalEntity} \\
+\hline Description & returns true if p1.start == p2.start and p1.end == p2.end, else false.\\
+\hline
+\end{tabular}
+\vspace{0.3cm}
+\newline
+\begin{tabular}{|p{3cm}|p{10cm}|}
+\hline Name & mm:temporalOverlaps\\
+\hline Properties & \textit{TemporalEntity}, \textit{TemporalEntity} \\
+\hline Description & returns true if p1.start < p2.start < p1.end < p2.end or p2.start < p.start < p.end < p.end, else false.\\
+\hline
+\end{tabular}
+\vspace{0.3cm}
+\newline
+\subsubsection*{Temporal Aggregations}
+\begin{tabular}{|p{3cm}|p{10cm}|}
+\hline Name & mm:temporalIntermediate\\
+\hline Properties & \textit{TemporalEntity}, \textit{TemporalEntity} \\
+\hline Description & returns new MediaFragment / MediaFragmentURI with temporal fragment ( Min( p1.end, p2.end ), Max( p1.start, p2.start ) ) if intersection not exists, else null.\\
+\hline
+\end{tabular}
+\vspace{0.3cm}
+\newline
+\begin{tabular}{|p{3cm}|p{10cm}|}
+\hline Name & mm:temporalBoundingBox\\
+\hline Properties & \textit{TemporalEntity}, \textit{TemporalEntity} \\
+\hline Description & returns new MediaFragment / MediaFragmentURI with temporal fragment ( Min( p1.start, p2.start ), Max( p1.end, p2.end ) ).\\
+\hline
+\end{tabular}
+\vspace{0.3cm}
+\newline
+\begin{tabular}{|p{3cm}|p{10cm}|}
+\hline Name & mm:temporalIntersection\\
+\hline Properties & \textit{TemporalEntity}, \textit{TemporalEntity} \\
+\hline Description & returns new MediaFragmentURI with temporal fragment ( Max( resource1.start, resource2.start ), Min( resource1.end, resource2.end ) ) if intersection exists, else null.\\
+\hline
+\end{tabular}
+\vspace{0.3cm}
+\newline
+\subsubsection*{Temporal Accessors}
+\begin{tabular}{|p{3cm}|p{10cm}|}
+\hline Name & mm:duration\\
+\hline Properties & \textit{TemporalEntity} \\
+\hline Description & returns the duration of an interval, null if there is none.\\
+\hline
+\end{tabular}
+\vspace{0.3cm}
+\newline
+\begin{tabular}{|p{3cm}|p{10cm}|}
+\hline Name & mm:end\\
+\hline Properties & \textit{TemporalEntity} \\
+\hline Description & returns the end of an interval, null if there is none.\\
+\hline
+\end{tabular}
+\vspace{0.3cm}
+\newline
+\begin{tabular}{|p{3cm}|p{10cm}|}
+\hline Name & mm:start\\
+\hline Properties & \textit{TemporalEntity} \\
+\hline Description & returns the start of an interval, null if there is none.\\
+\hline
+\end{tabular}
+\vspace{0.3cm}
+\newline
+\begin{tabular}{|p{3cm}|p{10cm}|}
+\hline Name & mm:temporalFragment\\
+\hline Properties & \textit{TemporalEntity} \\
+\hline Description & returns a string representation of a temporal fragment.\\
+\hline
+\end{tabular}
+\vspace{0.3cm}
+\newline
+\begin{tabular}{|p{3cm}|p{10cm}|}
+\hline Name & mm:hasTemporalFragment\\
+\hline Properties & \textit{TemporalEntity} \\
+\hline Description & returns true is value is or includes a temporal fragment.\\
+\hline
+\end{tabular}
+\vspace{0.3cm}
+\newline
+\subsubsection*{General Relations}
+\begin{tabular}{|p{3cm}|p{10cm}|}
+\hline Name & mm:contains\\
+\hline Properties & \textit{SpatialTemporalEntity}, \textit{SpatialTemporalEntity} \\
+\hline Description & returns if mm:temporalContains(p1,p2) and mm:spatialContains(p1,p2).\\
+\hline
+\end{tabular}
+\vspace{0.3cm}
+\newline
+\begin{tabular}{|p{3cm}|p{10cm}|}
+\hline Name & mm:equals\\
+\hline Properties & \textit{SpatialTemporalEntity}, \textit{SpatialTemporalEntity} \\
+\hline Description & returns if mm:temporalEquals(p1,p2) and mm:spatialEquals(p1,p2).\\
+\hline
+\end{tabular}
+\vspace{0.3cm}
+\newline
+\begin{tabular}{|p{3cm}|p{10cm}|}
+\hline Name & mm:overlaps\\
+\hline Properties & \textit{SpatialTemporalEntity}, \textit{SpatialTemporalEntity} \\
+\hline Description & returns if mm:temporalOverlaps(p1,p2) and mm:spatialOverlaps(p1,p2).\\
+\hline
+\end{tabular}
+\vspace{0.3cm}
+\newline
+\subsubsection*{General Aggregations}
+\begin{tabular}{|p{3cm}|p{10cm}|}
+\hline Name & mm:boundingBox\\
+\hline Properties & \textit{SpatialTemporalEntity}, \textit{SpatialTemporalEntity} \\
+\hline Description & returns new MediaFragment / MediaFragmentURI with spatial and temporal fragment. It it works like spatialFunction:boundingBox, temporalFunction:boundingBox or both together.\\
+\hline
+\end{tabular}
+\vspace{0.3cm}
+\newline
+\begin{tabular}{|p{3cm}|p{10cm}|}
+\hline Name & mm:intersection\\
+\hline Properties & \textit{SpatialTemporalEntity}, \textit{SpatialTemporalEntity} \\
+\hline Description & returns new MediaFragment / MediaFragmentURI with spatial and temporal fragment. It works like spatialFunction:boundingBox, temporalFunction:intersection and both.\\
+\hline
+\end{tabular}
+\vspace{0.3cm}
+\newline
+\subsubsection*{General Accessors}
+\begin{tabular}{|p{3cm}|p{10cm}|}
+\hline Name & mm:mediaFragment\\
+\hline Properties & \textit{SpatialTemporalEntity} \\
+\hline Description & returns a string representation of a media fragment.\\
+\hline
+\end{tabular}
+\vspace{0.3cm}
+\newline
+\begin{tabular}{|p{3cm}|p{10cm}|}
+\hline Name & mm:isMediaFragment\\
+\hline Properties & \textit{URI} \\
+\hline Description & returns if value is a MediaFragment\\
+\hline
+\end{tabular}
+\vspace{0.3cm}
+\newline
+\begin{tabular}{|p{3cm}|p{10cm}|}
+\hline Name & mm:isMediaFragmentURI\\
+\hline Properties & \textit{URI} \\
+\hline Description & returns if value is a MediaFragmentURI\\
+\hline
+\end{tabular}
+\vspace{0.3cm}
+\newline
+\begin{tabular}{|p{3cm}|p{10cm}|}
+\hline Name & mm:toPercent\\
+\hline Properties & \textit{SpatialTemporalEntity}, \textit{Double} \\
+\hline Description & returns a string representation of a media fragment (uri) transformed to percent using a double parameter.\\
+\hline
+\end{tabular}
+\vspace{0.3cm}
+\newline
+\begin{tabular}{|p{3cm}|p{10cm}|}
+\hline Name & mm:toPixel\\
+\hline Properties & \textit{SpatialTemporalEntity}, \textit{Double} \\
+\hline Description & returns a string representation of a media fragment (uri) transformed to pixel using a double parameter.\\
+\hline
+\end{tabular}
+\vspace{0.3cm}
+\newline
