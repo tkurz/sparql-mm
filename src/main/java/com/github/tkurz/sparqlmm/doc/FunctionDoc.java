@@ -17,7 +17,7 @@ import java.lang.annotation.Target;
 @Target(ElementType.TYPE)
 public @interface FunctionDoc {
 
-    public static enum Reference {
+    enum Reference {
         spatial("Spatial"), temporal("Temporal"), combined("General"), other("Other");
 
         private String value;
@@ -31,7 +31,7 @@ public @interface FunctionDoc {
         }
     }
 
-    public static enum Type {
+    enum Type {
         extensionFunction("R", "Relation", SSD.extensionFunction),
         extensionAggregate("A", "Aggregation", SSD.extensionAggregate),
         accessorFunction("F", "Accessor", SSD.extensionFunction);
