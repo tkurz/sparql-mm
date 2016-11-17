@@ -17,8 +17,20 @@ import java.lang.annotation.Target;
 @Target(ElementType.TYPE)
 public @interface FunctionDoc {
 
+    public static final String SPATIAL = "Spatial";
+    public static final String TEMPORAL = "Temporal";
+    public static final String GENERAL = "General";
+
+    public static final String R = "R";
+    public static final String A = "A";
+    public static final String F = "F";
+
+    public static final String RELATION = "Relation";
+    public static final String AGGREGATION = "Aggregation";
+    public static final String ACCESSOR = "Accessor";
+
     enum Reference {
-        spatial("Spatial"), temporal("Temporal"), combined("General"), other("Other");
+        spatial(SPATIAL), temporal(TEMPORAL), combined(GENERAL);
 
         private String value;
 
@@ -32,9 +44,9 @@ public @interface FunctionDoc {
     }
 
     enum Type {
-        extensionFunction("R", "Relation", SSD.extensionFunction),
-        extensionAggregate("A", "Aggregation", SSD.extensionAggregate),
-        accessorFunction("F", "Accessor", SSD.extensionFunction);
+        extensionFunction(R, RELATION, SSD.extensionFunction),
+        extensionAggregate(A, AGGREGATION, SSD.extensionAggregate),
+        accessorFunction(F, ACCESSOR, SSD.extensionFunction);
 
         private URI uri;
         private String name;
