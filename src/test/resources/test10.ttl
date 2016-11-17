@@ -2,6 +2,7 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix ma : <http://www.w3.org/ns/ma-ont#> .
 
-:video1 ma:hasFragment <http://test.org/resource/video1#xywh=10,10,10,10> ,
+:video1 ma:hasFragment <http://test.org/resource/video1#xywh=10,20,10,20> ,
                         <http://test.org/resource/video1#xywh=percent:10,10,10,10> .
 :video1 ma:width 100 .
+:video1 ma:height 200 .

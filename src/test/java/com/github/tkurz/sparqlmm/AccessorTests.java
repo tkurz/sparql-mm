@@ -66,7 +66,7 @@ public class AccessorTests {
                         "PREFIX mm: <" + Constants.NAMESPACE + ">" +
                         "SELECT ?l WHERE {" +
                         "   ?f a ma:MediaFragment; rdfs:label ?l. " +
-                        "   FILTER mm:isSpatialFragment(?f)" +
+                        "   FILTER mm:hasSpatialFragment(?f)" +
                         "} ORDER BY ?l";
 
         TupleQuery q = connection.prepareTupleQuery(QueryLanguage.SPARQL,query);
@@ -92,7 +92,7 @@ public class AccessorTests {
                         "PREFIX mm: <" + Constants.NAMESPACE + ">" +
                         "SELECT ?duration WHERE {" +
                         "   ?f a ma:MediaFragment." +
-                        "   BIND (mm:getDuration(?f) AS ?duration)" +
+                        "   BIND (mm:duration(?f) AS ?duration)" +
                         "} ORDER BY DESC(?duration)";
 
         TupleQuery q = connection.prepareTupleQuery(QueryLanguage.SPARQL,query);
@@ -120,9 +120,9 @@ public class AccessorTests {
                         "SELECT DISTINCT ?x WHERE {" +
                         "   ?x ma:hasFragment ?f1, ?f2." +
                         "   ?x ma:width ?w." +
-                        "   BIND (?w/100 AS ?c)" +
-                        "   BIND (mm:toPixel(?f1,?c) AS ?pf1)" +
-                        "   BIND (mm:toPixel(?f2,?c) AS ?pf2)" +
+                        "   ?x ma:height ?h." +
+                        "   BIND (mm:toPixel(?f1,?w,?h) AS ?pf1)" +
+                        "   BIND (mm:toPixel(?f2,?w,?h) AS ?pf2)" +
                         "   FILTER mm:spatialEquals(?pf1,?pf2)" +
                         "   FILTER(?f1 != ?f2)" +
                         "}";
