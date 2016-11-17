@@ -35,6 +35,7 @@
         <developerConnection>scm:git:https://github.com/tkurz/sparql-mm.git</developerConnection>
     </scm>
 
+
     <developers>
         <developer>
             <email>tkurz@apache.org</email>
