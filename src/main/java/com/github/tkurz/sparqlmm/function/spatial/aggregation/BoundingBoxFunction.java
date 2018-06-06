@@ -1,5 +1,6 @@
 package com.github.tkurz.sparqlmm.function.spatial.aggregation;
 
+import com.github.tkurz.media.fragments.base.MediaFragment;
 import com.github.tkurz.media.ontology.function.SpatialFunction;
 import com.github.tkurz.media.ontology.type.SpatialEntity;
 import com.github.tkurz.sparqlmm.Constants;
@@ -39,7 +40,7 @@ public class BoundingBoxFunction implements Function {
 
             if(values[0] instanceof URI) {
                 String uri = FunctionHelper.getCleanURI(values[0]);
-                return  valueFactory.createURI(uri + "#" + box);
+                return  valueFactory.createURI(uri + MediaFragment.DEFAULT_TYPE.getDelimiter() + box);
             } else {
                 //evaluate
                 return valueFactory.createLiteral(box);

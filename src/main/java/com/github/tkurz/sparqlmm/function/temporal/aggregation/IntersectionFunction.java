@@ -1,5 +1,6 @@
 package com.github.tkurz.sparqlmm.function.temporal.aggregation;
 
+import com.github.tkurz.media.fragments.base.MediaFragment;
 import com.github.tkurz.media.ontology.exception.NotAggregatableException;
 import com.github.tkurz.media.ontology.function.TemporalFunction;
 import com.github.tkurz.media.ontology.type.TemporalEntity;
@@ -41,7 +42,7 @@ public class IntersectionFunction implements Function {
 
             if(values[0] instanceof URI) {
                 String uri = FunctionHelper.getCleanURI(values[0]);
-                return  valueFactory.createURI(uri + "#" + box);
+                return  valueFactory.createURI(uri + MediaFragment.DEFAULT_TYPE.getDelimiter() + box);
             } else {
                 //evaluate
                 return valueFactory.createLiteral(box);
