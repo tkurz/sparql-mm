@@ -26,7 +26,7 @@ public class ExtensionDescriptionBuilder {
 
         FunctionSet functionSet = new FunctionSet(functionNames);
 
-        String baseString = "ns/" + Constants.VERSION + "/function/";
+        String baseString = "sparql-mm/ns/" + Constants.VERSION + "/function/";
 
         File ttl = new File(baseString + "index.ttl");
         Files.createParentDirs(ttl);
